@@ -2,7 +2,10 @@ import {
   SET_CURRENT_SONG,
   TOGGLE_RANDOM,
   TOGGLE_REPEAT,
-  TOGGLE_PLAYING
+  TOGGLE_PLAYING,
+  SET_CURRENT_AMBIENCE,
+  TOGGLE_AMBIENCE_PLAYING,
+  SET_CLICKED
 } from './types'
 
 export default (state, action) => {
@@ -11,6 +14,12 @@ export default (state, action) => {
       return {
         ...state,
         currentSong: action.data,
+        playing: true
+      }
+    case SET_CURRENT_AMBIENCE:
+      return {
+        ...state,
+        currentAmbience: action.data,
         playing: true
       }
     case TOGGLE_RANDOM:
@@ -28,6 +37,17 @@ export default (state, action) => {
         ...state,
         playing: action.data
       }
+    case TOGGLE_AMBIENCE_PLAYING:
+      return {
+          ...state,
+          ambiencePlaying: action.data
+        }
+    case SET_CLICKED:
+      return {
+          ...state,
+          clicked: true
+        }
+      
     default:
       return state
   }

@@ -11,21 +11,14 @@ import PlayerState from './context/PlayerState'
 import './main.css'
 import './input.css'
 import RainSound from './components/RainSound';
+import AmbienceControls from './components/AmbienceControls';
 
 function AudioPlayer() {
 
   return (
     <PlayerState>
-    <RainSound audio = {"ambience/RainSound.mp3"}/>
       <div className="main">
-        <div className="top">
-          <div className="left">
-          </div>
-          <div className="right">
-
-            <Playlist />
-          </div>
-        </div>
+        <Playlist/>
         <Controls/>
       </div>
     </PlayerState>
