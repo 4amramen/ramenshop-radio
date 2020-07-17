@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from 'react'
 import playerContext from '../context/playerContext'
 import NowPlaying from './graphics/NowPlaying'
 import RainSound from './RainSound';
+import AmbienceControls from './AmbienceControls';
 
 
 function Controls() {
@@ -18,8 +19,11 @@ function Controls() {
     toggleRandom,
     toggleRepeat,
     togglePlaying,
+    toggleAmbiencePlaying,
     handleEnd,
 
+    clicked,
+    SetClicked
   } = useContext(playerContext)
 
   const audio = useRef('audio_tag');
@@ -32,6 +36,7 @@ function Controls() {
   const fmtMSS = (s) => { return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0') + ~~(s) }
 
   const toggleAudio = () => audio.current.paused ? audio.current.play() : audio.current.pause();
+
 
   const handleVolume = (q) => {
     setStateVolum(q);
@@ -78,10 +83,18 @@ function Controls() {
 
         */}
 
-          <span className="play" onClick={() => { togglePlaying(); toggleAudio(); }}>
+          <span className="play" onClick={() => {
+             if (!clicked)
+              {
+                console.log("first click");
+                toggleAmbiencePlaying();
+                SetClicked();
+              }
+              togglePlaying(); toggleAudio();}}>
             <span className={!playing ? '' : 'hide'}><i className="fas fa-play"></i></span>
             <span className={!playing ? 'hide' : ''}><i className="fas fa-pause"></i></span>
           </span>
+
           < NowPlaying />
 
         </div>
@@ -93,6 +106,8 @@ function Controls() {
           type="range" name="progresBar" id="prgbar" />
         <span className="time">{fmtMSS(currentTime) + " / " + fmtMSS(dur)}</span>
       </div>
+      <AmbienceControls/>
+      
       {/* {
       <div className="plsoptions">
 

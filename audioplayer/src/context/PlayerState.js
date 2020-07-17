@@ -2,29 +2,56 @@ import React, { useReducer } from 'react';
 import playerContext from './playerContext';
 import playerReducer from './playerReducer';
 import { songsArr } from './songs';
+import { ambienceArr } from './ambience';
 
 import {
   SET_CURRENT_SONG,
   TOGGLE_RANDOM,
   TOGGLE_REPEAT,
-  TOGGLE_PLAYING
+  TOGGLE_PLAYING,
+  SET_CURRENT_AMBIENCE,
+  TOGGLE_AMBIENCE_PLAYING,
+  SET_CLICKED
 } from './types'
 
 const PlayerState = props => {
   const initialState = {
     currentSong: Math.floor(Math.random() * songsArr.length),
+    currentAmbience: 0,
+
     songs: songsArr,
+    ambience: ambienceArr,
+
     repeat: false,
     random: true,
+
     playing: false,
-    audio: null
+    ambiencePlaying: false,
+
+    audio: null,
+    ambienceAudio: null,
+
+    clicked: false
+
   }
   const [state, dispatch] = useReducer(playerReducer, initialState);
 
   // Set playing state
   const togglePlaying = () => dispatch({ type: TOGGLE_PLAYING, data: state.playing ? false : true })
+
+  // SET AMBIENCE PLAYING STATE
+  const toggleAmbiencePlaying = () => dispatch({ type: TOGGLE_AMBIENCE_PLAYING, data: state.ambiencePlaying ? false : true })
+
   // Set current song
   const SetCurrent = id => dispatch({ type: SET_CURRENT_SONG, data: id })
+
+   // SET CURRENT AMBIENCE
+  const SetCurrentAmbience = id => dispatch({ type: SET_CURRENT_AMBIENCE, data: id })
+
+  // Clicked
+
+  const SetClicked = () => dispatch({ type: SET_CLICKED, data: true })
+
 
   // Prev song
   const prevSong = () => {
@@ -43,6 +70,15 @@ const PlayerState = props => {
     }
   }
 
+   // Next AMBIENCE
+   const nextAmbience = () => {
+    if (state.currentAmbience === state.ambience.length - 1) {
+      SetCurrentAmbience(0)
+    } else {
+      SetCurrentAmbience(state.currentAmbience + 1)
+    }
+  }
+  
   // Repeat and Random
   const toggleRepeat = (id) => dispatch({ type: TOGGLE_REPEAT, data: state.repeat ? false : true })
   const toggleRandom = (id) => dispatch({ type: TOGGLE_RANDOM, data: state.random ? false : true })
@@ -65,21 +101,50 @@ const PlayerState = props => {
   }
 
 
+   // END OF AMBIENCE
+   const handleEndOfAmbience = () => {
+    //repeat
+    nextAmbience();
+  }
+
+
   return <playerContext.Provider
     value={{
       currentSong: state.currentSong,
+      currentAmbience: state.currentAmbience,
+
       songs: state.songs,
+      ambience: state.ambience,
+
       repeat: state.repeat,
       random: state.random,
+
       playing: state.playing,
+      ambiencePlaying: state.ambiencePlaying,
+
       audio: state.audio,
+      ambienceAudio: state.ambienceAudio,
+
+      clicked: state.clicked,
+
       nextSong,
+      nextAmbience,
+
       prevSong,
+
       SetCurrent,
+      SetCurrentAmbience,
+
       toggleRandom,
       toggleRepeat,
+
       togglePlaying,
-      handleEnd
+      toggleAmbiencePlaying,
+      
+      handleEnd,
+      handleEndOfAmbience,
+      SetClicked,
+
     }}>
 
     {props.children}
