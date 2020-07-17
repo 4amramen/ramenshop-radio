@@ -12,10 +12,10 @@ import {
 
 const PlayerState = props => {
   const initialState = {
-    currentSong: 0,
+    currentSong: Math.floor(Math.random() * songsArr.length),
     songs: songsArr,
     repeat: false,
-    random: false,
+    random: true,
     playing: false,
     audio: null
   }

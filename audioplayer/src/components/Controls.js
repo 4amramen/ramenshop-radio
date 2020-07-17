@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef, useContext } from 'react'
 import playerContext from '../context/playerContext'
+import NowPlaying from './graphics/NowPlaying'
+import RainSound from './RainSound';
+
 
 function Controls() {
 
@@ -22,7 +25,7 @@ function Controls() {
   const audio = useRef('audio_tag');
 
   // self State
-  const [statevolum, setStateVolum] = useState(0.3)
+  const [statevolum, setStateVolum] = useState(1)
   const [dur, setDur] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
 
@@ -48,42 +51,49 @@ function Controls() {
   }, [currentSong])
 
   return (
+
     <div className="controls">
       <audio
-
         onTimeUpdate={(e) => setCurrentTime(e.target.currentTime)}
         onCanPlay={(e) => setDur(e.target.duration)}
         onEnded={handleEnd}
-
         ref={audio}
         type="audio/mpeg"
         preload='true'
         src={songs[currentSong][1]} />
+      
+      {
       <div className="vlme">
 
-        <span className="volum"><i className="fas fa-volume-down"></i></span>
-        <input value={Math.round(statevolum * 100)} type="range" name="volBar" id="volBar" onChange={(e) => handleVolume(e.target.value / 100)} />
+      <span className="volum"><i className="fas fa-volume-down"></i></span>
+      <input value={Math.round(statevolum * 100)} type="range" name="volBar" id="volBar" onChange={(e) => handleVolume(e.target.value / 100)} />
 
       </div>
-      <div className="musicControls">
-        <span className="prev" onClick={prevSong}><i className="fas fa-step-backward"></i></span>
+      }
+      
+        <div className="musicControls">
+        
+         {/* <span className="prev" onClick={prevSong}><i className="fas fa-step-backward"></i></span>
+                  <span className="next" onClick={nextSong}><i className="fas fa-step-forward"></i></span>
 
-        <span className="play" onClick={() => { togglePlaying(); toggleAudio(); }}>
-          <span className={!playing ? '' : 'hide'}><i className="fas fa-play"></i></span>
-          <span className={!playing ? 'hide' : ''}><i className="fas fa-pause"></i></span>
-        </span>
+        */}
 
-        <span className="next" onClick={nextSong}><i className="fas fa-step-forward"></i></span>
-      </div>
-      <div className="progressb">
-        <span className="currentT">{fmtMSS(currentTime)}</span>
+          <span className="play" onClick={() => { togglePlaying(); toggleAudio(); }}>
+            <span className={!playing ? '' : 'hide'}><i className="fas fa-play"></i></span>
+            <span className={!playing ? 'hide' : ''}><i className="fas fa-pause"></i></span>
+          </span>
+          < NowPlaying />
+
+        </div>
+            
+      <div className="progress">
         <input
           onChange={handleProgress}
           value={dur ? (currentTime * 100) / dur : 0}
           type="range" name="progresBar" id="prgbar" />
-        <span className="totalT">{fmtMSS(dur)}</span>
-
+        <span className="time">{fmtMSS(currentTime) + " / " + fmtMSS(dur)}</span>
       </div>
+      {/* {
       <div className="plsoptions">
 
         <span onClick={toggleRandom} className={"random " + (random ? 'active' : '')}>
@@ -93,6 +103,7 @@ function Controls() {
           <i className="fas fa-redo-alt"></i>
         </span>
       </div>
+      } */}
     </div>
   )
 }
