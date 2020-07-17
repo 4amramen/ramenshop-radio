@@ -16,7 +16,6 @@ function Playlist() {
           {
             songs.map((song, i) =>
               <li className={'songContainer ' + (currentSong === i ? 'selected' : '')} key={i} onClick={() => { SetCurrent(i); }}>
-                <i className="fas fa-music"></i>
                 <span className="song">{song[0]}</span>
               </li>
             )

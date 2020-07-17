@@ -1,58 +1,73 @@
 export const songsArr = [
   [
-    "The Beaten Path",
-    "https://www.youtube.com/audiolibrary_download?vid=e0a7d8421cdacd6f"
+    "By Your Side (Neptunes Remix)",
+    "songs/By Your Side (Neptunes Remix) (Remastered).mp3",
+    "Sade"
   ],
   [
-    "Homeroad",
-    "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_09_-_Homeroad.mp3"
+    "Sing About Me",
+    "songs/10 - Sing About Me, I'm Dying Of Thirst.mp3",
+    "Kendrick Lamar"
   ],
   [
-    "Interception",
-    "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_07_-_Interception.mp3"
+    "Aquarium",
+    "songs/Aquarium.mp3",
+    "Nosaj Thing"
   ],
   [
-    "Sentinel",
-    "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_04_-_Sentinel.mp3"
+    "100 Bags",
+    "songs/100 Bags (Dirty).mp3",
+    "Stormzy"
   ],
   [
-    "Great Expectations",
-    "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_05_-_Great_Expectations.mp3"
+    "Coffee Bean",
+    "songs/COFFEE BEAN 2.mp3",
+    "Travis Scott"
   ],
   [
-    "Downfall",
-    "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_08_-_Downfall.mp3"
+    "Drive Slow",
+    "songs/Drive Slow 1.mp3",
+    "Kanye West"
   ],
   [
-    "Augmentations",
-    "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_01_-_Augmentations.mp3"
+    "Jazz (We've Got)",
+    "songs/Jazz (We've Got) 2.mp3",
+    "A Tribe Called Quest"
   ],
   [
-    "Illumination",
-    "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Kai_Engel/Satin/Kai_Engel_-_02_-_Illumination.mp3"
+    "The Worst (Jersey Club Remix)",
+    "songs/Jhené Aiko - The Worst (Static Jersey Remix) DL Link In Description.mp3",
+    "Jhené Aiko ft. DJ Static"
+
   ],
   [
-    "Cabaret",
-    "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_10_-_Cabaret.mp3"
+    "Night 6",
+    "songs/Night 6.mp3",
+    "Ta-ku"
   ],
   [
-    "Contention",
-    "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_03_-_Contention.mp3"
+    "Needed Time",
+    "songs/Needed Time.mp3",
+    "Yung Bxne"
   ],
   [
-    "Dark Alleys",
-    "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kai_Engel/Satin/Kai_Engel_-_06_-_Dark_Alleys.mp3"
+    "When I See U",
+    "songs/When I See U 1.mp3",
+    "Fantasia"
   ],
   [
-    "Climb",
-    "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/Ziklibrenbib/The_Ghost_in_Your_Piano/The_Ghost_in_your_piano/The_Ghost_in_Your_Piano_-_01_-_Climb.mp3"
+    "Night 8",
+    "songs/Night 8.mp3",
+    "Ta-ku"
   ],
   [
-    "Adventure",
-    "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/Ziklibrenbib/The_Ghost_in_Your_Piano/The_Ghost_in_your_piano/The_Ghost_in_Your_Piano_-_03_-_Adventure.mp3"
+    "West District",
+    "songs/West District 2.mp3",
+    "PartyNextDoor"
   ],
   [
-    "Lullaby",
-    "https://files.freemusicarchive.org/storage-freemusicarchive-org/music/Ziklibrenbib/The_Ghost_in_Your_Piano/The_Ghost_in_your_piano/The_Ghost_in_Your_Piano_-_04_-_Lullaby.mp3"
-  ]
+    "Lights, Camera, Passion",
+    "songs/Lights, Camera, Passion (feat. Miraa May).mp3",
+    "WSTRN ft. Miraa May"
+    ]
 ];
