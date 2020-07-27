@@ -46,7 +46,7 @@ const PlayerState = props => {
   const SetCurrent = id => dispatch({ type: SET_CURRENT_SONG, data: id })
 
    // SET CURRENT AMBIENCE
-  const SetCurrentAmbience = id => dispatch({ type: SET_CURRENT_AMBIENCE, data: id })
+  const SetCurrentAmbience = id => dispatch({ type: SET_CURRENT_AMBIENCE, data: id });
 
   // Clicked
 
@@ -143,7 +143,7 @@ const PlayerState = props => {
       
       handleEnd,
       handleEndOfAmbience,
-      SetClicked,
+      SetClicked
 
     }}>
 

@@ -3,7 +3,7 @@ import playerContext from '../../context/playerContext'
 
 
 function Playlist() {
-  const { SetCurrent, currentSong, songs, clicked, toggleAmbiencePlaying, SetClicked, SetCurrentAmbience} = useContext(playerContext)
+  const { SetCurrent, togglePlaying, currentAmbience, ambiencePlaying, SetCurrentAmbience, currentSong, songs, clicked, toggleAmbiencePlaying, SetClicked, } = useContext(playerContext)
 
   return (
     <div className="playlist">
@@ -12,24 +12,26 @@ function Playlist() {
         <span className="pltext">Play List</span>
       </div>
       <div className="songlist">
-        <ul className="loi">
+        <div className="loi">
           {
             songs.map((song, i) =>
-              <li className={'songContainer ' + (currentSong === i ? 'selected' : '')} key={i} onClick={() => { 
+              <div className={'songContainer ' + (currentSong === i ? 'selected' : '')} key={i} onClick={() => { 
                 if (!clicked)
               {
                 console.log("first click");
                 toggleAmbiencePlaying();
-                SetCurrentAmbience(0);
+                SetCurrentAmbience(1);
                 SetClicked();
               }
-                SetCurrent(i);
-                 }}>
+                if(song && currentSong != i){
+                  SetCurrent(i);
+                }
+              }}>
                 <span className="song">{song[0]}</span>
-              </li>
+              </div>
             )
           }
-        </ul>
+        </div>
       </div>
     </div>
   )
