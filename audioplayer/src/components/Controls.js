@@ -19,23 +19,32 @@ function Controls() {
     toggleRandom,
     toggleRepeat,
     togglePlaying,
-    toggleAmbiencePlaying,
     handleEnd,
 
+    currentAmbience,
+    ambience,
+    ambiencePlaying,
+    toggleAmbiencePlaying,
+    handleEndOfAmbience,
     clicked,
     SetClicked
   } = useContext(playerContext)
 
   const audio = useRef('audio_tag');
+  const ambienceAudio = useRef('audio_tag');
+
 
   // self State
   const [statevolum, setStateVolum] = useState(1)
+  const [stateambiencevolum, setStateAmbienceVolum] = useState(1)
+
   const [dur, setDur] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
 
   const fmtMSS = (s) => { return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0') + ~~(s) }
 
   const toggleAudio = () => audio.current.paused ? audio.current.play() : audio.current.pause();
+  const toggleAmbienceAudio = () => ambienceAudio.current.paused ? ambienceAudio.current.play() : ambienceAudio.current.pause();
 
 
   const handleVolume = (q) => {
@@ -43,6 +52,10 @@ function Controls() {
     audio.current.volume = q;
   }
 
+  const handleAmbienceVolume = (q) => {
+    setStateAmbienceVolum(q);
+    ambienceAudio.current.volume = q;
+  }
   const handleProgress = (e) => {
     let compute = (e.target.value * dur) / 100;
     setCurrentTime(compute);
@@ -55,6 +68,14 @@ function Controls() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentSong])
 
+
+  // hook for ambience
+  useEffect(() => {
+    ambienceAudio.current.volume = stateambiencevolum;
+    if (ambiencePlaying) { toggleAmbienceAudio() }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentAmbience])
+
   return (
 
     <div className="controls">
@@ -66,13 +87,20 @@ function Controls() {
         type="audio/mpeg"
         preload='true'
         src={songs[currentSong][1]} />
+
+      <audio
+        onEnded={handleEndOfAmbience}
+        ref={ambienceAudio}
+        type="audio/mpeg"
+        preload='true'
+        src={ambience[currentAmbience][1]} 
+        />
       
       {
       <div className="vlme">
 
       <span className="volum"><i className="fas fa-volume-down"></i></span>
-      <input value={Math.round(statevolum * 100)} type="range" name="volBar" id="volBar" onChange={(e) => handleVolume(e.target.value / 100)} />
-
+      <input value={Math.round(stateambiencevolum * 100)} type="range" name="volBar" id="volBar" onChange={(e) => handleAmbienceVolume(e.target.value / 100)} />
       </div>
       }
       
@@ -88,12 +116,24 @@ function Controls() {
               {
                 console.log("first click");
                 toggleAmbiencePlaying();
+                toggleAmbienceAudio();
                 SetClicked();
               }
               togglePlaying(); toggleAudio();}}>
             <span className={!playing ? '' : 'hide'}><i className="fas fa-play"></i></span>
             <span className={!playing ? 'hide' : ''}><i className="fas fa-pause"></i></span>
           </span>
+
+          <span className="play" onClick={() => { 
+             if (!clicked) {
+              console.log("first click");
+              SetClicked();
+             }
+            toggleAmbiencePlaying(); toggleAmbienceAudio(); }}>
+            <span className={!ambiencePlaying ? '' : 'hide'}><i className="fas fa-play"></i></span>
+            <span className={!ambiencePlaying ? 'hide' : ''}><i className="fas fa-pause"></i></span>
+          </span>
+
 
           < NowPlaying />
 
@@ -106,7 +146,6 @@ function Controls() {
           type="range" name="progresBar" id="prgbar" />
         <span className="time">{fmtMSS(currentTime) + " / " + fmtMSS(dur)}</span>
       </div>
-      <AmbienceControls/>
       
       {/* {
       <div className="plsoptions">
