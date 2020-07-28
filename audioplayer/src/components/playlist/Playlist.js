@@ -7,10 +7,6 @@ function Playlist() {
 
   return (
     <div className="playlist">
-      <div className="header">
-        <i className="fas fa-list-ul"></i>
-        <span className="pltext">Play List</span>
-      </div>
       <div className="songlist">
         <div className="loi">
           {

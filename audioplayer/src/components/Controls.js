@@ -77,8 +77,9 @@ function Controls() {
   }, [currentAmbience])
 
   return (
-
+    
     <div className="controls">
+  
       <audio
         onTimeUpdate={(e) => setCurrentTime(e.target.currentTime)}
         onCanPlay={(e) => setDur(e.target.duration)}
@@ -96,56 +97,56 @@ function Controls() {
         src={ambience[currentAmbience][1]} 
         />
       
-      {
-      <div className="vlme">
+      <div className="top-controls">
 
-      <span className="volum"><i className="fas fa-volume-down"></i></span>
-      <input value={Math.round(stateambiencevolum * 100)} type="range" name="volBar" id="volBar" onChange={(e) => handleAmbienceVolume(e.target.value / 100)} />
-      </div>
-      }
-      
-        <div className="musicControls">
+        <div className="left-controls">
+          <span className="play" onClick={() => {
+                if (!clicked)
+                {
+                  console.log("first click");
+                  toggleAmbiencePlaying();
+                  toggleAmbienceAudio();
+                  SetClicked();
+                }
+                togglePlaying(); toggleAudio();}}>
+              <span className={!playing ? '' : 'hide'}><i className="fas fa-play"></i></span>
+              <span className={!playing ? 'hide' : ''}><i className="fas fa-pause"></i></span>
+            </span>
+
+          < NowPlaying />
+        </div>
         
-         {/* <span className="prev" onClick={prevSong}><i className="fas fa-step-backward"></i></span>
+        <span className="time">{fmtMSS(currentTime) + " / " + fmtMSS(dur)}</span>
+
+
+        <div className="vlme">
+            <span className="volum"><i className="fas fa-volume-down"></i></span>
+            <input value={Math.round(stateambiencevolum * 100)} type="range" name="volBar" id="volBar" onChange={(e) => handleAmbienceVolume(e.target.value / 100)} />
+        </div>
+          {/* <span className="prev" onClick={prevSong}><i className="fas fa-step-backward"></i></span>
                   <span className="next" onClick={nextSong}><i className="fas fa-step-forward"></i></span>
 
-        */}
-
-          <span className="play" onClick={() => {
-             if (!clicked)
-              {
-                console.log("first click");
-                toggleAmbiencePlaying();
-                toggleAmbienceAudio();
-                SetClicked();
-              }
-              togglePlaying(); toggleAudio();}}>
-            <span className={!playing ? '' : 'hide'}><i className="fas fa-play"></i></span>
-            <span className={!playing ? 'hide' : ''}><i className="fas fa-pause"></i></span>
-          </span>
-
-          <span className="play" onClick={() => { 
-             if (!clicked) {
+          */}
+          {/* <span className="play" onClick={() => { 
+              if (!clicked) {
               console.log("first click");
               SetClicked();
-             }
+              }
             toggleAmbiencePlaying(); toggleAmbienceAudio(); }}>
             <span className={!ambiencePlaying ? '' : 'hide'}><i className="fas fa-play"></i></span>
             <span className={!ambiencePlaying ? 'hide' : ''}><i className="fas fa-pause"></i></span>
-          </span>
-
-
-          < NowPlaying />
-
+          </span> */}
+       </div>
+      
+      <div className="bottom-controls">
+        <div className="progress">
+          <input
+            onChange={handleProgress}
+            value={dur ? (currentTime * 100) / dur : 0}
+            type="range" name="progresBar" id="prgbar" />
         </div>
-            
-      <div className="progress">
-        <input
-          onChange={handleProgress}
-          value={dur ? (currentTime * 100) / dur : 0}
-          type="range" name="progresBar" id="prgbar" />
-        <span className="time">{fmtMSS(currentTime) + " / " + fmtMSS(dur)}</span>
       </div>
+     
       
       {/* {
       <div className="plsoptions">
