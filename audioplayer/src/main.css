@@ -7,11 +7,20 @@ body {
   margin: 0;
   font-family: helvetica neue;
   font-weight: 400;
+  color: white;
   font-size: 17px;
   display: flex;
   justify-content: center;
   height: 100vh;
 
+}
+
+.top-controls {
+  position: relative;
+}
+
+.left-controls {
+  position: relative;
 }
 
 h4 {
@@ -32,11 +41,6 @@ h4 {
   justify-content: space-around;
 }
 
-.top {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-}
 
 .graphics img {
   border-radius: 8px;
@@ -114,17 +118,15 @@ h4 {
 }
 
 .controls {
-  display: flex;
-  flex-direction: column;
-  height: 10vh;
-  width: 100vw;
-  color: white;
-  align-items: left;
-  justify-content: space-around;
-/* 
-  position: fixed;
-  bottom: 0;
-   */
+  position: absolute;
+
+  width: 100%;
+  bottom: 35px;
+
+  padding-top: 0px;
+  padding-right: 30px;
+  padding-bottom: 13px;
+  padding-left: 30px;
 }
 
 .ambience-controls {
@@ -148,7 +150,8 @@ h4 {
   width: 25px;
   transition: all 500ms;
   position: absolute;
-  left: 0;
+  right: 30px;
+  margin-top: 3px;
 }
 
 .vlme:hover {
@@ -156,7 +159,10 @@ h4 {
 }
 
 .volum {
-  padding: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
 }
 
 #volBar {
@@ -176,27 +182,28 @@ h4 {
 
 
 .NowPlaying {
-  margin-left: 20px;
+  margin-left: 44px;
+  box-sizing: border-box;
 }
 
-.musicControls {
+.top-controls {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start; 
+  align-items: center;
+  padding-bottom: 20px;
 }
-
-.musicControls span {
+.top-controls span {
   cursor: pointer;
 }
 
-.musicControls span:hover {
+.top-controls span:hover {
   color: #2A6586;
 }
 
 .play {
-  position: relative;
+  top: 50%;
+  transform: translateY(-55%);
+  position: absolute;
   z-index: 3;
-  margin-left: 20px;
 }
 
 .play:active {
@@ -224,18 +231,20 @@ h4 {
 } */
 
 .progress {
-  display: flex;
+  /* display: flex;
   justify-content: flex-start;
-  align-items: left;
-  margin-left: 50px;
-  width: 90vw;
-}
+  align-items: left; */
+  width: calc(100% - 60px);
+  position: absolute;
+  bottom: 3px;}
 
 #prgbar {
   background: transparent;
   margin-top: 0;
-  margin-bottom: 10px;
-  width: 90vw;
+  margin-bottom: 0;
+  width: 100%;
+  height: 3px;
+  border-radius: 4px;
 }
 
 .plsoptions {
@@ -257,7 +266,8 @@ h4 {
 }
 
 .time {
-  margin-left: 20px;
-  margin-bottom: 20px;
-  width: 100px;
+  position: absolute;
+  font-size: 19px;
+  right: 60px;
+  top: 1px;
 }

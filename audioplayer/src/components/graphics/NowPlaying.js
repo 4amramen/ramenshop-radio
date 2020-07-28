@@ -6,7 +6,7 @@ function NowPlaying() {
 
   return (
     <div className = "NowPlaying" >
-        <h4>{songs[currentSong][2] + " - " + songs[currentSong][0] }</h4>
+        <span>{songs[currentSong][2] + " - " + songs[currentSong][0] }</span>
     </div>
   )
 }
