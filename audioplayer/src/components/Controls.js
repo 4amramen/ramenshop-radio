@@ -20,7 +20,7 @@ function Controls() {
     toggleRepeat,
     togglePlaying,
     handleEnd,
-
+    lastAmbienceVolume,
     currentAmbience,
     ambience,
     ambiencePlaying,
@@ -36,7 +36,8 @@ function Controls() {
 
   // self State
   const [statevolum, setStateVolum] = useState(1)
-  const [stateambiencevolum, setStateAmbienceVolum] = useState(1)
+  const [stateambiencevolum, setStateAmbienceVolum] = useState(.7)
+  const [lastambiencevolum, setlastAmbienceVolum] = useState(1)
 
   const [dur, setDur] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
@@ -109,8 +110,11 @@ function Controls() {
                   SetClicked();
                 }
                 togglePlaying(); toggleAudio();}}>
+              <img className= {!playing ? 'play_button' : 'play_button hide'} src="buttons/play_button.png"></img>
+              <img className= {!playing ? 'pause_button hide' : 'pause_button'} src="buttons/pause_button.png"></img>
+{/* 
               <span className={!playing ? '' : 'hide'}><i className="fas fa-play"></i></span>
-              <span className={!playing ? 'hide' : ''}><i className="fas fa-pause"></i></span>
+              <span className={!playing ? 'hide' : ''}><i className="fas fa-pause"></i></span> */}
             </span>
 
           < NowPlaying />
@@ -120,7 +124,16 @@ function Controls() {
 
 
         <div className="vlme">
-            <span className="volum"><i className="fas fa-volume-down"></i></span>
+            <span className="volum" onClick={() => {
+              if(stateambiencevolum){
+                setlastAmbienceVolum(stateambiencevolum);
+                handleAmbienceVolume(0);
+              } else {
+                handleAmbienceVolume(lastambiencevolum);
+              }
+            }}>
+              <img className="rain_button" src="buttons/rain_button.png"></img>
+            </span>
             <input value={Math.round(stateambiencevolum * 100)} type="range" name="volBar" id="volBar" onChange={(e) => handleAmbienceVolume(e.target.value / 100)} />
         </div>
           {/* <span className="prev" onClick={prevSong}><i className="fas fa-step-backward"></i></span>

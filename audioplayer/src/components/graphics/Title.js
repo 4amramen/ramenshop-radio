@@ -2,9 +2,11 @@ import React from 'react'
 
 function Title() {
   return (
-    <header className = "Title" >
-        [ ramenshop radio ]
-    </header>
+    <div className = "title" >
+      <header className = "header">
+        [ramenshop radio]
+      </header>
+    </div>
   )
 }
 
