@@ -14,12 +14,21 @@ import {
   SET_CLICKED
 } from './types'
 
+const songs =  songsArr.sort(() => Math.random() - 0.5);
+const random1 = Math.random();
+const random2 = Math.random();
+const random3 = Math.random();
+
 const PlayerState = props => {
   const initialState = {
     currentSong: Math.floor(Math.random() * songsArr.length),
     currentAmbience: 0,
 
-    songs: songsArr,
+    random1: random1,
+    random2: random2, 
+    random3: random3,
+
+    songs: songs,
     ambience: ambienceArr,
 
     repeat: false,
@@ -32,7 +41,6 @@ const PlayerState = props => {
     ambienceAudio: null,
 
     clicked: false
-
   }
   const [state, dispatch] = useReducer(playerReducer, initialState);
 
@@ -112,6 +120,11 @@ const PlayerState = props => {
     value={{
       currentSong: state.currentSong,
       currentAmbience: state.currentAmbience,
+
+      random1: state.random1,
+      random2: state.random2,
+      random3: state.random3,
+
 
       songs: state.songs,
       ambience: state.ambience,

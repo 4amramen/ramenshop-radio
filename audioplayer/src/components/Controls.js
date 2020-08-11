@@ -32,7 +32,7 @@ function Controls() {
 
   const audio = useRef('audio_tag');
   const ambienceAudio = useRef('audio_tag');
-
+  const timeElapsed = document.querySelector(".time-elapsed")
 
   // self State
   const [statevolum, setStateVolum] = useState(1)
@@ -58,9 +58,23 @@ function Controls() {
     ambienceAudio.current.volume = q;
   }
   const handleProgress = (e) => {
+    
     let compute = (e.target.value * dur) / 100;
     setCurrentTime(compute);
-    audio.current.currentTime = compute
+    audio.current.currentTime = compute;
+    // slider.style.background = 'linear-gradient(90deg, rgb(04, 214, 214) ' + e.target.value + '%, rgb(214, 214, 214) ' + e.target.value + '%)';
+    // timeElapsed.style.width =  (dur ? (currentTime * 100) / dur : 0)  + '%';
+    timeElapsed.style.width =  'calc((100% - 60px)*' + (dur ? (currentTime) / dur : 0)  + ')';
+
+  }
+
+  const updatePlayerTime = (e) => {
+    setCurrentTime(e.target.currentTime);
+    var width = (dur ? (currentTime) / dur : 0)
+    if(timeElapsed){
+      // slider.style.background = 'linear-gradient(90deg, rgb(04, 214, 214) ' + (dur ? (currentTime * 100) / dur : 0) + '%, rgb(214, 214, 214) ' + (dur ? (currentTime * 100) / dur : 0)  + '%)';
+        timeElapsed.style.width =  width < .9995 ? 'calc((100% - 60px)*' + width  + ')' : '0%';
+    }
   }
 
   useEffect(() => {
@@ -82,7 +96,7 @@ function Controls() {
     <div className="controls">
   
       <audio
-        onTimeUpdate={(e) => setCurrentTime(e.target.currentTime)}
+        onTimeUpdate={(e) => updatePlayerTime(e)}
         onCanPlay={(e) => setDur(e.target.duration)}
         onEnded={handleEnd}
         ref={audio}
@@ -152,10 +166,16 @@ function Controls() {
        </div>
       
       <div className="bottom-controls">
+        
+        <div className="visible-progress">
+              <div className="time-elapsed"/>
+              <div className="total-progress"/>
+        </div>
+
         <div className="progress">
           <input
             onChange={handleProgress}
-            value={dur ? (currentTime * 100) / dur : 0}
+            value={dur ? (currentTime * 100) / dur : 0} 
             type="range" name="progresBar" id="prgbar" />
         </div>
       </div>
