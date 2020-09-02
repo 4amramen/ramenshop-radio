@@ -123,7 +123,7 @@ function AudioPlayer() {
 		}} />
      
 		<ColorOverlay/>
-        <VideoBackground source="rain.mp4"/>       
+        {/* <VideoBackground source="rain.mp4"/>        */}
         <Title/>
         <Playlist/>
         <Controls/>
