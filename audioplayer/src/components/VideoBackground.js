@@ -1,9 +1,9 @@
 import React, { Component, } from "react"
 
-function VideoBackground() {
+function VideoBackground(props) {
     return(
-        <video className="video-background" autoPlay muted loop>
-            <source src="videos/rain.mp4" type="video/mp4"></source>
+        <video className={"video-background " + props.multiply ? "multiply" : '' } autoPlay muted loop>
+            <source src={"videos/"+props.source} type="video/mp4"></source>
         </video>
     )
 
