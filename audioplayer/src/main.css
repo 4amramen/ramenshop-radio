@@ -377,19 +377,19 @@ h4 {
 
 .total-progress{
   width: 100%;
-  height: 4px;
+  height: 2px;
   border-radius: 4px;
   /* background-image: linear-gradient(to left, #2ecc71, #3498db, #95b5b6, #f39c12); */
   animation: color-change 50s ease infinite;
 
-  opacity: 0.1;
+  opacity: 0.3;
   position: absolute;
   bottom: 6px;
   width: calc(100% - 60px);
 }
 
 .time-elapsed{
-  height: 4px;
+  height: 2px;
   border-radius: 4px;
   position: absolute;
   bottom: 6px;

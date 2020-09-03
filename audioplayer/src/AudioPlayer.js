@@ -108,8 +108,8 @@ function AudioPlayer() {
 				"speed": 10,
 			  },
 			  "repulse": {
-				"distance": 150,
-				"duration": 0.4
+				"distance": 200,
+				"duration": .4,
 			  },
 			  "push": {
 				"particles_nb": 4
