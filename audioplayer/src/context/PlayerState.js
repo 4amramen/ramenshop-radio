@@ -15,6 +15,7 @@ import {
 } from './types'
 
 const songs =  songsArr.sort(() => Math.random() - 0.5);
+console.log(songs);
 const random1 = Math.random();
 const random2 = Math.random();
 const random3 = Math.random();
