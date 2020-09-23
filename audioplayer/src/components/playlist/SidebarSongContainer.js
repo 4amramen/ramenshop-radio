@@ -4,7 +4,7 @@ import playerContext from '../../context/playerContext'
 
 
 
-function SongContainer(props){
+function SidebarSongContainer(props){
     const { SetCurrent, random1, random2, random3, SetCurrentAmbience, currentSong, clicked, toggleAmbiencePlaying, SetClicked, } = useContext(playerContext)
     let songSizes = [13, 14, 17];
     let songOpacities = [.30, .60, 1];
@@ -15,21 +15,11 @@ function SongContainer(props){
     let i = props.i;
     let songPosition = props.songPosition;
     let song = props.song;
+    console.log("sb song: " + props.song);
     
     console.log(fullDelay);
         return (
-        <div className={'songContainer' + ' fall-' + props.i + ' ' + (currentSong === props.offset+i ? 'selected' : '')} key={i} style={
-                  {
-                    fontSize: songSizes[i%3],
-                    opacity: songOpacities[i%3],
-                    animation: 'falling_words ' + speed + 's ease-in-out infinite',
-                    animationDelay: fullDelay + 's',
-                    left: (songPosition[0]%100)>85 ? '' : songPosition[0]%100 +'vw', 
-                    right: songPosition[0]%100>85 ? songPosition[2]+'%': '',
-                    bottom: songPosition[1] + '%',
-                  
-                }} onClick={() => { 
-                  
+        <div className={'sidebar-song-container ' + (currentSong === props.i ? 'selected' : '')} key={i} onClick={() => { 
                   if (!clicked)
                 {
                   console.log("first click");
@@ -37,15 +27,13 @@ function SongContainer(props){
                   SetCurrentAmbience(1);
                   SetClicked();
                 }
-                  SetCurrent(props.offset+i);
+                    SetCurrent(i);
                 }
                 }>
                   
                   <span className="song" style={{
-                animation: 'fadeAndScale' + props.introOrder +' 3s ease-in',
-                transformOrigin: 'center bottom',
                 }}
-            >{song[0]}</span>
+            >{props.song[0]}</span>
 
                 </div>
     )
@@ -55,4 +43,4 @@ function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
-export default SongContainer;
+export default SidebarSongContainer;

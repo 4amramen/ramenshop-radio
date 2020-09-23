@@ -99,10 +99,11 @@ export const songsArr = [
     "Frankie Stew and Harvey Gunn"
   ],
   [
-    "Midnight Marauders Tour Guide",
+    "Midnight Marauders",
     "https://ramenshop-radio.s3-us-west-2.amazonaws.com/A+Tribe+Called+Quest+-+Midnight+Marauders+Tour+Guide.mp3",
     "A Tribe Called Quest",
-    "Tour Guide",
+    "Midnight Marauders Tour Guide",
+
 
   ],
   [
@@ -127,12 +128,9 @@ export const songsArr = [
   ],
   [
     "Runaway",
-
     "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Justice+Der+-+KANYE+WEST+(GUITAR+COVER).mp3",
-    "Kanye West",
-    "Runaway (Justice Der Cover)",
-
-
+    "justice der",
+    "Runaway",
   ],
   [
     "Purple",

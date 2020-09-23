@@ -4,8 +4,8 @@ import Cloud from './Cloud'
 import Row from './Row'
 
 function Playlist() {
-  const {songs, random1} = useContext(playerContext)
- 
+  const {songs, random1, songsOffset} = useContext(playerContext)
+  console.log(songsOffset);
 
   var c1Size= 5;
   var c2Size= 15;
@@ -34,14 +34,14 @@ function Playlist() {
   return (
     <div className="playlist">
 
-      <Row offset={0} cloudSongs={songs.slice(0, 10)} x='0'y='100' introOrder={2} cloudDelay={0}/> 
-      <Row offset={10} cloudSongs={songs.slice(10, 20)} x='5'y='100' introOrder={2} cloudDelay={15}/> 
-      <Row offset={20} cloudSongs={songs.slice(20, 30)} x='2'y='100' introOrder={2} cloudDelay={30}/> 
+      <Row offset={0+songsOffset} cloudSongs={songs.slice(0+songsOffset, 10+songsOffset)} x='0'y='100' introOrder={2} cloudDelay={0}/> 
+      <Row offset={10+songsOffset} cloudSongs={songs.slice(10+songsOffset, 20+songsOffset)} x='5'y='100' introOrder={2} cloudDelay={15}/> 
+      <Row offset={20+songsOffset} cloudSongs={songs.slice(20+songsOffset, 30+songsOffset)} x='2'y='100' introOrder={2} cloudDelay={30}/> 
 
-            <Cloud offset={25} cloudSongs={songs.slice(25, 30)} 
+            <Cloud offset={25+songsOffset} cloudSongs={songs.slice(25+songsOffset, 30+songsOffset)} 
             x='58'y='40' animationTime={40}  intro={true} delay={0} introOrder={2}/>
             
-            <Cloud offset={30} cloudSongs={songs.slice(30, 40)} 
+            <Cloud offset={30+songsOffset} cloudSongs={songs.slice(30+songsOffset, 40+songsOffset)} 
             x='0'y='30' animationTime={50} intro={true} delay={0} introOrder={1}/>
 {/* 
             <Cloud offset={10} cloudSongs={songs.slice(10, 20)} 

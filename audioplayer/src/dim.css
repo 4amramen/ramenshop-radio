@@ -1,0 +1,44 @@
+.dim{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 4;
+    opacity: .96;
+    pointer-events: none;
+    background: black;
+    animation: fade-in .6s ease-out;
+}
+
+.dim.close{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+    background: black;
+    animation: fade-out 1s;
+}
+
+@keyframes fade-in {
+    0%{ 
+        opacity: 0;
+    
+    }
+
+    100%{
+        opacity: .96;
+    }
+}
+
+
+@keyframes fade-out {
+    0%{ 
+        opacity: .7;
+    
+    }
+
+    100%{
+        opacity: 0;
+    }
+}

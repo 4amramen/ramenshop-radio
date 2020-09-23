@@ -2,6 +2,8 @@ import React, { useReducer } from 'react';
 import playerContext from './playerContext';
 import playerReducer from './playerReducer';
 import { songsArr } from './songs';
+import { sidebarSongsArr } from './sidebarSongs';
+
 import { ambienceArr } from './ambience';
 
 import {
@@ -14,7 +16,7 @@ import {
   SET_CLICKED
 } from './types'
 
-const songs =  songsArr.sort(() => Math.random() - 0.5);
+const songs =  sidebarSongsArr.concat( songsArr.sort(() => Math.random() - 0.5));
 console.log(songs);
 const random1 = Math.random();
 const random2 = Math.random();
@@ -24,7 +26,7 @@ const PlayerState = props => {
   const initialState = {
     currentSong: Math.floor(Math.random() * songsArr.length),
     currentAmbience: 0,
-
+    songsOffset: sidebarSongsArr.length,
     random1: random1,
     random2: random2, 
     random3: random3,
@@ -128,6 +130,7 @@ const PlayerState = props => {
 
 
       songs: state.songs,
+      songsOffset: state.songsOffset,
       ambience: state.ambience,
 
       repeat: state.repeat,
