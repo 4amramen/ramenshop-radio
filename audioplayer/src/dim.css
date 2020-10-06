@@ -4,9 +4,8 @@
     width: 100vw;
     z-index: 4;
     opacity: .96;
-    pointer-events: none;
     background: black;
-    animation: fade-in .6s ease-out;
+    animation: fade-in .7s ease-in;
 }
 
 .dim.close{

@@ -7,21 +7,20 @@ function CustomParticles() {
       <Particles className= "particles p1 pb"  params={{
         "particles": {
       "number": {
-        "value": 55,
+        "value": 40,
         "density": {
         "enable": true,
         "value_area": 700
         }
       },
       "color": {
-      //   "value": ["#aa73ff", "#f8c210", "#83d238", "#33b1f8"]
       "value": ["#fff"]
       },
       "shape": {
         "type": "circle",
         "stroke": {
         "width": 0,
-        "color": "#000000"
+        "color": "#ffffff"
         },
         "polygon": {
         "nb_sides": 15

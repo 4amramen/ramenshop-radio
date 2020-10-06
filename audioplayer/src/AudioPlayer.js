@@ -3,7 +3,7 @@ import Playlist from './components/playlist/Playlist'
 import Controls from './components/Controls'
 import Title from './components/graphics/Title'
 import PlayerState from './context/PlayerState'
-import ColorOverlay from './components/graphics/ColorOverlay'
+import Background from './components/graphics/Background'
 import './main.css'
 import './input.css'
 import CustomParticles from './components/graphics/CustomParticles';
@@ -40,13 +40,13 @@ function AudioPlayer() {
 
       <div className="main" >
 
-      {sidebar}
-      <Toggle click={openHandler}/>
+        {sidebar}
+        <Toggle click={openHandler}/>
 
-	  	<CustomParticles/>
+        <CustomParticles/>
 
-		    <ColorOverlay/>
-		
+        <Background/>
+      
         <Title/>
 
         <Playlist/>
