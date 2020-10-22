@@ -1,6 +1,5 @@
-# April2020Projects
-This are the Projects that i made in April of 2020.
-
-Each project should have a video in my channel if you like the projects consider subscribing 😄
-
-Tw: @ramgendeploy
+## Audio Player made in React and 
+In this projects i use the context api to make an audio player with react
+The app has a playlist, also a random selection of that playlist, and a repeat button also.
+Here is a picture of the app:
+![alt text]( https://ramagg.com/img/AudioPlayer.png "React Audio Player")
