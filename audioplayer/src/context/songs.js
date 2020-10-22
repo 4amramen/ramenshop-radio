@@ -2,7 +2,7 @@ export const songsArr = [
   [
     "not enough",
     "https://ramenshop-radio.s3-us-west-2.amazonaws.com/not+enough.wav",
-    "blindforloven",
+    "blindforlove",
   ],  
   [
     "Rapid Fire",

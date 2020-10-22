@@ -331,30 +331,82 @@ h4 {
   padding-bottom: 10px;
   padding-left: 10px;
   transform: rotate(90deg);
-
+}
+.volBars{
+  position: absolute;
 }
 
 #volBar {
   padding: 0;
   margin: 0;
+  position: absolute;
+  top: 7px;
   width: 50px;
+  left: 40px;
   background: transparent;
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.5s linear;
 }
+
+#visible-volBar{
+  pointer-events: none;
+
+  height: 3px;
+  padding: 0;
+  margin: 0;
+
+  position: absolute;
+  top: 20px;
+  width: calc(50px * .7);
+  left: 40px;
+
+  background: white;
+  visibility: hidden;
+
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+#visible-volBar-background{
+  pointer-events: none;
+
+  height: 3px;
+  padding: 0;
+  margin: 0;
+
+  position: absolute;
+  top: 20px;
+  width: 50px;
+  left: 40px;
+
+  background: white;
+  visibility: hidden;
+
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+.vlme:hover #visible-volBar{
+  visibility: visible;
+  opacity: 1;
+}
+
+.vlme:hover #visible-volBar-background{
+  visibility: visible;
+  opacity: .3;
+}
   
-  .vlme:hover #volBar{
-    visibility: visible;
-    opacity: 1;
-    
-  }
+  
+.vlme:hover #volBar{
+  visibility: visible;
+  opacity: 0;
+}
 
 #volBar::-moz-range-thumb {
   height: 10px;
   width: 3px;
   background: #2A6586;
-
+  opacity:0;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -623,13 +675,12 @@ h4 {
 }
 #back5 {
   animation-delay: 60s;
-  /* -webkit-animation-delay: 8s; */
 }
 
 @keyframes background-fade{
   0%   { opacity: 0; }
   11.11%   { opacity: 1; }
   33.33%  { opacity: 1; }
-  44.44%  { opacity: 0; }
+  44.44%  { opacity: 0; /*background change to random*/}
   100% { opacity: 0; }
 }

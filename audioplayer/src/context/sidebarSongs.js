@@ -114,7 +114,7 @@ export const sidebarSongsArr = [
     ],
     [
       "Hip Hop",
-      "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/Rod+Lowkey/ROD+LOWKEY+-+97'+feat.+Art+Of+Max+(Prod.+Juno).mp3",
+      "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/Rod+Lowkey/ROD+LOWKEY+-+Hip+Hop+feat.+DRAZI+(Prod.+Tek.Lun).mp3",
       "ROD LOWKEY",
       "Hip Hop feat. DRAZI",
   

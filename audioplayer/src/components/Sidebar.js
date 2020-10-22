@@ -31,7 +31,7 @@ const Sidebar = (props) => {
 
         <div className={sideBarClass}>
             <div className="sidebar-header"> 
-                <span className="sidebar-title">Arist Showcase</span>
+                <span className="sidebar-title">Featured Artists</span>
                 <button className="close-button" onClick={closeHandler}>x</button>
             </div>
             <ArtistBlock artistName="Abscond" songIndexes={[0,1,2,3]} color="grey"/>

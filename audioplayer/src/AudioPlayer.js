@@ -11,6 +11,7 @@ import {useState} from 'react'
 import Sidebar from './components/Sidebar'
 import Toggle from './components/Toggle'
 import DimOverlay from './components/graphics/DimOverlay';
+import VideoBackground from './components/VideoBackground';
 
 function AudioPlayer() {
 
@@ -44,7 +45,7 @@ function AudioPlayer() {
         <Toggle click={openHandler}/>
 
         <CustomParticles/>
-
+        {/* <VideoBackground/> */}
         <Background/>
       
         <Title/>

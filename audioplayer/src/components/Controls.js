@@ -33,6 +33,8 @@ function Controls() {
   const audio = useRef('audio_tag');
   const ambienceAudio = useRef('audio_tag');
   const timeElapsed = document.querySelector(".time-elapsed")
+  const volumeLevel = document.querySelector("#visible-volBar")
+
 
   // self State
   const [statevolum, setStateVolum] = useState(1)
@@ -56,7 +58,9 @@ function Controls() {
   const handleAmbienceVolume = (q) => {
     setStateAmbienceVolum(q);
     ambienceAudio.current.volume = q;
+    volumeLevel.style.width = 'calc(50px * ' + q + ')'; 
   }
+
   const handleProgress = (e) => {
     
     let compute = (e.target.value * dur) / 100;
@@ -148,8 +152,15 @@ function Controls() {
             }}>
               <img className="rain_button" src="buttons/rain_button.png"></img>
             </span>
-            <input value={Math.round(stateambiencevolum * 100)} type="range" name="volBar" id="volBar" onChange={(e) => handleAmbienceVolume(e.target.value / 100)} />
+            <div className="volBars">
+              <input value={Math.round(stateambiencevolum * 100)} type="range" name="volBar" id="volBar" 
+                onChange={(e) => handleAmbienceVolume(e.target.value / 100)} />
+              <span id="visible-volBar"/>  
+              <span id="visible-volBar-background"/>  
+            </div>      
+
         </div>
+
           {/* <span className="prev" onClick={prevSong}><i className="fas fa-step-backward"></i></span>
                   <span className="next" onClick={nextSong}><i className="fas fa-step-forward"></i></span>
 
@@ -164,7 +175,7 @@ function Controls() {
             <span className={!ambiencePlaying ? 'hide' : ''}><i className="fas fa-pause"></i></span>
           </span> */}
        </div>
-      
+
       <div className="bottom-controls">
         
         <div className="visible-progress">
