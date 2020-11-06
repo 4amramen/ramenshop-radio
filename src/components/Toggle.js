@@ -1,5 +1,5 @@
 import React, {Fragment} from "react"
-import "./../sidebar.css"
+import "./../styles/sidebar.css"
 
 const Toggle = (props) => {
     

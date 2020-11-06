@@ -5,7 +5,7 @@
     z-index: 4;
     opacity: .96;
     background: black;
-    animation: fade-in .7s ease-in;
+    animation: fade-in ease-out .2s;
 }
 
 .dim.close{
@@ -16,7 +16,7 @@
     opacity: 0;
     pointer-events: none;
     background: black;
-    animation: fade-out 1s;
+    animation: fade-out .5s;
 }
 
 @keyframes fade-in {

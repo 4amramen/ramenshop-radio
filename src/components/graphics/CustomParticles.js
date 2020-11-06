@@ -1,10 +1,12 @@
 import React, { useContext } from 'react'
 import Particles from 'react-particles-js'
+import '../../styles/particles.css'
+
 
 function CustomParticles() {
 
   return (
-      <Particles className= "particles p1 pb"  params={{
+      <Particles className= "particles screen"  params={{
         "particles": {
       "number": {
         "value": 40,

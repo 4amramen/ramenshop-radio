@@ -1,5 +1,5 @@
 import React from 'react'
-import "./../../dim.css"
+import "./../../styles/dim.css"
 
 function DimOverlay(props) {
 

@@ -58,7 +58,7 @@ function Controls() {
   const handleAmbienceVolume = (q) => {
     setStateAmbienceVolum(q);
     ambienceAudio.current.volume = q;
-    volumeLevel.style.width = 'calc(50px * ' + q + ')'; 
+    volumeLevel.style.width = 'calc(60px * ' + q + ')'; 
   }
 
   const handleProgress = (e) => {

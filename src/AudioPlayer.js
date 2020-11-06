@@ -4,8 +4,8 @@ import Controls from './components/Controls'
 import Title from './components/graphics/Title'
 import PlayerState from './context/PlayerState'
 import Background from './components/graphics/Background'
-import './main.css'
-import './input.css'
+import './styles/main.css'
+import './styles/input.css'
 import CustomParticles from './components/graphics/CustomParticles';
 import {useState} from 'react'
 import Sidebar from './components/Sidebar'
@@ -47,7 +47,7 @@ function AudioPlayer() {
         <CustomParticles/>
         {/* <VideoBackground/> */}
         <Background/>
-      
+
         <Title/>
 
         <Playlist/>
