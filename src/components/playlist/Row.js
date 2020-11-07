@@ -40,40 +40,7 @@ const { SetCurrent, random1, random2, random3, SetCurrentAmbience, currentSong, 
             }} >
 
             {props.cloudSongs.map((song, i) =>
-                <SongContainer  cloudDelay={props.cloudDelay} offset={props.offset} introOrder={props.introOrder} song={song} songPosition={songPositions[i]} i={i} /> 
-                  
-            //     <div className={'songContainer' + ' fall-' + i + ' ' + (currentSong === props.offset+i ? 'selected' : '')} key={i} style={
-            //       {
-            //         fontSize: songSizes[i%3],
-            //         opacity: songOpacities[i%3],
-            //         animation: 'falling_words 30s ease-in-out infinite',
-            //         animationDelay: generateNumber(0, 10) +'s',
-            //         left: (songPositions[i][0]%100)>85 ? '' : songPositions[i][0]%100 +'vw', 
-            //         right: songPositions[i][0]%100>85 ? songPositions[i][2]+'%': '',
-            //         bottom: songPositions[i][1] + '%',
-                  
-            //     }} onClick={() => { 
-                  
-            //       if (!clicked)
-            //     {
-            //       console.log("first click");
-            //       toggleAmbiencePlaying();
-            //       SetCurrentAmbience(1);
-            //       SetClicked();
-            //     }
-            //       if(song && currentSong != i){
-            //         SetCurrent(props.offset+i);
-            //       }
-            //     }
-            //     }>
-                  
-            //       <span className="song" style={{
-            //     animation: 'fadeAndScale' + props.introOrder +' 3s ease-in',
-            //     transformOrigin: 'center bottom',
-            //     }}
-            // >{song[0]}</span>
-
-            //     </div>
+                <SongContainer  cloudDelay={props.cloudDelay} offset={props.offset} song={song} songPosition={songPositions[i]} i={i} /> 
               )
             }
           </div>)

@@ -1,7 +1,3 @@
-:root {
-  --song_position: 0px; 
-  --cloud_height: 0%; 
-}
 
 * {
   box-sizing: border-box;
@@ -117,6 +113,11 @@ h4 {
 .cloud{
   position: absolute;
   visibility: hidden;
+  bottom: 0vh;
+  left: 0vw;
+  height: 100vh;
+  width: 100vw;
+
 }
 
 .row{
@@ -144,38 +145,6 @@ h4 {
 .cr{
   left: 40%;
 }
-
-/* first cloud */
-.intro{
-  animation-fill-mode: forwards;
-}
-/* infinite falling clouds  */
-
-.infinite{
-    animation: falling 50s ease-in infinite;
-
-}
-.c10{
-  height: 60%;
-  width: 60%;
-  z-index: 2;
-  left: 0%;
-}
-
-.c15{
-  height: 90%;
-  width: 100%;
-  z-index: 2;
-  left: 0%;
-}
-
-
-/* 
-
-.song {
-  animation: fadeAndScale2 3s cubic-bezier(.39,-1.05,.58,1.95);
-  transform-origin: center bottom;
-} */
 
 
 @keyframes falling {
