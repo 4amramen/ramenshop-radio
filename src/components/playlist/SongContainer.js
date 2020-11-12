@@ -10,7 +10,7 @@ function SongContainer(props){
     let songOpacities = [.30, .60, 1];
     const [delay, setDelay] = useState(getRandom(0,30));
     const [speed, setSpeed] = useState(getRandom(30,55));
-    const [introSpeed, setIntroSpeed] = useState(getRandom(45,52));
+    const [introSpeed, setIntroSpeed] = useState(getRandom(45,60));
 
     let fullDelay = delay + props.cloudDelay;
   
@@ -47,7 +47,7 @@ function SongContainer(props){
                 }>
                   
                   <span className="song" style={{
-                    animation: props.intro ? 'fadeAndScale' + songPosition[3] +' 3s ease-in' : '',
+                    animation: props.intro ? 'fadeAndScale' + songPosition[3] +' 2s ease-in' : '',
                     animationFillMode: props.intro ? 'forwards' : '',
                     animationDelay: fullDelay + 's',
                     transformOrigin: 'center bottom',

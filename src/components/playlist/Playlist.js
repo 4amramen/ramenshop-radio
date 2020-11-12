@@ -17,7 +17,6 @@ function Playlist() {
       <Row offset={10+songsOffset} cloudSongs={songs.slice(10+songsOffset, 20+songsOffset)} x='5'y='100' introOrder={2} cloudDelay={15}/> 
       <Row offset={20+songsOffset} cloudSongs={songs.slice(20+songsOffset, 30+songsOffset)} x='2'y='100' introOrder={2} cloudDelay={30}/> 
 
-
     </div>
   )
 }

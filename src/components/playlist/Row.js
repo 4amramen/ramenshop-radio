@@ -40,7 +40,7 @@ const { SetCurrent, random1, random2, random3, SetCurrentAmbience, currentSong, 
             }} >
 
             {props.cloudSongs.map((song, i) =>
-                <SongContainer  cloudDelay={props.cloudDelay} offset={props.offset} song={song} songPosition={songPositions[i]} i={i} /> 
+                <SongContainer  cloudDelay={props.cloudDelay} offset={props.offset}  song={song} songPosition={songPositions[i]} i={i} /> 
               )
             }
           </div>)
