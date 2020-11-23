@@ -103,7 +103,7 @@ h4 {
 
 
 .playlist {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   overflow: hidden;
   z-index: 0;
