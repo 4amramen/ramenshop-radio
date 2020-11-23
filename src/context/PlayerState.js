@@ -17,7 +17,7 @@ import {
 } from './types'
 
 const songs =  sidebarSongsArr.concat( songsArr.sort(() => Math.random() - 0.5));
-console.log(songs);
+// console.log(songs);
 const random1 = Math.random();
 const random2 = Math.random();
 const random3 = Math.random();
@@ -83,7 +83,9 @@ const PlayerState = props => {
 
    // Next AMBIENCE
    const nextAmbience = () => {
+
     if (state.currentAmbience === state.ambience.length - 1) {
+
       SetCurrentAmbience(0)
     } else {
       SetCurrentAmbience(state.currentAmbience + 1)
@@ -114,7 +116,6 @@ const PlayerState = props => {
 
    // END OF AMBIENCE
    const handleEndOfAmbience = () => {
-    //repeat
     nextAmbience();
   }
 

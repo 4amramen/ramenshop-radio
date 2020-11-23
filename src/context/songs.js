@@ -500,4 +500,42 @@ export const songsArr = [
         "Selah",
         "bloom interlude (demo)",
       ],
+
+      //Bloodroot
+      [
+        "Audrey",
+        "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/Bloodroot/Bloodroot+-+Audrey.mp3",
+        "Bloodroot",
+      ],
+      [
+        "Fool",
+        "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/Bloodroot/Bloodroot+-+Fool.mp3",
+        "Bloodroot",
+      ],
+
+      // raleighrain
+
+      [
+        "charms",
+        "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/raleighrain/raleighrain+-+charms.mp3",
+        "raleighrain",
+      ],
+      [
+        "bloo",
+        "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/raleighrain/raleighrain+-+bloo.mp3",
+        "raleighrain",
+      ],
+
+      // Purple Corporation 
+
+      [
+        "Fish Out of Water",
+        "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/Purple+Corporation/Purple+Corporation+-+Fish+Out+of+Water.mp3",
+        "Purple Corporation",
+      ],
+      [
+        "Gamma Riders",
+        "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/Purple+Corporation/Purple+Corporation+-+Gamma+Riders.mp3",
+        "Purple Corporation",
+      ],
 ];

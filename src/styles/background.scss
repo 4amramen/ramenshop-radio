@@ -28,5 +28,5 @@
   width: 100vw;
   height: 100vh;
   background-size: contain;
-  @include fade( $num:5, $fade:20, $visible:5,);
+  @include fade( $num:5, $fade:25, $visible:5,);
 }

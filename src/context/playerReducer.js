@@ -20,7 +20,7 @@ export default (state, action) => {
       return {
         ...state,
         currentAmbience: action.data,
-        playing: true
+        ambiencePlaying: true
       }
     case TOGGLE_RANDOM:
       return {

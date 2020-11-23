@@ -15,9 +15,9 @@ function SidebarSongContainer(props){
     let i = props.i;
     let songPosition = props.songPosition;
     let song = props.song;
-    console.log("sb song: " + props.song);
+    // console.log("sb song: " + props.song);
     
-    console.log(fullDelay);
+    // console.log(fullDelay);
         return (
         <div className={'sidebar-song-container ' + (currentSong === props.i ? 'selected' : '')} key={i} onClick={() => { 
                   if (!clicked)

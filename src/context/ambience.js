@@ -7,8 +7,4 @@ export const ambienceArr = [
     "Rain Playlist",
     "ambience/rain.mp3",
   ],
-  [
-    "Ocean",
-    "ambience/ocean.mp3",
-  ]
 ];

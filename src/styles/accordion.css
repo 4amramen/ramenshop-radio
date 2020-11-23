@@ -1,0 +1,88 @@
+/**
+* ----------------------------------------------
+* Demo styles
+* ----------------------------------------------
+**/
+.accordion {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.accordion__item + .accordion__item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.accordion__button {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+}
+
+.accordion__button:hover {
+    background-color: grey;
+}
+
+.accordion__button:before {
+    display: inline-block;
+    content: '';
+    height: 10px;
+    width: 1px;
+    margin-right: 15px;
+    transform: rotate(90deg);
+    background-color: white;
+
+}
+
+
+.accordion__button:after {
+    position: absolute;
+
+    left: -21px;
+    content: '';
+    height: 10px;
+    width: 1px;
+    margin-left: 40px;
+    margin-top: 7px;
+
+    background-color: white;
+
+}
+
+.accordion__button[aria-expanded='true']::after,
+.accordion__button[aria-selected='true']::after {
+    transform: rotate(90deg);
+    transition: transform .35s cubic-bezier(.65, .05, .36, 1);
+}
+
+.accordion__button[aria-expanded='false']::after,
+.accordion__button[aria-selected='false']::after {
+    transition: transform .35s cubic-bezier(.65, .05, .36, 1);
+}
+
+
+[hidden] {
+    display: none;
+}
+
+.accordion__panel {
+    padding: 20px;
+    animation: fadein 0.35s ease-in-out;
+}
+
+/* -------------------------------------------------- */
+/* ---------------- Animation part ------------------ */
+/* -------------------------------------------------- */
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

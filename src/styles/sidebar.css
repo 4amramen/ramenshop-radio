@@ -93,6 +93,22 @@ hr.line{
 }
 
 
+/*mobile */
+
+@media only screen and (max-width: 768px) /*mobile*/ {
+   .sidebar{
+    width: 100vw;
+    background-color:black;
+    opacity: 1;
+
+   } 
+   .dim {
+        display: none;
+   }
+
+  }
+
+
 
 
 

@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from 'react'
 import playerContext from '../context/playerContext'
 import NowPlaying from './graphics/NowPlaying'
-import RainSound from './RainSound';
-import AmbienceControls from './AmbienceControls';
+import { useMediaQuery } from 'react-responsive'
 
 
 function Controls() {
@@ -31,7 +30,7 @@ function Controls() {
   } = useContext(playerContext)
 
   const audio = useRef('audio_tag');
-  const ambienceAudio = useRef('audio_tag');
+  const ambienceAudio = useRef('ambience_tag');
   const timeElapsed = document.querySelector(".time-elapsed")
   const volumeLevel = document.querySelector("#visible-volBar")
 
@@ -55,11 +54,13 @@ function Controls() {
     audio.current.volume = q;
   }
 
+  
   const handleAmbienceVolume = (q) => {
     setStateAmbienceVolum(q);
     ambienceAudio.current.volume = q;
     volumeLevel.style.width = 'calc(60px * ' + q + ')'; 
   }
+
 
   const handleProgress = (e) => {
     
@@ -124,15 +125,19 @@ function Controls() {
                 {
                   console.log("first click");
                   toggleAmbiencePlaying();
+                  console.log("Playing when ambience play:  " + playing);
                   toggleAmbienceAudio();
                   SetClicked();
                 }
-                togglePlaying(); toggleAudio();}}>
+                togglePlaying(); 
+                toggleAudio();
+                console.log("Playing?:  " + playing);
+
+                }}>
+
               <img className= {!playing ? 'play_button' : 'play_button hide'} src="buttons/play_button.png"></img>
-              <img className= {!playing ? 'pause_button hide' : 'pause_button'} src="buttons/pause_button.png"></img>
-{/* 
-              <span className={!playing ? '' : 'hide'}><i className="fas fa-play"></i></span>
-              <span className={!playing ? 'hide' : ''}><i className="fas fa-pause"></i></span> */}
+              <img className= {playing ?  'pause_button' : 'pause_button hide'} src="buttons/pause_button.png"></img>
+
             </span>
 
           < NowPlaying />
@@ -161,19 +166,6 @@ function Controls() {
 
         </div>
 
-          {/* <span className="prev" onClick={prevSong}><i className="fas fa-step-backward"></i></span>
-                  <span className="next" onClick={nextSong}><i className="fas fa-step-forward"></i></span>
-
-          */}
-          {/* <span className="play" onClick={() => { 
-              if (!clicked) {
-              console.log("first click");
-              SetClicked();
-              }
-            toggleAmbiencePlaying(); toggleAmbienceAudio(); }}>
-            <span className={!ambiencePlaying ? '' : 'hide'}><i className="fas fa-play"></i></span>
-            <span className={!ambiencePlaying ? 'hide' : ''}><i className="fas fa-pause"></i></span>
-          </span> */}
        </div>
 
       <div className="bottom-controls">

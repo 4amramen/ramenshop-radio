@@ -10,7 +10,7 @@ const { SetCurrent, random1, random2, random3, SetCurrentAmbience, currentSong, 
 
   var left = 0;
   var bottom = 0;
-  console.log("CLOUDSONGS " + props.cloudSongs);
+  // console.log("CLOUDSONGS " + props.cloudSongs);
 
   for(let i = 0; i<props.cloudSongs.length; i++){
     
@@ -28,7 +28,7 @@ const { SetCurrent, random1, random2, random3, SetCurrentAmbience, currentSong, 
     songPositions[i] = [left, bottom, right];
 
   }
-  console.log(songPositions);
+  // console.log(songPositions);
 
   
   return (

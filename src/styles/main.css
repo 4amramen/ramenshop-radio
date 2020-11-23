@@ -541,3 +541,11 @@ h4 {
   opacity: 1 !important;
   color: pink;
 }
+
+/*mobile */
+
+@media only screen and (max-width: 768px) /*mobile*/ {
+  .time{
+    display: none;
+  }
+}

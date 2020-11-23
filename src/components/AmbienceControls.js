@@ -14,7 +14,7 @@ function AmbienceControls() {
     handleEndOfAmbience,
   } = useContext(playerContext)
 
-  const ambienceAudio = useRef('audio_tag');
+  const ambienceAudio = useRef('j');
 
   // self State
   const [statevolum, setStateVolum] = useState(.5)
@@ -66,11 +66,7 @@ function AmbienceControls() {
       }
       
         <div className="musicControls">
-        
-         {/* <span className="prev" onClick={prevSong}><i className="fas fa-step-backward"></i></span>
-                  <span className="next" onClick={nextSong}><i className="fas fa-step-forward"></i></span>
-
-        */}
+      
 
           <span className="play" onClick={() => { toggleAmbiencePlaying(); toggleAudio(); }}>
             <span className={!ambiencePlaying ? '' : 'hide'}><i className="fas fa-play"></i></span>
