@@ -6,11 +6,15 @@
     top: 0px;
     z-index: -1;
     animation: particleFadeIn 4s ease-in-out;
-    animation-delay: 0s;
+    animation-delay: 1.5s;
     opacity: 0;
     animation-fill-mode: forwards;  
 
   }
+
+.shape{
+
+}
   
   
   .multiply {

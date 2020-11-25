@@ -29,11 +29,23 @@ body {
 .top-controls {
   position: relative;
   z-index: 5;
+  opacity: 0;
+  animation: fadeIn 2s;
+  animation-delay:  1s;
+  animation-fill-mode: forwards;
+}
+
+.bottom-controls {
+  opacity: 0;
+  animation: fadeIn 2s;
+  animation-delay:  1.5s;
+  animation-fill-mode: forwards;
 }
 
 .left-controls {
   position: relative;
   z-index:5;
+  
 }
 
 h4 {
@@ -222,6 +234,17 @@ h4 {
   100% {
       opacity: 1;
       transform: scale3d(1,1,1);
+  }
+}
+
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+  }
+
+  100% {
+      opacity: 1;
   }
 }
 

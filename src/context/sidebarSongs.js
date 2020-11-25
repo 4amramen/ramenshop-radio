@@ -68,6 +68,8 @@ export const sidebarSongsArr = [
     "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/jnjkhaira/blundell.wav",
     "JnJKhaira",
     "blundell. (Unreleased)",
+    "cassette-tape.svg"
+
   ],
   [
     "earth strong.",
@@ -79,7 +81,9 @@ export const sidebarSongsArr = [
     "humdila",
     "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/jnjkhaira/humdila.wav",
     "JnJKhaira",
-    "humdila (Unreleased)"
+    "humdila (Unreleased)",
+    "cassette-tape.svg"
+
   ],
 
 // Matt Brade

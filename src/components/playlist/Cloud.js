@@ -23,13 +23,13 @@ function getRandomSongPositions(introSongs) {
   let songPositions = [];
   for(let i = 0; i<introSongs.length; i++){
     
-    let bottom = getRandom(100, 0)+getRandom(1,0);
-    let left = getRandom(100, 0)+getRandom(1,0);
+    let bottom = getRandom(90, 15)+getRandom(1,0);
+    let left = getRandom(90, 10)+getRandom(1,0);
     let right = 0;
     let introOrder = getRandom(3,1);
     
     if(left>85){
-        right = getRandom(5, 0);
+        right = getRandom(10, 0);
     }
     //assign positions
     songPositions[i] = [left, bottom, right, introOrder];

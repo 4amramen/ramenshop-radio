@@ -25,7 +25,7 @@ function CustomParticles() {
         "color": "#ffffff"
         },
         "polygon": {
-        "nb_sides": 15
+        "nb_sides": 30
         }
       },
       "opacity": {

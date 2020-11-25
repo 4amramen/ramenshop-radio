@@ -7,6 +7,8 @@ import Background from './components/graphics/Background'
 import './styles/main.css'
 import './styles/input.css'
 import CustomParticles from './components/graphics/CustomParticles';
+import PolygonMaskParticles from './components/graphics/PolygonMaskParticles';
+
 import {useState} from 'react'
 import Sidebar from './components/Sidebar'
 import Toggle from './components/Toggle'
@@ -44,7 +46,9 @@ function AudioPlayer() {
         {sidebar}
         <Toggle click={openHandler}/>
 
-        <CustomParticles/>
+        {/* <CustomParticles/> */}
+        <PolygonMaskParticles />
+
         {/* <VideoBackground/> */}
         <Background/>
 

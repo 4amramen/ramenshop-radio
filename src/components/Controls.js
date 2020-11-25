@@ -24,6 +24,9 @@ function Controls() {
     ambience,
     ambiencePlaying,
     toggleAmbiencePlaying,
+    toggleAmbienceAudioGlobal,
+    ambienceAudioGlobal,
+
     handleEndOfAmbience,
     clicked,
     SetClicked
@@ -33,7 +36,7 @@ function Controls() {
   const ambienceAudio = useRef('ambience_tag');
   const timeElapsed = document.querySelector(".time-elapsed")
   const volumeLevel = document.querySelector("#visible-volBar")
-
+  const isMobile = useMediaQuery({ maxWidth: 768 })
 
   // self State
   const [statevolum, setStateVolum] = useState(1)
@@ -89,12 +92,22 @@ function Controls() {
   }, [currentSong])
 
 
-  // hook for ambience
+  // hook for set ambience
   useEffect(() => {
+    console.log("ambience playing? effect 1 " + ambiencePlaying);
     ambienceAudio.current.volume = stateambiencevolum;
-    if (ambiencePlaying) { toggleAmbienceAudio() }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    if(ambiencePlaying){
+      toggleAmbienceAudio()
+    }
   }, [currentAmbience])
+
+  // hook for song containers to access ambience audio
+  useEffect(() => {
+    console.log("ambience audio changed by playlist");
+    if(clicked){
+      toggleAmbienceAudio()
+    }
+  }, [ambienceAudioGlobal])
 
   return (
     
@@ -121,18 +134,24 @@ function Controls() {
 
         <div className="left-controls">
           <span className="play" onClick={() => {
+            // first click
                 if (!clicked)
                 {
                   console.log("first click");
-                  toggleAmbiencePlaying();
-                  console.log("Playing when ambience play:  " + playing);
-                  toggleAmbienceAudio();
                   SetClicked();
+                  toggleAmbiencePlaying();
+                  toggleAmbienceAudio();
+                  console.log(ambienceAudioGlobal);
+
                 }
+                if (isMobile && clicked){
+                  toggleAmbiencePlaying();
+                  toggleAmbienceAudio();
+
+                }
+                // after first click
                 togglePlaying(); 
                 toggleAudio();
-                console.log("Playing?:  " + playing);
-
                 }}>
 
               <img className= {!playing ? 'play_button' : 'play_button hide'} src="buttons/play_button.png"></img>
@@ -145,7 +164,7 @@ function Controls() {
         
         <span className="time">{fmtMSS(currentTime) + " / " + fmtMSS(dur)}</span>
 
-
+            
         <div className="vlme">
             <span className="volum" onClick={() => {
               if(stateambiencevolum){

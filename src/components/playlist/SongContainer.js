@@ -1,11 +1,12 @@
 import { Component } from "react";
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useRef } from 'react'
 import playerContext from '../../context/playerContext'
+import { useMediaQuery } from 'react-responsive'
 
 
 
 function SongContainer(props){
-    const { SetCurrent, random1, random2, random3, SetCurrentAmbience, currentSong, clicked, toggleAmbiencePlaying, SetClicked, } = useContext(playerContext)
+    const { ambiencePlaying, SetCurrent, SetCurrentAmbience, toggleAmbienceAudioGlobal, currentAmbience, currentSong, clicked, toggleAmbiencePlaying, SetClicked, } = useContext(playerContext)
     let songSizes = [13, 14, 17];
     let songOpacities = [.30, .60, 1];
     const [delay, setDelay] = useState(getRandom(0,30));
@@ -14,6 +15,7 @@ function SongContainer(props){
 
     let fullDelay = delay + props.cloudDelay;
   
+    const isMobile = useMediaQuery({ maxWidth: 768 })
 
     let i = props.i;
     let songPosition = props.songPosition;
@@ -37,10 +39,18 @@ function SongContainer(props){
                   
                   if (!clicked)
                 {
-                  console.log("first click");
-                  toggleAmbiencePlaying();
-                  SetCurrentAmbience(1);
                   SetClicked();
+
+                  console.log("first click");
+                  SetCurrentAmbience(1);
+                  toggleAmbiencePlaying();
+                  
+                }
+                if (isMobile && clicked){
+                  if(!ambiencePlaying){
+                    toggleAmbiencePlaying();
+                    toggleAmbienceAudioGlobal();
+                  }
                 }
                   SetCurrent(props.offset+i);
                 }

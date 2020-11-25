@@ -3,7 +3,6 @@ import playerContext from './playerContext';
 import playerReducer from './playerReducer';
 import { songsArr } from './songs';
 import { sidebarSongsArr } from './sidebarSongs';
-
 import { ambienceArr } from './ambience';
 
 import {
@@ -13,7 +12,10 @@ import {
   TOGGLE_PLAYING,
   SET_CURRENT_AMBIENCE,
   TOGGLE_AMBIENCE_PLAYING,
-  SET_CLICKED
+  SET_CLICKED,
+  SET_POLYGONMASK,
+  TOGGLE_SHOW_POLYGON,
+  TOGGLE_AMBIENCE_AUDIO_GLOBAL
 } from './types'
 
 const songs =  sidebarSongsArr.concat( songsArr.sort(() => Math.random() - 0.5));
@@ -21,6 +23,7 @@ const songs =  sidebarSongsArr.concat( songsArr.sort(() => Math.random() - 0.5))
 const random1 = Math.random();
 const random2 = Math.random();
 const random3 = Math.random();
+
 
 const PlayerState = props => {
   const initialState = {
@@ -40,10 +43,11 @@ const PlayerState = props => {
     playing: false,
     ambiencePlaying: false,
 
-    audio: null,
-    ambienceAudio: null,
+    clicked: false,
 
-    clicked: false
+    polygonMask: null,
+    show: false,
+    ambienceAudioGlobal: false,
   }
   const [state, dispatch] = useReducer(playerReducer, initialState);
 
@@ -56,12 +60,23 @@ const PlayerState = props => {
   // Set current song
   const SetCurrent = id => dispatch({ type: SET_CURRENT_SONG, data: id })
 
+  // Set polygon mask
+  const SetPolygonMask = svg => {
+    dispatch({ type: SET_POLYGONMASK, data: svg })
+  }
+
+  const toggleShowPolygon = () => dispatch({ type: TOGGLE_SHOW_POLYGON, data: state.show ? false : true })
+
+
    // SET CURRENT AMBIENCE
   const SetCurrentAmbience = id => dispatch({ type: SET_CURRENT_AMBIENCE, data: id });
 
   // Clicked
 
   const SetClicked = () => dispatch({ type: SET_CLICKED, data: true })
+
+
+  const toggleAmbienceAudioGlobal = () => dispatch({ type: TOGGLE_AMBIENCE_AUDIO_GLOBAL, data: state.ambienceAudioGlobal ? false : true })
 
 
   // Prev song
@@ -85,8 +100,7 @@ const PlayerState = props => {
    const nextAmbience = () => {
 
     if (state.currentAmbience === state.ambience.length - 1) {
-
-      SetCurrentAmbience(0)
+      SetCurrentAmbience(0);
     } else {
       SetCurrentAmbience(state.currentAmbience + 1)
     }
@@ -120,6 +134,8 @@ const PlayerState = props => {
   }
 
 
+
+
   return <playerContext.Provider
     value={{
       currentSong: state.currentSong,
@@ -139,9 +155,10 @@ const PlayerState = props => {
 
       playing: state.playing,
       ambiencePlaying: state.ambiencePlaying,
+      ambienceAudioGlobal: state.ambienceAudioGlobal,
 
-      audio: state.audio,
-      ambienceAudio: state.ambienceAudio,
+      show: state.show,
+     
 
       clicked: state.clicked,
 
@@ -161,8 +178,11 @@ const PlayerState = props => {
       
       handleEnd,
       handleEndOfAmbience,
-      SetClicked
+      SetClicked,
 
+      SetPolygonMask,
+      toggleShowPolygon,
+      toggleAmbienceAudioGlobal
     }}>
 
     {props.children}
