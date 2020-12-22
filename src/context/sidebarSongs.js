@@ -7,6 +7,8 @@ export const sidebarSongsArr = [
     "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/abscvnd/abscond+-+before+i+wake+(demo).mp3",
     "abscond",
     "before i wake (demo)",
+    "5"
+
 
   ],
   [
@@ -19,6 +21,7 @@ export const sidebarSongsArr = [
     "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/abscvnd/RUN+-+AMBEDO+EXCERPT+01_03.mp3",
     "abscond",
     "RUN - AMBEDO EXCERPT 01_03",
+    "5"
 
   ],
   [
@@ -38,12 +41,17 @@ export const sidebarSongsArr = [
   [
     "Hurry Up",
     "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/BabyGlobin/BabyGlobin+-+Hurry+Up.mp3",
-    "BabyGlobin"
+    "BabyGlobin",
+    "Hurry Up",
+    "2"
   ],
   [
     "RESTART",
     "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/BabyGlobin/BabyGlobin+-+RESTART.mp3",
-    "BabyGlobin"
+    "BabyGlobin",
+    "RESTART",
+    "2"
+    
   ],
 
 //Chai
@@ -51,7 +59,9 @@ export const sidebarSongsArr = [
   [
     "Tangerine",
     "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/Chai/Chai+-+Tangerine+-+good+quality.mp3",
-    "Chai"
+    "Chai",
+    "Tangerine",
+    "1"
   ],
 
 //JnJKharia
@@ -68,7 +78,7 @@ export const sidebarSongsArr = [
     "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/jnjkhaira/blundell.wav",
     "JnJKhaira",
     "blundell. (Unreleased)",
-    "cassette-tape.svg"
+    "0"
 
   ],
   [
@@ -82,7 +92,7 @@ export const sidebarSongsArr = [
     "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/jnjkhaira/humdila.wav",
     "JnJKhaira",
     "humdila (Unreleased)",
-    "cassette-tape.svg"
+    "0"
 
   ],
 
@@ -98,13 +108,16 @@ export const sidebarSongsArr = [
   [
     "Slide",
     "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/Noturlover/Slide+-+Noturlover+(P.+Bakedboi).mp3",
-    "Noturlover (P. Bakedboi)"
+    "Noturlover (P. Bakedboi)",
+    "",
+    "4"
   ],
   [
     "Ayana",
     "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/Noturlover/Noturlover+-+Ayana+(prod+by+dax).mp3",
     "Noturlover",
     "Ayana (prod by dax)",
+    "3"
 
   ],
 
@@ -114,13 +127,17 @@ export const sidebarSongsArr = [
       "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/Rod+Lowkey/ROD+LOWKEY+-+97'+feat.+Art+Of+Max+(Prod.+Juno).mp3",
       "ROD LOWKEY",
       "97' feat. Art Of Max (Prod. Juno)",
+      "6"
+
   
     ],
     [
       "Hip Hop",
       "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/Rod+Lowkey/ROD+LOWKEY+-+Hip+Hop+feat.+DRAZI+(Prod.+Tek.Lun).mp3",
       "ROD LOWKEY",
-      "Hip Hop feat. DRAZI",
+      "",
+      "4"
+
   
     ],
 
@@ -168,6 +185,9 @@ export const sidebarSongsArr = [
       "Fish Out of Water",
       "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/Purple+Corporation/Purple+Corporation+-+Fish+Out+of+Water.mp3",
       "Purple Corporation",
+      "",
+      "",
+      "(Featured Artist)"
     ],
     [
       "Gamma Riders",

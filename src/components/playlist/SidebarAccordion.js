@@ -15,20 +15,21 @@ import '../../styles/accordion.css'
 
  
 export default function SidebarAccordion(props) {
-    const {songs} = useContext(playerContext)
-
+    const {artists} = useContext(playerContext)
+    const grey = "grey"
+    const black = "black"
     return (
-        <Accordion>
-            <SidebarAccordionItem artistName="Abscond" songIndexes={[0,1,2,3]}/>
-            <SidebarAccordionItem artistName="BabyGlobin" songIndexes={[4,5,6]}/>
-            <SidebarAccordionItem artistName="Bloodroot" songIndexes={[19,20]}/>
-            <SidebarAccordionItem artistName="Chai Sully" songIndexes={[7]}/>
-            <SidebarAccordionItem artistName="JnJKharia" songIndexes={[8,9,10,11]}/>
-            <SidebarAccordionItem artistName="Noturlover" songIndexes={[13, 14]}/>
-            <SidebarAccordionItem artistName="Purple Corp." songIndexes={[23, 24]}/>
-            <SidebarAccordionItem artistName="R.O.D. Lowkey" songIndexes={[15, 16]}/>
-            <SidebarAccordionItem artistName="raleighrain" songIndexes={[21, 22, 12]}/>
-            <SidebarAccordionItem artistName="Selah" songIndexes={[17, 18]}/>
+        <Accordion allowZeroExpanded>
+            <SidebarAccordionItem artist={artists[0]} songIndexes={[0,1,2,3]}color={grey}/>
+            <SidebarAccordionItem artist={artists[1]} songIndexes={[4,5,6]}color={black}/>
+            <SidebarAccordionItem artist={artists[2]} songIndexes={[19,20]}color={grey}/>
+            <SidebarAccordionItem artist={artists[3]} songIndexes={[7]}color={black}/>
+            <SidebarAccordionItem artist={artists[4]} songIndexes={[8,9,10,11]}color={grey}/>
+            <SidebarAccordionItem artist={artists[5]} songIndexes={[13, 14]}color={black}/>
+            <SidebarAccordionItem artist={artists[6]} songIndexes={[23, 24]}color={grey}/>
+            <SidebarAccordionItem artist={artists[7]} songIndexes={[15, 16]}color={black}/>
+            <SidebarAccordionItem artist={artists[8]} songIndexes={[21, 22, 12]}color={grey}/>
+            <SidebarAccordionItem artist={artists[9]} songIndexes={[17, 18]}color={black}/>
             
         </Accordion>
     );

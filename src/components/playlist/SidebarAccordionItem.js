@@ -11,17 +11,22 @@ import SidebarSongContainer from './SidebarSongContainer'
     import playerContext from './../../context/playerContext'
     import { useContext } from 'react'
     import ArtistBlock from './ArtistBlock'
+    import SidebarLinks from './SidebarLinks'
  
 // Demo styles, see 'Styles' section below for some notes on use.
  
 export default function SidebarAccordian(props) {
+    const openInNewTab = (url) => {
+        const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
+        if (newWindow) newWindow.opener = null
+    }
 
     return (
-            <AccordionItem>
+            <AccordionItem className={props.color}>
                 <AccordionItemHeading>
-                    <AccordionItemButton>
-                        {props.artistName}
-                    </AccordionItemButton>
+                  
+                        <SidebarLinks artist={props.artist}/>
+
                 </AccordionItemHeading>
                 <AccordionItemPanel>
                          <ArtistBlock songIndexes={props.songIndexes}/>

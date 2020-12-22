@@ -11,40 +11,35 @@ html,body {
 body {
   background-color: black;
   margin: 0;
-  font-family: helvetica neue;
+  font-family: "Helvetica Neue";
   font-weight: 500;
   color: white;
   font-size: 17px;
   justify-content: center;
 }
 
-.video-background{
-  position: fixed;
-  z-index: -1;
-  opacity: .5;
-}
 
 
 
 .top-controls {
   position: relative;
-  z-index: 5;
   opacity: 0;
   animation: fadeIn 2s;
-  animation-delay:  1s;
+  animation-delay: 1.7s;
   animation-fill-mode: forwards;
 }
 
 .bottom-controls {
   opacity: 0;
   animation: fadeIn 2s;
-  animation-delay:  1.5s;
+  animation-delay:  1.7s;
   animation-fill-mode: forwards;
+
+
 }
 
 .left-controls {
   position: relative;
-  z-index:5;
   
 }
 
@@ -88,11 +83,34 @@ h4 {
 }
 
 .rain_button {
-  width: 14px;
-  height: 20px;
+  width: 28px;
+  height: 28px;
   bottom: 0%;
+  cursor: pointer;
+  animation: fadeIn 1s;
 }
 
+.next {
+  position: absolute;
+  right: 8px;
+  
+}
+
+
+.prev {
+  position: absolute;
+  right: 58px;
+}
+
+.dir{
+    bottom: 19px;
+    cursor: pointer;
+    animation: fadeIn 1s;
+    cursor: pointer;
+    opacity: .7;
+    width: 13px;
+    height: 13px;  
+}
 
 
 .actions {
@@ -205,6 +223,9 @@ h4 {
       opacity: 1;
       transform: scale3d(1,1,1);
   }
+  100% {
+    opacity: 1;
+}
 }
 
 @keyframes fadeAndScale2 {
@@ -283,7 +304,10 @@ h4 {
   padding-right: 30px;
   padding-bottom: 13px;
   padding-left: 30px;
+  z-index: 5;
 }
+
+
 
 .ambience-controls {
   display: flex;
@@ -298,20 +322,31 @@ h4 {
 .vlme {
   display: flex;
   align-content: center;
-  top: 17px;
-
+  top: 31.5px;
+  cursor: pointer;
   width: 25px;
   position: absolute;
-  right: 0%;
+  right: 14px;
   transform: translate(-50%, -50%) rotate(-90deg);
+}
+.amb-controls{
+  position: absolute;
+  right: 0%;
+  width: 50px;
+  height: 50px;
 }
 
 .volum {
   padding-top: 10px;
   padding-right: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 0px;
   padding-left: 10px;
   transform: rotate(90deg);
+  opacity: 0;
+  animation: fade-in 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+
 }
 .volBars{
   position: absolute;
@@ -323,7 +358,7 @@ h4 {
   position: absolute;
   top: 7px;
   width: 60px;
-  left: 40px;
+  left: 43px;
   background: transparent;
   visibility: hidden;
   opacity: 0;
@@ -338,15 +373,15 @@ h4 {
   margin: 0;
 
   position: absolute;
-  top: 20px;
+  top:19px;
   width: calc(60px * .7);
-  left: 40px;
+  left: 43px;
 
   background: white;
   visibility: hidden;
 
   opacity: 0;
-  transition: visibility 0s, opacity 0.5s linear;
+  transition: visibility .2s, opacity 0.2s ease-out;  
 }
 #visible-volBar-background{
   pointer-events: none;
@@ -356,15 +391,16 @@ h4 {
   margin: 0;
 
   position: absolute;
-  top: 20px;
+  top: 19px;
   width: 60px;
-  left: 40px;
+  left: 43px;
 
   background: white;
   visibility: hidden;
 
   opacity: 0;
-  transition: visibility 0s, opacity 0.5s linear;
+  transition: visibility .2s, opacity .2s ease-out;  
+
 }
 
 .vlme:hover #visible-volBar{
@@ -383,6 +419,31 @@ h4 {
   opacity: 0;
 }
 
+.next-ambience{
+  visibility: visible;
+
+  opacity: 1;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+
+
+.dir:hover{
+  opacity: 1;
+
+}
+
+.prev-ambience{
+  visibility: visible;
+  opacity: 1;
+}
+
+/* 
+.amb-controls:hover > .prev-ambience{
+  visibility: hidden;
+  opacity: 0;
+} */
+
+
 #volBar::-moz-range-thumb {
   height: 10px;
   width: 3px;
@@ -396,26 +457,25 @@ h4 {
 .NowPlaying {
   margin-left: 44px;
   box-sizing: border-box;
+  animation: fade-in 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  font-size: 18px;
 }
 
 .top-controls {
   display: flex;
   align-items: center;
-  padding-bottom: 20px;
-}
-.top-controls span {
-  cursor: pointer;
-}
-
-.top-controls span:hover {
-  color: #2A6586;
+  padding-bottom: 19px;
 }
 
 .play {
-  top: 11.5px;
+  top: 14px;
+  left: 4px;
   transform: translateY(-55%);
   position: absolute;
-  z-index: 5;
+  cursor: pointer;
+
 }
 
 .play:active {
@@ -460,7 +520,6 @@ h4 {
   position: absolute;
   bottom: 6px;
   width: calc(100% - 60px);
-  z-index: 5;
 }
 
 .time-elapsed{
@@ -478,7 +537,7 @@ h4 {
     background-image: linear-gradient( 112.7deg,  rgba(162,247,241,1) 0.3%, rgba(199,146,255,1) 88.7% );
   }
   25% {
-   background-image: linear-gradient( 112.7deg,  rgba(162,247,241,1) 0.3%, rgba(199,146,255,1) 88.7% );
+   background-image: linear-gradient( 179.9deg,  rgba(141,154,190,1) 1.9%, rgba(244,179,78,1) 39.6%, rgba(235,124,88,1) 61.5%, rgba(235,124,88,1) 75%, rgb(19, 5, 18) 93% );
 
   }
   50% {
@@ -533,16 +592,24 @@ h4 {
 
 .time {
   position: absolute;
-  right: 60px;
+  right: 90px;
+  opacity: 0;
+  animation: fade-in 1s;
+  animation-delay: 3s;
+  animation-fill-mode: forwards;
 }
 
 .title {
   padding-top: 25px;
   padding-left: 27px;
   position: absolute;
-  z-index: 5;
+  z-index: 3;
   pointer-events: none;
 
+  opacity: 0;
+  animation: fadeIn 1.5s;
+  animation-delay:  .1s;
+  animation-fill-mode: forwards;
 }
 
 .header {
@@ -557,7 +624,7 @@ h4 {
   user-select: none;
   position: absolute;
   visibility: visible;
-
+  transition: all .2s ease-out;
 }
 
 .songContainer:hover {
@@ -574,5 +641,10 @@ h4 {
 
   .volum{
     display: none;
+  }
+
+  .title{
+    padding-top: 29px;
+    padding-left: 23px;
   }
 }

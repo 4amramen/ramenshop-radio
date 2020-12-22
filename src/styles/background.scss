@@ -24,9 +24,24 @@
 .background {
   opacity:0; 
   position: fixed;
-  z-index: -2;
+  z-index: -5;
   width: 100vw;
   height: 100vh;
   background-size: contain;
   @include fade( $num:5, $fade:25, $visible:5,);
+}
+
+
+@keyframes fade-out{
+  0%{
+    opacity: 0;
+  }
+
+ 50%{
+    opacity: .1;
+  }
+  
+ 100%{
+    opacity: 0;
+  }
 }

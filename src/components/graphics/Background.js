@@ -5,7 +5,7 @@ function Background() {
   let orderedBackgrounds = [ 
   //maybe 
    'linear-gradient( 0deg,  rgba(48,207,208,1) 11.2%, rgba(51,8,103,1) 92.5% )', 
-   'linear-gradient( 180deg,  rgba(0,0,0,1) 77.5%, rgba(0,77,84,.2) 94.5%, rgba(33,255,237,.2) 105.6% )', 
+  //  'linear-gradient( 180deg,  rgba(0,0,0,1) 77.5%, rgba(0,77,84,.2) 94.5%, rgba(33,255,237,.2) 105.6% )', 
   'linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%)',
   'linear-gradient( 0deg,  rgba(14,11,56,1) 11.2%, rgba(239,37,37,1) 91.1% )',
   'linear-gradient( 180deg,  rgba(255,78,80,.8) 11.2%, rgba(249,212,35,.8) 100.2% )',
@@ -32,11 +32,15 @@ function Background() {
   'linear-gradient( 181.2deg,  rgba(181,239,249,.6) 10.5%, rgba(254,254,254,.6) 86.8% )',
   'linear-gradient(to bottom, #414d0b, #727a17)',
   'linear-gradient(to bottom, #093028, #237a57)',
+  "linear-gradient( 111.1deg,  rgba(0,40,70,1) -4.8%, rgba(255,115,115,1) 82.7%, rgba(255,175,123,1) 97.2% )",
+  'linear-gradient( 179.9deg,  rgba(141,154,190,.7) 1.9%, rgba(244,179,78,.7) 39.6%, rgba(235,124,88,.7) 61.5%, rgba(235,124,88,.7) 75%, rgb(19, 5, 18,.7) 93% )'
   ]
   const [backgrounds, setBackgrounds] = useState(shuffleBackgrounds(orderedBackgrounds));  
   
   return (
     <div className="transition-backgrounds">
+        <div className="intro-background" style={{background: backgrounds[4]}}/>
+
         <div className="background" id="back1" style={{background: backgrounds[0]}}/>
         <div className="background" id="back2" style={{background: backgrounds[1]}}/>
         <div className="background" id="back3" style={{background: backgrounds[2]}}/>

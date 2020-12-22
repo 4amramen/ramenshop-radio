@@ -32,7 +32,7 @@ const Sidebar = (props) => {
             <div className={sideBarClass}>
                 <div className="sidebar-header"> 
                     <span className="sidebar-title">Featured Artists</span>
-                    <button className="close-button" onClick={closeHandler}>x</button>
+                    <button className="close-button grow" onClick={closeHandler}>x</button>
                 </div>
                 <SidebarAccordion/>
             </div>

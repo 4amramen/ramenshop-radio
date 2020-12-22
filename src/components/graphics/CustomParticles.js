@@ -1,12 +1,22 @@
-import React, { useContext } from 'react'
+import React, { useContext,} from 'react'
 import Particles from 'react-particles-js'
 import '../../styles/particles.css'
+import playerContext from '../../context/playerContext'
+import { Background } from 'tsparticles/dist/Options/Classes/Background/Background'
+
 
 
 function CustomParticles() {
 
+
+  const {
+		show,
+	} = useContext(playerContext)
+
+
+	if(!show){
   return (
-      <Particles className= "particles screen"  params={{
+      <Particles className= "particles-galaxy screen" params={{
         "particles": {
       "number": {
         "value": 40,
@@ -39,7 +49,7 @@ function CustomParticles() {
         }
       },
       "size": {
-        "value": 3,
+        "value": 2.9,
         "random": true,
         "anim": {
         "enable": true,
@@ -52,7 +62,7 @@ function CustomParticles() {
         "enable": true,
         "distance": 200,
         "color": "#fff",
-        "opacity": 0.2,
+        "opacity": 0.1,
         "width": .5
       },
       "move": {
@@ -92,7 +102,7 @@ function CustomParticles() {
         },
         "bubble": {
         "distance": 150,
-        "size": 9,
+        "size": 6,
         "duration": 5,
         "opacity": 8,
         "speed": 10,
@@ -111,7 +121,11 @@ function CustomParticles() {
       },
       "retina_detect": true
     }} />
-  )
+  )}
+  else{
+
+      return null;
+  }
 }
 
 export default CustomParticles

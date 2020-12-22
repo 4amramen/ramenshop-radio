@@ -2,7 +2,7 @@
 .background {
     opacity:0; 
     position: fixed;
-    z-index: -2;
+    z-index: -4;
     width: 100vw;
     height: 100vh;
     background-size: contain;
@@ -32,3 +32,19 @@
     100% { opacity: 0; }
   } */
   
+  
+
+  @keyframes fade-in-out {
+    0% {
+        opacity: 0;
+    }
+    10%{
+      opacity: 1;
+    }
+    50%{
+      opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}

@@ -1,7 +1,8 @@
 import {
   SET_CURRENT_SONG,
   SET_POLYGONMASK,
-  TOGGLE_SHOW_POLYGON,
+  SHOW_POLYGON,
+  HIDE_POLYGON,
   TOGGLE_RANDOM,
   TOGGLE_REPEAT,
   TOGGLE_PLAYING,
@@ -10,8 +11,13 @@ import {
   SET_CLICKED,
   TOGGLE_AMBIENCE_AUDIO_GLOBAL
 } from './types'
+import React, { useState, useEffect, useRef, useContext } from 'react'
+
+
+
 
 export default (state, action) => {
+
   switch (action.type) {
     case SET_CURRENT_SONG:
       return {
@@ -35,11 +41,16 @@ export default (state, action) => {
         ...state,
         ambienceAudioGlobal: action.data,
       }
-    case TOGGLE_SHOW_POLYGON:
+    case SHOW_POLYGON:
         return {
           ...state,
           show: action.data,
         }
+    case HIDE_POLYGON:
+    return {
+      ...state,
+      show: action.data,
+    }
     case TOGGLE_RANDOM:
       return {
         ...state,
@@ -63,7 +74,7 @@ export default (state, action) => {
     case SET_CLICKED:
       return {
           ...state,
-          clicked: true
+          clicked: action.data
         }
       
     default:

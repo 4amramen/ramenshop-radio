@@ -10,12 +10,18 @@ const ArtistBlock = (props) => {
     const {songs} = useContext(playerContext)
 
     return(
+        <div>
+             <hr className="line top-line"/>
+
              <div className="artist-songs">
+
                 {props.songIndexes.map((index, i) =>
                  <SidebarSongContainer song={songs[index]} i={index} />
                 )}
              </div>
-                
+             <hr className="line bottom-line"/>
+
+        </div>
     )
 }
 

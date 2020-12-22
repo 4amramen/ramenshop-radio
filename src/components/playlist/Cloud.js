@@ -21,18 +21,28 @@ const [songPositions, setSongPositions] = useState(getRandomSongPositions(props.
 
 function getRandomSongPositions(introSongs) {
   let songPositions = [];
+    let delayCount = 0;
+    let delayAlterCurve = 0;
+  let leftBound = 0;
   for(let i = 0; i<introSongs.length; i++){
-    
-    let bottom = getRandom(90, 15)+getRandom(1,0);
-    let left = getRandom(90, 10)+getRandom(1,0);
+    let bottom = getRandom(90, 10)+getRandom(1,0);
+    let left = getRandom(leftBound+5, leftBound+3)+getRandom(1,0);
     let right = 0;
-    let introOrder = getRandom(3,1);
-    
+    let introOrder = 1;
+    let delay = delayCount;
+    leftBound+=5;
+    delayCount+=1.5;
+
+    if(i>=3){
+      delayCount-=delayAlterCurve;
+      delayAlterCurve+=.1;
+    }
+
     if(left>85){
         right = getRandom(10, 0);
     }
     //assign positions
-    songPositions[i] = [left, bottom, right, introOrder];
+    songPositions[i] = [left, bottom, right, introOrder, delay];
   }
   return songPositions;
 }

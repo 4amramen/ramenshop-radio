@@ -3,6 +3,7 @@ import playerContext from '../context/playerContext'
 import NowPlaying from './graphics/NowPlaying'
 import { useMediaQuery } from 'react-responsive'
 
+import {Carousel} from '3d-react-carousal';
 
 function Controls() {
 
@@ -26,7 +27,7 @@ function Controls() {
     toggleAmbiencePlaying,
     toggleAmbienceAudioGlobal,
     ambienceAudioGlobal,
-
+    nextAmbience,
     handleEndOfAmbience,
     clicked,
     SetClicked
@@ -37,6 +38,14 @@ function Controls() {
   const timeElapsed = document.querySelector(".time-elapsed")
   const volumeLevel = document.querySelector("#visible-volBar")
   const isMobile = useMediaQuery({ maxWidth: 768 })
+
+  //carousel 
+
+  let slides = [
+    <img  src="buttons/rain_button.png" alt="1" />,
+    <img  src="buttons/fireplace_button.png" alt="2" />  ,
+    <img  src="buttons/wave_button.png" alt="3" />  ,
+];
 
   // self State
   const [statevolum, setStateVolum] = useState(1)
@@ -138,11 +147,13 @@ function Controls() {
                 if (!clicked)
                 {
                   console.log("first click");
-                  SetClicked();
+                  SetClicked(1);
                   toggleAmbiencePlaying();
                   toggleAmbienceAudio();
                   console.log(ambienceAudioGlobal);
 
+                }else if (clicked == 1){
+                  SetClicked(2);
                 }
                 if (isMobile && clicked){
                   toggleAmbiencePlaying();
@@ -154,37 +165,68 @@ function Controls() {
                 toggleAudio();
                 }}>
 
-              <img className= {!playing ? 'play_button' : 'play_button hide'} src="buttons/play_button.png"></img>
-              <img className= {playing ?  'pause_button' : 'pause_button hide'} src="buttons/pause_button.png"></img>
+              <img className= {!playing ? 'play_button grow' : 'play_button hide'} src="buttons/play_button.png"></img>
+              <img className= {playing ?  'pause_button grow' : 'pause_button hide'} src="buttons/pause_button.png"></img>
 
             </span>
 
           < NowPlaying />
+                  {/* <Carousel slides={slides} autoplay={false}/> */}
+
+
         </div>
         
         <span className="time">{fmtMSS(currentTime) + " / " + fmtMSS(dur)}</span>
 
-            
-        <div className="vlme">
+         
+    <div className="amb-controls">
+        <div className="vlme" >
+          
             <span className="volum" onClick={() => {
               if(stateambiencevolum){
                 setlastAmbienceVolum(stateambiencevolum);
                 handleAmbienceVolume(0);
               } else {
                 handleAmbienceVolume(lastambiencevolum);
-              }
-            }}>
-              <img className="rain_button" src="buttons/rain_button.png"></img>
+              }}}>
+              {
+              <img className="rain_button" 
+              src={currentAmbience%3==0 ? "buttons/rain_button.png" 
+                  : currentAmbience%3==1 ? "buttons/fireplace_button.png"
+                  : "buttons/wave_button.png"}></img>
+                  }
             </span>
+              
             <div className="volBars">
               <input value={Math.round(stateambiencevolum * 100)} type="range" name="volBar" id="volBar" 
                 onChange={(e) => handleAmbienceVolume(e.target.value / 100)} />
               <span id="visible-volBar"/>  
               <span id="visible-volBar-background"/>  
-            </div>      
-
+            </div> 
         </div>
 
+        <div className="prev-ambience"onClick={() => {
+              if (!clicked){
+                SetClicked(1);
+              }
+              nextAmbience();
+            }}>
+                <img className="dir prev grow" 
+                  src={"buttons/prev.png" }></img>
+              </div>  
+        <div className="next-ambience"  onClick={() => {
+              if (!clicked){
+                SetClicked(1);
+              }
+              nextAmbience();
+            }}>
+                <img className="dir next grow" 
+                  src={"buttons/next.png" }></img>
+          </div>  
+
+        
+        
+       </div>
        </div>
 
       <div className="bottom-controls">
@@ -217,5 +259,7 @@ function Controls() {
     </div>
   )
 }
+
+
 
 export default Controls

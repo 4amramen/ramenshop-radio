@@ -5,7 +5,7 @@ function Row(props){
 const { SetCurrent, random1, random2, random3, SetCurrentAmbience, currentSong, clicked, toggleAmbiencePlaying, SetClicked, } = useContext(playerContext)
 
   var songPositions = [];
-  var songSizes = [13, 14, 17];
+  var songSizes = [13, 14, 19];
   var songOpacities = [.30, .60, 1];
 
   var left = 0;
@@ -15,11 +15,10 @@ const { SetCurrent, random1, random2, random3, SetCurrentAmbience, currentSong, 
   for(let i = 0; i<props.cloudSongs.length; i++){
     
     var deg = 30;
-    var randomDeg1 = random1*deg;
-    var randomDeg2 = random2*deg/3;
+
     var spread = 100/props.cloudSongs.length;
 
-    var right = 0;  
+    var right = 5;  
     var b = 0;
     // align words into cloud cases
     left+=spread;

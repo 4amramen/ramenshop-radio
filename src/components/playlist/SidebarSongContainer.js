@@ -1,39 +1,53 @@
 import { Component } from "react";
 import React, { useContext, useState } from 'react'
 import playerContext from '../../context/playerContext'
+import { useMediaQuery } from 'react-responsive'
+
 
 
 
 function SidebarSongContainer(props){
-    const { SetCurrent, random1, random2, random3, SetCurrentAmbience, currentSong, clicked, toggleAmbiencePlaying, SetClicked, } = useContext(playerContext)
-    let songSizes = [13, 14, 17];
-    let songOpacities = [.30, .60, 1];
-    const [delay, setDelay] = useState(getRandom(0,15));
-    const [speed, setSpeed] = useState(getRandom(30,55));
-    let fullDelay = delay + props.cloudDelay;
+    const { songs, SetPolygonMask, ShowPolygon, SetCurrent, ambiencePlaying, toggleAmbienceAudioGlobal, SetCurrentAmbience, currentSong, clicked, toggleAmbiencePlaying, SetClicked, svgs} = useContext(playerContext)
+    const isMobile = useMediaQuery({ maxWidth: 768 })
 
     let i = props.i;
-    let songPosition = props.songPosition;
     let song = props.song;
-    // console.log("sb song: " + props.song);
-    
-    // console.log(fullDelay);
         return (
-        <div className={'sidebar-song-container ' + (currentSong === props.i ? 'selected' : '')} key={i} onClick={() => { 
-                  if (!clicked)
-                {
-                  console.log("first click");
-                  toggleAmbiencePlaying();
-                  SetCurrentAmbience(1);
-                  SetClicked();
-                }
-                    SetCurrent(i);
-                }
-                }>
+        <div className={'sidebar-song-container ' + (songs[currentSong][1] === song[1] ? 'selected' : '')} key={i} onClick={() => { 
                   
-                  <span className="song" style={{
+          if (!clicked)
+        {
+          SetClicked(1);
+
+          console.log("first click");
+          SetCurrentAmbience(3);
+          toggleAmbiencePlaying();
+          
+        }else if (clicked == 1){
+          SetClicked(2);
+        }
+        if (isMobile && clicked){
+          if(!ambiencePlaying){
+            toggleAmbiencePlaying();
+            toggleAmbienceAudioGlobal();
+          }
+        }
+          if(songs[currentSong][1]!=song[1]){
+            SetCurrent(i);
+          }
+          console.log(i);
+          let polygonMask = svgs[song[4]];
+          
+          if(polygonMask != undefined){
+            SetPolygonMask(polygonMask);
+            ShowPolygon();
+          }
+        }
+        }>
+                  
+          <span className="song" style={{
                 }}
-            >{props.song[0]}</span>
+            >{song[0]}</span>
 
                 </div>
     )

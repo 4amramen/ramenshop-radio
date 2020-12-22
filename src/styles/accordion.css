@@ -8,25 +8,39 @@
     border-radius: 2px;
 }
 
+.black {
+    background-color: black;
+} 
+
+.grey {
+    background-color: #0f0f0f;
+
+} 
+
 .accordion__item + .accordion__item {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
-
-.accordion__button {
-    background-color: black;
-    color: white;
+.accordion-button {
     cursor: pointer;
     padding: 18px;
     width: 100%;
     text-align: left;
     border: none;
+    font-style: italic;
+    font-weight: 400;
+    outline: none;
 }
 
-.accordion__button:hover {
-    background-color: grey;
+
+.accordion-button:hover {
+    background-color: rgb(65, 65, 65);
 }
 
-.accordion__button:before {
+.accordion-button[aria-expanded="true"]{
+    background-color: rgb(77, 77, 77);
+}
+
+.accordion-button:before {
     display: inline-block;
     content: '';
     height: 10px;
@@ -38,7 +52,7 @@
 }
 
 
-.accordion__button:after {
+.accordion-button:after {
     position: absolute;
 
     left: -21px;
@@ -46,20 +60,20 @@
     height: 10px;
     width: 1px;
     margin-left: 40px;
-    margin-top: 7px;
+    margin-top: 6px;
 
     background-color: white;
 
 }
 
-.accordion__button[aria-expanded='true']::after,
-.accordion__button[aria-selected='true']::after {
+.accordion-button[aria-expanded='true']::after,
+.accordion-button[aria-selected='true']::after {
     transform: rotate(90deg);
     transition: transform .35s cubic-bezier(.65, .05, .36, 1);
 }
 
-.accordion__button[aria-expanded='false']::after,
-.accordion__button[aria-selected='false']::after {
+.accordion-button[aria-expanded='false']::after,
+.accordion-button[aria-selected='false']::after {
     transition: transform .35s cubic-bezier(.65, .05, .36, 1);
 }
 

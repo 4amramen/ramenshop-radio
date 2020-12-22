@@ -4,6 +4,9 @@ import playerReducer from './playerReducer';
 import { songsArr } from './songs';
 import { sidebarSongsArr } from './sidebarSongs';
 import { ambienceArr } from './ambience';
+import { svgsArr } from './svgs';
+import { artistsArr } from './artists'
+
 
 import {
   SET_CURRENT_SONG,
@@ -14,7 +17,8 @@ import {
   TOGGLE_AMBIENCE_PLAYING,
   SET_CLICKED,
   SET_POLYGONMASK,
-  TOGGLE_SHOW_POLYGON,
+  SHOW_POLYGON,
+  HIDE_POLYGON,
   TOGGLE_AMBIENCE_AUDIO_GLOBAL
 } from './types'
 
@@ -36,14 +40,15 @@ const PlayerState = props => {
 
     songs: songs,
     ambience: ambienceArr,
-
+    artists: artistsArr,
+    svgs: svgsArr,
     repeat: false,
     random: true,
 
     playing: false,
     ambiencePlaying: false,
 
-    clicked: false,
+    clicked: 0,
 
     polygonMask: null,
     show: false,
@@ -65,15 +70,16 @@ const PlayerState = props => {
     dispatch({ type: SET_POLYGONMASK, data: svg })
   }
 
-  const toggleShowPolygon = () => dispatch({ type: TOGGLE_SHOW_POLYGON, data: state.show ? false : true })
+  const ShowPolygon = () => dispatch({ type: SHOW_POLYGON, data: true })
 
+  const HidePolygon = () => dispatch({ type: HIDE_POLYGON, data: false })
 
    // SET CURRENT AMBIENCE
   const SetCurrentAmbience = id => dispatch({ type: SET_CURRENT_AMBIENCE, data: id });
 
   // Clicked
 
-  const SetClicked = () => dispatch({ type: SET_CLICKED, data: true })
+  const SetClicked = (numClicks) => dispatch({ type: SET_CLICKED, data: numClicks })
 
 
   const toggleAmbienceAudioGlobal = () => dispatch({ type: TOGGLE_AMBIENCE_AUDIO_GLOBAL, data: state.ambienceAudioGlobal ? false : true })
@@ -149,6 +155,8 @@ const PlayerState = props => {
       songs: state.songs,
       songsOffset: state.songsOffset,
       ambience: state.ambience,
+      artists: state.artists,
+      svgs: state.svgs,
 
       repeat: state.repeat,
       random: state.random,
@@ -158,7 +166,7 @@ const PlayerState = props => {
       ambienceAudioGlobal: state.ambienceAudioGlobal,
 
       show: state.show,
-     
+      polygonMask: state.polygonMask,
 
       clicked: state.clicked,
 
@@ -181,7 +189,9 @@ const PlayerState = props => {
       SetClicked,
 
       SetPolygonMask,
-      toggleShowPolygon,
+      ShowPolygon,
+      HidePolygon,
+
       toggleAmbienceAudioGlobal
     }}>
 

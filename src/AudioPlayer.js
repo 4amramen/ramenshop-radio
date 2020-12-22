@@ -46,8 +46,8 @@ function AudioPlayer() {
         {sidebar}
         <Toggle click={openHandler}/>
 
-        {/* <CustomParticles/> */}
-        <PolygonMaskParticles />
+        <CustomParticles/>
+        <PolygonMaskParticles/>
 
         {/* <VideoBackground/> */}
         <Background/>

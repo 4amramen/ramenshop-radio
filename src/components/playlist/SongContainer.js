@@ -6,7 +6,7 @@ import { useMediaQuery } from 'react-responsive'
 
 
 function SongContainer(props){
-    const { ambiencePlaying, SetCurrent, SetCurrentAmbience, toggleAmbienceAudioGlobal, currentAmbience, currentSong, clicked, toggleAmbiencePlaying, SetClicked, } = useContext(playerContext)
+    const { svgs, songs, HidePolygon, ShowPolygon, SetPolygonMask, ambiencePlaying, SetCurrent, SetCurrentAmbience, toggleAmbienceAudioGlobal, currentAmbience, currentSong, clicked, toggleAmbiencePlaying, SetClicked, } = useContext(playerContext)
     let songSizes = [13, 14, 17];
     let songOpacities = [.30, .60, 1];
     const [delay, setDelay] = useState(getRandom(0,30));
@@ -14,6 +14,7 @@ function SongContainer(props){
     const [introSpeed, setIntroSpeed] = useState(getRandom(45,60));
 
     let fullDelay = delay + props.cloudDelay;
+    let introDelay = delay/parseFloat(28);
   
     const isMobile = useMediaQuery({ maxWidth: 768 })
 
@@ -22,12 +23,13 @@ function SongContainer(props){
     let song = props.song;
     
         return (
-        <div className={'songContainer' + ' fall-' + props.i + ' ' + (currentSong === props.offset+i ? 'selected' : '')} key={i} style={
+        <div className={'songContainer' + ' fall-' + props.i + ' ' + (songs[currentSong][1] === song[1] ? 'selected' : '')} key={i} style={
                   {
+                    cursor: "pointer",
                     fontSize: songSizes[i%3],
                     opacity: songOpacities[i%3],
                     animation: props.intro ? 'falling_words ' + introSpeed + 's ease-in-out' : 'falling_words ' + speed + 's ease-in-out',
-                    animationDelay: props.intro ? delay/10 + 's' : fullDelay + 's',
+                    animationDelay: props.intro ? '' : fullDelay + 's',
                     left: (songPosition[0]%100)>85 ? '' : songPosition[0]%100 +'vw', 
                     right: songPosition[0]%100>85 ? songPosition[2]+'%': '',
                     bottom: songPosition[1] + '%',
@@ -39,12 +41,13 @@ function SongContainer(props){
                   
                   if (!clicked)
                 {
-                  SetClicked();
-
+                  SetClicked(1);
                   console.log("first click");
-                  SetCurrentAmbience(1);
+                  SetCurrentAmbience(3);
                   toggleAmbiencePlaying();
                   
+                } else if (clicked == 1){
+                  SetClicked(2);
                 }
                 if (isMobile && clicked){
                   if(!ambiencePlaying){
@@ -52,18 +55,31 @@ function SongContainer(props){
                     toggleAmbienceAudioGlobal();
                   }
                 }
+                if(songs[currentSong][1]!=song[1]){
                   SetCurrent(props.offset+i);
+                }
+                  let polygonMask = svgs[song[4]];
+                  console.log(props.offset+i);
+                  
+                  if(polygonMask != undefined){
+                    SetPolygonMask(polygonMask);
+                    ShowPolygon();
+                  }else{
+                    HidePolygon();
+                  }
                 }
                 }>
                   
                   <span className="song" style={{
                     animation: props.intro ? 'fadeAndScale' + songPosition[3] +' 2s ease-in' : '',
                     animationFillMode: props.intro ? 'forwards' : '',
-                    animationDelay: fullDelay + 's',
+                    animationDelay: songPosition[4]/parseFloat(20) + 's',
+                    opacity: props.intro ? 0 : 1,
+
                     transformOrigin: 'center bottom',
 
-                }}
-            >{song[0]}</span>
+                      }}
+                  >{song[0]}</span>
               
                 </div>
     )
@@ -71,6 +87,10 @@ function SongContainer(props){
 
 function getRandom(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+function setPolygonMask(svg){
+  
 }
 
 export default SongContainer;

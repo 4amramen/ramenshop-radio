@@ -1,6 +1,6 @@
 export const songsArr = [
   [
-    "not enough",
+    "Not Enough",
     "https://ramenshop-radio.s3-us-west-2.amazonaws.com/not+enough.wav",
     "blindforlove",
   ],  
@@ -265,7 +265,7 @@ export const songsArr = [
     "Robert Glasper · Erykah Badu"
   ],
   [
-    "like you",
+    "Like You (flip 2)",
     "https://ramenshop-radio.s3-us-west-2.amazonaws.com/my+main+is+lvusm+-+like+you+flip+number+2.mp3",
     "lvusm",
     "like you flip number 2",
@@ -319,7 +319,7 @@ export const songsArr = [
     "Thrice Groove"
   ],
   [   
-    "Trey's Bop",
+    "Boyz N' Tha Hood Interlude",
     "https://ramenshop-radio.s3-us-west-2.amazonaws.com/DeeDONTCARE+%7C%E3%83%88%E3%82%99%E3%82%A5%E3%82%A8%E3%82%A4%E3%83%B3+-+Boyz+N'+Tha+Hood+Interlude+%5BTrey's+Bop%5D-1.mp3",
     "DeeDONTCARE",
     "Boyz N' Tha Hood Interlude [Trey's Bop]",
@@ -374,6 +374,7 @@ export const songsArr = [
       "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/abscvnd/abscond+-+before+i+wake+(demo).mp3",
       "abscond",
       "before i wake (demo)",
+      "5"
   
     ],
     [
@@ -386,6 +387,7 @@ export const songsArr = [
       "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/abscvnd/RUN+-+AMBEDO+EXCERPT+01_03.mp3",
       "abscond",
       "RUN - AMBEDO EXCERPT 01_03",
+      "5"
   
     ],
     [
@@ -405,12 +407,18 @@ export const songsArr = [
     [
       "Hurry Up",
       "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/BabyGlobin/BabyGlobin+-+Hurry+Up.mp3",
-      "BabyGlobin"
+      "BabyGlobin",
+      "Hurry Up",
+      "2"
+
     ],
     [
       "RESTART",
       "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/BabyGlobin/BabyGlobin+-+RESTART.mp3",
-      "BabyGlobin"
+      "BabyGlobin",
+      "RESTART",
+      "2"
+
     ],
   
   //Chai
@@ -418,7 +426,9 @@ export const songsArr = [
     [
       "Tangerine",
       "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/Chai/Chai+-+Tangerine+-+good+quality.mp3",
-      "Chai"
+      "Chai",
+      "Tangerine",
+      "1"
     ],
   
   //JnJKharia
@@ -435,7 +445,7 @@ export const songsArr = [
       "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/jnjkhaira/blundell.wav",
       "JnJKhaira",
       "blundell. (Unreleased)",
-      "cassette-tape.svg"
+      "0"
     ],
     [
       "earth strong.",
@@ -448,7 +458,7 @@ export const songsArr = [
       "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/jnjkhaira/humdila.wav",
       "JnJKhaira",
       "humdila (Unreleased)",
-      "cassette-tape.svg"
+      "0"
     ],
   
   // Matt Brade
@@ -463,13 +473,16 @@ export const songsArr = [
     [
       "Slide",
       "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/Noturlover/Slide+-+Noturlover+(P.+Bakedboi).mp3",
-      "Noturlover (P. Bakedboi)"
+      "Noturlover (P. Bakedboi)",
+      "",
+      "4"
     ],
     [
       "Ayana",
       "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/Noturlover/Noturlover+-+Ayana+(prod+by+dax).mp3",
       "Noturlover",
       "Ayana (prod by dax)",
+      "3"
   
     ],
   
@@ -479,6 +492,8 @@ export const songsArr = [
         "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/Rod+Lowkey/ROD+LOWKEY+-+97'+feat.+Art+Of+Max+(Prod.+Juno).mp3",
         "ROD LOWKEY",
         "97' feat. Art Of Max (Prod. Juno)",
+        "6"
+
     
       ],
       [
@@ -486,6 +501,7 @@ export const songsArr = [
         "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/Rod+Lowkey/ROD+LOWKEY+-+97'+feat.+Art+Of+Max+(Prod.+Juno).mp3",
         "ROD LOWKEY",
         "Hip Hop feat. DRAZI",
+    "4"
     
       ],
   
@@ -534,6 +550,9 @@ export const songsArr = [
         "Fish Out of Water",
         "https://ramenshop-radio.s3-us-west-2.amazonaws.com/Homie+Tracks/Purple+Corporation/Purple+Corporation+-+Fish+Out+of+Water.mp3",
         "Purple Corporation",
+        "",
+        "",
+        "(Featured Artist)"
       ],
       [
         "Gamma Riders",
