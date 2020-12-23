@@ -23,7 +23,7 @@ import {
 } from './types'
 
 const songs =  sidebarSongsArr.concat( songsArr.sort(() => Math.random() - 0.5));
-// console.log(songs);
+console.log(songs);
 const random1 = Math.random();
 const random2 = Math.random();
 const random3 = Math.random();
@@ -98,7 +98,12 @@ const PlayerState = props => {
     if (state.currentSong === state.songs.length - 1) {
       SetCurrent(0)
     } else {
-      SetCurrent(state.currentSong + 1)
+      let randomCurrent = state.currentSong;
+      while(randomCurrent!=state.currentSong){
+         randomCurrent = Math.floor(Math.random() * ((state.songs.length-1)-sidebarSongsArr.length)) + sidebarSongsArr.length;
+      }
+
+      SetCurrent(randomCurrent)
     }
   }
 
@@ -125,8 +130,6 @@ const PlayerState = props => {
     } else {
       if (state.repeat) {
         nextSong()
-      } else if ((state.currentSong === state.songs.length - 1)) {
-        return
       } else {
         nextSong();
       }

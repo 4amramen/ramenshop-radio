@@ -592,7 +592,7 @@ h4 {
 
 .time {
   position: absolute;
-  right: 90px;
+  right: 100px;
   opacity: 0;
   animation: fade-in 1s;
   animation-delay: 3s;

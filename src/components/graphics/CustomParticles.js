@@ -101,7 +101,7 @@ function CustomParticles() {
         }
         },
         "bubble": {
-        "distance": 150,
+        "distance": 70,
         "size": 6,
         "duration": 5,
         "opacity": 8,
