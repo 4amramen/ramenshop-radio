@@ -6,7 +6,7 @@ function NowPlaying() {
 
   return (
     <div className = "NowPlaying" >
-        <span>{songs[currentSong][3] ? songs[currentSong][2] + " - " + songs[currentSong][3] + "  " +  (songs[currentSong][5] ? songs[currentSong][5] : "") : songs[currentSong][2] + " - " + songs[currentSong][0] + "   " + (songs[currentSong][5] ? songs[currentSong][5] : "")  }</span>
+        <span>{songs[currentSong][3] ? songs[currentSong][2] + " - " + songs[currentSong][3] + "  " +  (songs[currentSong][6] ? songs[currentSong][6] : "") : songs[currentSong][2] + " - " + songs[currentSong][0] + "   " + (songs[currentSong][6] ? songs[currentSong][6] : "")  }</span>
     </div>
   )
 }

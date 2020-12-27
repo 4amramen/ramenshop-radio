@@ -19,7 +19,7 @@ function CustomParticles() {
       <Particles className= "particles-galaxy screen" params={{
         "particles": {
       "number": {
-        "value": 40,
+        "value": 35,
         "density": {
         "enable": true,
         "value_area": 700
@@ -39,12 +39,12 @@ function CustomParticles() {
         }
       },
       "opacity": {
-        "value": 1,
+        "value": .8,
         "random": true,
         "anim": {
         "enable": true,
         "speed": .7,
-        "opacity_min": 0,
+        "opacity_min": .2,
         "sync": false
         }
       },

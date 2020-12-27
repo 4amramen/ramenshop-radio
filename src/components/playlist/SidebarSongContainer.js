@@ -9,9 +9,9 @@ import { useMediaQuery } from 'react-responsive'
 function SidebarSongContainer(props){
     const { songs, SetPolygonMask, ShowPolygon, SetCurrent, ambiencePlaying, toggleAmbienceAudioGlobal, SetCurrentAmbience, currentSong, clicked, toggleAmbiencePlaying, SetClicked, svgs} = useContext(playerContext)
     const isMobile = useMediaQuery({ maxWidth: 768 })
-
-    let i = props.i;
     let song = props.song;
+
+    let i = song[5];
         return (
         <div className={'sidebar-song-container ' + (songs[currentSong][1] === song[1] ? 'selected' : '')} key={i} onClick={() => { 
                   

@@ -15,13 +15,31 @@ import Toggle from './components/Toggle'
 import DimOverlay from './components/graphics/DimOverlay';
 import VideoBackground from './components/VideoBackground';
 
+
+
+import ReactGA from 'react-ga';
+
+const trackingId = "UA-186084933-1"
+ReactGA.initialize(trackingId);
+
+
+
+
 function AudioPlayer() {
+
+  const handleGAEvent = () => {
+    ReactGA.event({
+        category: "Sidebar Click",
+        action: "User clicked on sidebar",
+      });
+}
 
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
     const openHandler = () => {
         if (!sidebarOpen){
             setSidebarOpen(true)
+            handleGAEvent();
         } else {
             setSidebarOpen(false)
         }

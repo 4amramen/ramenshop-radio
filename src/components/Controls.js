@@ -28,6 +28,7 @@ function Controls() {
     toggleAmbienceAudioGlobal,
     ambienceAudioGlobal,
     nextAmbience,
+    prevAmbience,
     handleEndOfAmbience,
     clicked,
     SetClicked
@@ -209,7 +210,7 @@ function Controls() {
               if (!clicked){
                 SetClicked(1);
               }
-              nextAmbience();
+              prevAmbience(true);
             }}>
                 <img className="dir prev grow" 
                   src={"buttons/prev.png" }></img>
@@ -218,7 +219,7 @@ function Controls() {
               if (!clicked){
                 SetClicked(1);
               }
-              nextAmbience();
+              nextAmbience(true);
             }}>
                 <img className="dir next grow" 
                   src={"buttons/next.png" }></img>

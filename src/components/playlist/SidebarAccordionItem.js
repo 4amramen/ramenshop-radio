@@ -29,7 +29,8 @@ export default function SidebarAccordian(props) {
 
                 </AccordionItemHeading>
                 <AccordionItemPanel>
-                         <ArtistBlock songIndexes={props.songIndexes}/>
+                    
+                         <ArtistBlock artist={props.artist}/>
                 </AccordionItemPanel>
             </AccordionItem>
     );

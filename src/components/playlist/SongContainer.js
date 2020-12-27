@@ -8,7 +8,7 @@ import { useMediaQuery } from 'react-responsive'
 function SongContainer(props){
     const { svgs, songs, HidePolygon, ShowPolygon, SetPolygonMask, ambiencePlaying, SetCurrent, SetCurrentAmbience, toggleAmbienceAudioGlobal, currentAmbience, currentSong, clicked, toggleAmbiencePlaying, SetClicked, } = useContext(playerContext)
     let songSizes = [13, 14, 17];
-    let songOpacities = [.30, .60, 1];
+    let songOpacities = [.3, .60, 1];
     const [delay, setDelay] = useState(getRandom(0,30));
     const [speed, setSpeed] = useState(getRandom(30,55));
     const [introSpeed, setIntroSpeed] = useState(getRandom(45,60));

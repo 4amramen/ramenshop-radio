@@ -6,7 +6,7 @@ const { SetCurrent, random1, random2, random3, SetCurrentAmbience, currentSong, 
 
   var songPositions = [];
   var songSizes = [13, 14, 19];
-  var songOpacities = [.30, .60, 1];
+  var songOpacities = [.4, .60, 1];
 
   var left = 0;
   var bottom = 0;

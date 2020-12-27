@@ -8,8 +8,6 @@ export const sidebarSongsArr = [
     "abscond",
     "before i wake (demo)",
     "5"
-
-
   ],
   [
     "FAUST",

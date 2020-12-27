@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactGA from 'react-ga';
+
 
 // Demo styles, see 'Styles' section below for some notes on use.
  
@@ -17,6 +19,15 @@ export default function SidebarLinks(props) {
     const openInNewTab = (url) => {
         const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
         if (newWindow) newWindow.opener = null
+        handleGAEvent(url);
+
+    }
+
+    const handleGAEvent = (url) => {
+        ReactGA.event({
+            category: "Link Click: " + name,
+            action: "User went to: " + url,
+          });
     }
     if(spotify!="" && soundcloud!=""){
         return (
@@ -50,3 +61,4 @@ export default function SidebarLinks(props) {
         )
     } else return null;
 }
+

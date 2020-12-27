@@ -15,9 +15,10 @@ import '../../styles/accordion.css'
 
  
 export default function SidebarAccordion(props) {
-    const {artists} = useContext(playerContext)
+    const {artists, sidebarSongsMap} = useContext(playerContext)
     const grey = "grey"
     const black = "black"
+
     return (
         <Accordion allowZeroExpanded>
             <SidebarAccordionItem artist={artists[0]} songIndexes={[0,1,2,3]}color={grey}/>
@@ -30,7 +31,6 @@ export default function SidebarAccordion(props) {
             <SidebarAccordionItem artist={artists[7]} songIndexes={[15, 16]}color={black}/>
             <SidebarAccordionItem artist={artists[8]} songIndexes={[21, 22, 12]}color={grey}/>
             <SidebarAccordionItem artist={artists[9]} songIndexes={[17, 18]}color={black}/>
-            
         </Accordion>
     );
 }

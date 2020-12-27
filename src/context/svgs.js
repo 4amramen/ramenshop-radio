@@ -442,7 +442,7 @@ export const svgsArr = [
 				"draw": {
 					"enable": true,
 					"stroke": {
-						"color": "rgba(255, 255, 255, .2)"
+						"color": "rgba(255, 255, 255, .5)"
 					}
 				}
 			},

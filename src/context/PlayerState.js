@@ -2,7 +2,10 @@ import React, { useReducer } from 'react';
 import playerContext from './playerContext';
 import playerReducer from './playerReducer';
 import { songsArr } from './songs';
-import { sidebarSongsArr } from './sidebarSongs';
+// import { sidebarSongsArr } from './sidebarSongs';
+import { sidebarSongsMap } from './sidebarSongsMap';
+import ReactGA from 'react-ga';
+
 import { ambienceArr } from './ambience';
 import { svgsArr } from './svgs';
 import { artistsArr } from './artists'
@@ -22,8 +25,18 @@ import {
   TOGGLE_AMBIENCE_AUDIO_GLOBAL
 } from './types'
 
+let sidebarSongsArr = [];
+let j = 0
+for (const [key, value] of Object.entries(sidebarSongsMap)) {
+  value.forEach(song => {
+    song.push(j)
+    sidebarSongsArr.push(song)
+    j++
+  });
+}
+
 const songs =  sidebarSongsArr.concat( songsArr.sort(() => Math.random() - 0.5));
-console.log(songs);
+console.log(sidebarSongsMap);
 const random1 = Math.random();
 const random2 = Math.random();
 const random3 = Math.random();
@@ -37,7 +50,7 @@ const PlayerState = props => {
     random1: random1,
     random2: random2, 
     random3: random3,
-
+    sidebarSongsMap: sidebarSongsMap,
     songs: songs,
     ambience: ambienceArr,
     artists: artistsArr,
@@ -79,7 +92,14 @@ const PlayerState = props => {
 
   // Clicked
 
-  const SetClicked = (numClicks) => dispatch({ type: SET_CLICKED, data: numClicks })
+  const SetClicked = (numClicks) => { 
+    
+    if(numClicks==1)
+      {
+        handleGAEvent('First Click', 'User interacted with site after load');
+      }
+  
+  dispatch({ type: SET_CLICKED, data: numClicks })}
 
 
   const toggleAmbienceAudioGlobal = () => dispatch({ type: TOGGLE_AMBIENCE_AUDIO_GLOBAL, data: state.ambienceAudioGlobal ? false : true })
@@ -107,13 +127,35 @@ const PlayerState = props => {
     }
   }
 
-   // Next AMBIENCE
-   const nextAmbience = () => {
 
+  const handleGAEvent = (category, action) => {
+    ReactGA.event({
+        category: category,
+        action: action,
+      });
+}
+
+   // Next AMBIENCE
+   const nextAmbience = (press) => {
+    if(press != undefined){
+      handleGAEvent("Next Ambience Click", "Clicked on next ambience")
+    }
     if (state.currentAmbience === state.ambience.length - 1) {
       SetCurrentAmbience(0);
     } else {
       SetCurrentAmbience(state.currentAmbience + 1)
+    }
+  }
+
+  // Next AMBIENCE
+  const prevAmbience = (press) => {
+    if(press != undefined){
+      handleGAEvent("Previous Ambience Click", "Clicked on previous ambience")
+    }
+    if (state.currentAmbience === 0) {
+      SetCurrentAmbience(state.ambience.length - 1);
+    } else {
+      SetCurrentAmbience(state.currentAmbience - 1)
     }
   }
   
@@ -156,6 +198,7 @@ const PlayerState = props => {
 
 
       songs: state.songs,
+      sidebarSongsMap: state.sidebarSongsMap,
       songsOffset: state.songsOffset,
       ambience: state.ambience,
       artists: state.artists,
@@ -175,6 +218,7 @@ const PlayerState = props => {
 
       nextSong,
       nextAmbience,
+      prevAmbience,
 
       prevSong,
 

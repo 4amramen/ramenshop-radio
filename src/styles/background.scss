@@ -30,6 +30,14 @@
   background-size: contain;
   @include fade( $num:5, $fade:25, $visible:5,);
 }
+.background-test {
+  opacity:1; 
+  position: fixed;
+  z-index: -5;
+  width: 100vw;
+  height: 100vh;
+  background-size: contain;
+}
 
 
 @keyframes fade-out{

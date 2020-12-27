@@ -1,6 +1,115 @@
 export const songsArr = [
   [
-    "Not Enough",
+    "Sexy Black Timberlake",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Channel+Tres+%C2%B7+Channel+Tres+-+Sexy+Black+Timberlake.mp3",
+    "Channel Tres",
+  ], 
+  [
+    "MILO",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/BEAM+-+MILO+Coffee+Bean+Freestyle+Feat.+Vory.mp3",
+    "BEAM ft. Vory",
+    "MILO Coffee Bean Freestyle"
+  ], 
+  [
+    "Smile",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/G-Unit+-+Smile-1.mp3",
+    "G-Unit",
+  ], 
+  [
+    "selfish",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/blindforlove+-+(free)+drake+x+partynextdoor+type+beat+2020+%E2%80%93+selfish+%7C+r%26b+dancehall+type+beat.mp3",
+    "blindforlove",
+  ], [
+    "Pretty Brown Eyes",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Mint+Condition+-+Breakin'+My+Heart+(Pretty+Brown+Eyes).mp3",
+    "Mint Condition",
+    "Breakin' My Heart (Pretty Brown Eyes)"
+  ], 
+  [
+    "Don't You",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/JOE+KAY+-+Don't+You+(Joe+Kay's+Slowed+Edit).mp3",
+     "Joe Kay",
+     "Don't You (Slowed)",
+
+  ], 
+  [
+    "Exhale",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Dpat+-+Exhale.mp3",
+    "Dpat",
+  ], 
+  [
+    "DMW",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/sans+-+DMW.mp3",
+    "sans",
+  ], 
+  [
+    "PS​.​.​.​.​.​.​.​x",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/King+Krule+-+PS%E2%80%8B.%E2%80%8B.%E2%80%8B.%E2%80%8B.%E2%80%8B.%E2%80%8B.%E2%80%8B.%E2%80%8Bx.mp3",
+    "King Krule",
+    "PS​.​.​.​.​.​.​.​x (Kaytranada Remix)"
+  ], 
+  [
+    "Crew",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/See+Dee+-+Crew.mp3",
+    "See Dee",
+  ], 
+  [
+    "nights",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/swell+-+nights.mp3",
+    "Swell",
+  ], 
+  [
+    "Both Of Us",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Jayda+G+-+Both+Of+Us.mp3",
+    "Jayda G",
+  ], 
+   [
+    "Love Again",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Ta-ku+%C2%B7+JMSN+%C2%B7+Sango+-+Love+Again-2.mp3",
+    "Ta-ku · JMSN · Sango",
+  ], 
+   [
+    "Weak",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Sunday+Service+Choir+-+Weak.mp3",
+    "Sunday Service Choir",
+  ],  
+  [
+    "Say That Again",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Anzola+-+Say+That+Again.mp3",
+    "Anzola",
+  ],  
+  [
+    "Memphis",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/AG+Club+-+Memphis.mp3",
+    "AG Club",
+  ],  
+  [
+    "I No Go Give Up On You",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Mr+Eazi+%C2%B7+emPawa+Africa+-+I+No+Go+Give+Up+On+You.mp3",
+    "Mr Eazi · emPawa Africa",
+  ],  
+  [
+    "Try a Little Tenderness",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Pip+Millett+-+Try+a+Little+Tenderness-1.mp3",
+    "Pip Millett",
+  ],  
+  [
+    "Mashita",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Mansur+Brown+-+Mashita-1.mp3",
+    "Mansur Brown",
+  ],  
+  [
+    "Champagne Shots",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Sainte+-+Champagne+Shots.mp3",
+    "Sainte",
+  ],  
+  [
+    "Alpha",
+    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Guapdad+4000+-+Alpha.mp3",
+    "Guapdad 4000",
+  ],  
+  [
+    "not enough",
     "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/not+enough.wav",
     "blindforlove",
   ],  
@@ -84,11 +193,7 @@ export const songsArr = [
     "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/100+Bags+(Dirty).mp3",
     "Stormzy"
   ],
-  [
-    "Coffee Bean",
-    "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/COFFEE+BEAN+2.mp3",
-    "Travis Scott"
-  ],
+
   [
     "Drive Slow",
     "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Drive+Slow+1.mp3",
