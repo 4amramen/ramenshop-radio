@@ -39,7 +39,7 @@ function CustomParticles() {
         }
       },
       "opacity": {
-        "value": .8,
+        "value": .9,
         "random": true,
         "anim": {
         "enable": true,

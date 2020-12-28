@@ -20,6 +20,37 @@ body {
 
 
 
+.middle-title{
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+  position: absolute;
+  flex-direction: column;
+}
+
+.rr-title{
+  font-size: 5vw;
+  animation: fadeIn 2s ease-in-out;
+  animation-delay: 1.5s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+
+}
+
+.coming-soon{
+  padding-top: 60px;
+  font-size: 3vw;
+  animation: fadeIn 2s ease-in-out;
+  animation-delay: 2.5s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+
+
+}
 
 .top-controls {
   position: relative;
@@ -627,6 +658,14 @@ h4 {
 /*mobile */
 
 @media only screen and (max-width: 768px) /*mobile*/ {
+  .rr-title{
+    font-size: 10vw;
+  }
+  
+  .coming-soon{
+    padding-top: 50px;
+    font-size: 8vw;
+  }
   .time{
     display: none;
   }

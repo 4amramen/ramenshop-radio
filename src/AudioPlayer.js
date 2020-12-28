@@ -60,21 +60,30 @@ function AudioPlayer() {
     <PlayerState>
 
       <div className="main" >
-
+     
+        <div className="middle-title">
+            <div className="rr-title">
+              [ramenshop radio]       
+            </div>  
+            <div className="coming-soon">
+              coming soon...     
+            </div>  
+        </div>
+        
         {sidebar}
-        <Toggle click={openHandler}/>
+        {/* <Toggle click={openHandler}/> */}
 
         <CustomParticles/>
-        <PolygonMaskParticles/>
+        {/* <PolygonMaskParticles/> */}
 
         {/* <VideoBackground/> */}
-        <Background/>
+        {/* <Background/> */}
 
-        <Title/>
+        {/* <Title/> */}
 
-        <Playlist/>
+        {/* <Playlist/> */}
 
-        <Controls/>
+        {/* <Controls/> */}
 
       </div>
 
