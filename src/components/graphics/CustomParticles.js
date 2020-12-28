@@ -62,7 +62,7 @@ function CustomParticles() {
         "enable": true,
         "distance": 200,
         "color": "#fff",
-        "opacity": 0.1,
+        "opacity": .5,
         "width": .5
       },
       "move": {

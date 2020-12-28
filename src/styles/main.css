@@ -34,8 +34,8 @@ body {
 
 .rr-title{
   font-size: 5vw;
-  animation: fadeIn 2s ease-in-out;
-  animation-delay: 1.5s;
+  animation: fadeIn 1s ease-in-out;
+  animation-delay: 0s;
   opacity: 0;
   animation-fill-mode: forwards;
 
@@ -44,8 +44,8 @@ body {
 .coming-soon{
   padding-top: 60px;
   font-size: 3vw;
-  animation: fadeIn 2s ease-in-out;
-  animation-delay: 2.5s;
+  animation: fadeIn 1s ease-in-out;
+  animation-delay: .5s;
   opacity: 0;
   animation-fill-mode: forwards;
 
