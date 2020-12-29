@@ -34,10 +34,10 @@ export default function SidebarLinks(props) {
             <AccordionItemButton className={"accordion-button " + props.color}>
                 {name}
                 <a onClick={() => {openInNewTab(spotify)}} >
-                    <img className="sidebar-link1 grow-more" src="buttons/spotify-link.png" /> 
+                    <img className="sidebar-link1 grow-link" src="buttons/spotify-link.png" /> 
                 </a> 
                 <a onClick={() => {openInNewTab(soundcloud)}}>
-                    <img className="sidebar-link2 grow-more" src="buttons/soundcloud-link.png" /> 
+                    <img className="sidebar-link2 grow-link" src="buttons/soundcloud-link.png" /> 
                 </a> 
             </AccordionItemButton>
         );
@@ -46,7 +46,7 @@ export default function SidebarLinks(props) {
             <AccordionItemButton className={"accordion-button " + props.color}>
                 {name}
                 <a onClick={() => {openInNewTab(spotify)}} >
-                    <img className="sidebar-link2 grow-more" src="buttons/spotify-link.png" /> 
+                    <img className="sidebar-link2 grow-link" src="buttons/spotify-link.png" /> 
                 </a> 
             </AccordionItemButton>
         );
@@ -55,7 +55,7 @@ export default function SidebarLinks(props) {
         <AccordionItemButton className={"accordion-button " + props.color}>
                 {name}
                 <a onClick={() => {openInNewTab(soundcloud)}} >
-                    <img className="sidebar-link2 grow-more" src="buttons/soundcloud-link.png" /> 
+                    <img className="sidebar-link2 grow-link" src="buttons/soundcloud-link.png" /> 
                 </a> 
             </AccordionItemButton>
         )

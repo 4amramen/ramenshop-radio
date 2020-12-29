@@ -312,7 +312,7 @@ export const svgsArr = [
 		},{
 			background: 'radial-gradient( circle 861px at 9.5% 19.8%,  rgba(116,247,129,0.5) 0%, rgba(167,248,175,0.5) 4.5%, rgba(216,253,224,.5) 90% )',
 			animation:"background-fade-in-and-out 45s",
-		animationDelay: "15s"},],
+		animationDelay: "8s"},],
         [{
 			"fps_limit": 28,
 			"particles": {
@@ -386,8 +386,8 @@ export const svgsArr = [
 					}
 				}
 			}
-        },{background: "linear-gradient( 179.2deg,  rgba(34,34,34,1) 0%, rgba(8,0,153,1) 29.7%, rgba(118,6,166,1) 63.4%, rgba(233,0,64,0.58) 100.1% )", animation:"background-fade-in-and-out 45s",
-		animationDelay: "9s"}],
+        },{background: "linear-gradient( 179.2deg,  rgba(34,34,34,.5) 0%, rgba(8,0,153,.5) 29.7%, rgba(118,6,166,.5) 63.4%, rgba(233,0,64,0.5) 100.1% )", animation:"background-fade-in-and-out 45s",
+		animationDelay: "7s"}],
         [{
 			"fps_limit": 28,
 			"particles": {
@@ -537,4 +537,83 @@ export const svgsArr = [
 			}
 		},{background: 'linear-gradient( 179.9deg,  rgba(141,154,190,.7) 1.9%, rgba(244,179,78,.7) 39.6%, rgba(235,124,88,.7) 61.5%, rgba(235,124,88,.7) 75%, rgb(19, 5, 18,.7) 93% )', animation:"background-fade-in-and-out 45s",
 		animationDelay: "4s"},{marginTop:"7vh"}],
+		[
+			{
+			"fps_limit": 28,
+			"particles": {
+				"collisions": {
+					"enable": false
+				},
+				"number": {
+					"value": 300,
+					"density": {
+						"enable": false
+					}
+				},
+				"line_linked": {
+					"enable": true,
+					"distance": 60,
+					"opacity": 0.2
+				},
+				"move": {
+					"speed": .2
+				},
+				"opacity": {
+					"anim": {
+						"enable": true,
+						"opacity_min": 0.5,
+						"speed": 1,
+						"sync": false
+					},
+					"value": 0.4
+			  },
+			  "size": {
+				"value": 3,
+				"random": true,
+				"anim": {
+				"enable": true,
+				"speed": 2,
+				"size_min": 0.15,
+				"sync": false
+				}
+			  }
+			},
+			"polygon": {
+				"enable": true,
+				"scale": 1.35,
+				"type": "inline",
+				"move": {
+					"radius": 7
+				},
+				"url": "PolygonMaskImages/whale.svg",
+				"inline": {
+					"arrangement": "equidistant"
+				},
+				"draw": {
+					"enable": true,
+					"stroke": {
+						"color": "rgba(255, 255, 255, .2)"
+					}
+				}
+			},
+			"retina_detect": false,
+			"interactivity": {
+				"events": {
+					"onhover": {
+						"enable": true,
+						"mode": "bubble"
+					}
+				},
+				"modes": {
+					"bubble": {
+						"size": 6,
+						"distance": 50
+					}
+				}
+			}
+		},{
+			background: 'radial-gradient( circle 801px at 4.2% 16.4%,  rgba(104,211,218,0.5) 0%, rgba(184,77,235,.5) 88.8% )',
+			animation:"background-fade-in-and-out 40s",
+			animationDelay: "0s" 
+		}]
 ];

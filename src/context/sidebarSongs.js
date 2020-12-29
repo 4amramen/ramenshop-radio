@@ -185,7 +185,6 @@ export const sidebarSongsArr = [
       "Purple Corporation",
       "",
       "",
-      "(Featured Artist)"
     ],
     [
       "Gamma Riders",

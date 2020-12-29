@@ -2,28 +2,26 @@ export const ambienceArr = [
 
   [
     "rain",
-    "ambience/rain.mp3",
+    "https://ambiences.s3-us-west-2.amazonaws.com/rain.mp3",
   ],
-  
   [
     "fireplace",
-    "ambience/fireplace.mp3",
+    "https://ambiences.s3-us-west-2.amazonaws.com/fireplace.mp3",
   ],
   [
     "ocean",
-    "ambience/ocean.mp3",
+    "https://ambiences.s3-us-west-2.amazonaws.com/ocean1.mp3",
   ],
   [
     "rain",
-    "ambience/rain.mp3",
+    "https://ambiences.s3-us-west-2.amazonaws.com/rain.mp3",
   ],
-  
   [
     "fireplace",
-    "ambience/fireplace.mp3",
+    "https://ambiences.s3-us-west-2.amazonaws.com/fireplace.mp3",
   ],
   [
     "ocean",
-    "ambience/ocean.mp3",
+    "https://ambiences.s3-us-west-2.amazonaws.com/ocean1.mp3",
   ],
 ];

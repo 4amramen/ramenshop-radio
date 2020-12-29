@@ -2,9 +2,9 @@ import React, { useReducer } from 'react';
 import playerContext from './playerContext';
 import playerReducer from './playerReducer';
 import { songsArr } from './songs';
-// import { sidebarSongsArr } from './sidebarSongs';
 import { sidebarSongsMap } from './sidebarSongsMap';
 import ReactGA from 'react-ga';
+import { songLinks } from './songLinks'
 
 import { ambienceArr } from './ambience';
 import { svgsArr } from './svgs';
@@ -52,6 +52,7 @@ const PlayerState = props => {
     random3: random3,
     sidebarSongsMap: sidebarSongsMap,
     songs: songs,
+    songLinks: songLinks,
     ambience: ambienceArr,
     artists: artistsArr,
     svgs: svgsArr,
@@ -68,6 +69,7 @@ const PlayerState = props => {
     ambienceAudioGlobal: false,
   }
   const [state, dispatch] = useReducer(playerReducer, initialState);
+  
 
   // Set playing state
   const togglePlaying = () => dispatch({ type: TOGGLE_PLAYING, data: state.playing ? false : true })
@@ -198,6 +200,7 @@ const PlayerState = props => {
 
 
       songs: state.songs,
+      songLinks: state.songLinks,
       sidebarSongsMap: state.sidebarSongsMap,
       songsOffset: state.songsOffset,
       ambience: state.ambience,

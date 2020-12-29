@@ -1,12 +1,15 @@
 import React, { useContext } from 'react'
 import playerContext from '../../context/playerContext'
+import NowPlayingLinks from '../playlist/NowPlayingLinks'
 
 function NowPlaying() {
-  const { currentSong, songs } = useContext(playerContext);
-
+  const { currentSong, songs, songLinks } = useContext(playerContext);
   return (
     <div className = "NowPlaying" >
-        <span>{songs[currentSong][3] ? songs[currentSong][2] + " - " + songs[currentSong][3] + "  " +  (songs[currentSong][6] ? songs[currentSong][6] : "") : songs[currentSong][2] + " - " + songs[currentSong][0] + "   " + (songs[currentSong][6] ? songs[currentSong][6] : "")  }</span>
+        <span className={"nowplaying-name"}>{songs[currentSong][3] ? songs[currentSong][2] + " - " + songs[currentSong][3] 
+        : songs[currentSong][2] + " - " + songs[currentSong][0]
+        }</span>
+        <NowPlayingLinks song={songLinks[songs[currentSong][0]]}/>
     </div>
   )
 }

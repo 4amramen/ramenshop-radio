@@ -5,7 +5,7 @@ export const sidebarSongsMap = {
             "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/abscvnd/abscond+-+before+i+wake+(demo).mp3",
             "abscond",
             "before i wake (demo)",
-            "5"
+            "5" 
             ],  [
               "FAUST",
               "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/abscvnd/abscond+-+FAUST.mp3",
@@ -104,7 +104,7 @@ export const sidebarSongsMap = {
                   "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Noturlover/Slide+-+Noturlover+(P.+Bakedboi).mp3",
                   "Noturlover (P. Bakedboi)",
                   "",
-                  "4"
+                  ""
                 ],
                 [
                   "Ayana",
@@ -113,6 +113,14 @@ export const sidebarSongsMap = {
                   "Ayana (prod by dax)",
                   "3"
                 ],
+                [
+                  "Mood Right",
+                  "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Noturlover/Noturlover+-+MOOD+RIGHT+(prod+by+svnred+%2B+bakedboi).mp3",
+                  "Noturlover",
+                  "Mood Right (prod by svnred + bakedboi)",
+                  "4"
+                ],
+
               ],
       'Rod Lowkey': [
                 [
@@ -121,16 +129,38 @@ export const sidebarSongsMap = {
                   "ROD LOWKEY",
                   "97' feat. Art Of Max (Prod. Juno)",
                   "6"
-            
-              
+          
                 ],
                 [
                   "Hip Hop",
-                  "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Rod+Lowkey/ROD+LOWKEY+-+Hip+Hop+feat.+DRAZI+(Prod.+Tek.Lun).mp3",
+                  "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Rod+Lowkey/ROD+LOWKEY+-+97'+feat.+Art+Of+Max+(Prod.+Juno).mp3",
                   "ROD LOWKEY",
-                  "",
+                  "Hip Hop feat. DRAZI",
+                  "4"
+  
+                ],
+                [
+                  "Speak Yo",
+                  "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Rod+Lowkey/ROD+LOWKEY+-+Speak+Yo+Shit+(Prod.+Ahwlee+%26+Dimijay).mp3",
+                  "ROD LOWKEY",
+                  "Speak Yo Shit",
                   "4"
           
+                ],
+                [
+                  "Babies",
+                  "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Rod+Lowkey/ROD+LOWKEY+-+Babies+and+Fools+(R.O.D+Mix).mp3",
+                  "ROD LOWKEY",
+                  "Babies and Fools (R.O.D. Mix)",
+                  ""
+          
+                ],
+                [
+                  "Smooth",
+                  "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Rod+Lowkey/SMOOTH+SHIT+X+ROD+LOWKEY.mp3",
+                  "ROD LOWKEY",
+                  "Smooth Shit ",
+                  ""
                 ],
               ],
       'Selah': [
@@ -194,7 +224,7 @@ export const sidebarSongsMap = {
                 "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Purple+Corporation/Purple+Corporation+-+Fish+Out+of+Water.mp3",
                 "Purple Corporation",
                 "",
-                "",
+                "7",
               ],
               [
                 "Gamma Riders",

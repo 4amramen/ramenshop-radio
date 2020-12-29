@@ -111,6 +111,8 @@ function Controls() {
     }
   }, [currentAmbience])
 
+  
+
   // hook for song containers to access ambience audio
   useEffect(() => {
     console.log("ambience audio changed by playlist");
@@ -119,6 +121,31 @@ function Controls() {
     }
   }, [ambienceAudioGlobal])
 
+  document.body.onkeyup = function(e){  
+    if(e.keyCode == 32){
+        console.log("space")
+
+        if (!clicked)
+                {
+                  console.log("first click");
+                  SetClicked(1);
+                  toggleAmbiencePlaying();
+                  toggleAmbienceAudio();
+                  console.log(ambienceAudioGlobal);
+
+                }else if (clicked == 1){
+                  SetClicked(2);
+                }
+                if (isMobile && clicked){
+                  toggleAmbiencePlaying();
+                  toggleAmbienceAudio();
+
+                }
+                // after first click
+                togglePlaying(); 
+                toggleAudio();
+                }
+      }
   return (
     
     <div className="controls">

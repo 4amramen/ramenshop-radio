@@ -1,4 +1,15 @@
 export const songsArr = [
+  //format
+
+  // need to put blanks to fill in space, (needs to be changed to hashmap later for better readablility)
+  //0 playlist name
+  //1 link
+  //2 artist
+  //3 nowplaying name
+  //4 svg
+  //5 song number in songs map
+  //6 spotify link
+  //7 soundcloud link
   [
     "Sexy Black Timberlake",
     "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Channel+Tres+%C2%B7+Channel+Tres+-+Sexy+Black+Timberlake.mp3",
@@ -500,7 +511,9 @@ export const songsArr = [
     [
       "+BRIIIIIIITE",
       "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/abscvnd/abscond+-+%2BBRIIIIIIITE.mp3",
-      "abscond"
+      "abscond",
+      "+BRIIIIIIITE (Unreleased)",
+
     ],
   
     //BabyGlobin
@@ -592,6 +605,13 @@ export const songsArr = [
       "3"
   
     ],
+    [
+      "Mood Right",
+      "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Noturlover/Noturlover+-+MOOD+RIGHT+(prod+by+svnred+%2B+bakedboi).mp3",
+      "Noturlover",
+      "Mood Right (prod by svnred + bakedboi)",
+      "4"
+    ],
   
     //Rod Lowkey
       [
@@ -608,9 +628,32 @@ export const songsArr = [
         "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Rod+Lowkey/ROD+LOWKEY+-+97'+feat.+Art+Of+Max+(Prod.+Juno).mp3",
         "ROD LOWKEY",
         "Hip Hop feat. DRAZI",
-    "4"
-    
+        "4"
       ],
+      [
+        "Speak Yo",
+        "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Rod+Lowkey/ROD+LOWKEY+-+Speak+Yo+Shit+(Prod.+Ahwlee+%26+Dimijay).mp3",
+        "ROD LOWKEY",
+        "Speak Yo Shit",
+        "4"
+
+      ],
+      [
+        "Babies and Fools",
+        "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Rod+Lowkey/ROD+LOWKEY+-+Babies+and+Fools+(R.O.D+Mix).mp3",
+        "ROD LOWKEY",
+        "Babies and Fools (R.O.D. Mix)",
+        ""
+
+      ],
+      [
+        "Smooth",
+        "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Rod+Lowkey/SMOOTH+SHIT+X+ROD+LOWKEY.mp3",
+        "ROD LOWKEY",
+        "Smooth Shit (Unreleased)",
+        ""
+      ],
+      
   
       //Selah
       [
@@ -658,8 +701,7 @@ export const songsArr = [
         "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Purple+Corporation/Purple+Corporation+-+Fish+Out+of+Water.mp3",
         "Purple Corporation",
         "",
-        "",
-        "(Featured Artist)"
+        "7",
       ],
       [
         "Gamma Riders",

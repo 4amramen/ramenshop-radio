@@ -27,7 +27,7 @@ export const artistsArr = [
   //Chai
   
     [
-        "Chai Sully",
+      "Chai Sully",
       "https://open.spotify.com/artist/0y3P9lt6Di3q1s1SwcCFuK?si=y9r16kTzSb2tLqR7f_PSMw",
       "https://soundcloud.com/chaisully",
     ],
@@ -84,7 +84,5 @@ export const artistsArr = [
         "Selah",
         "",
         "https://soundcloud.com/iselahi"
-
-      
       ],
     ];
