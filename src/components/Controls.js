@@ -40,13 +40,6 @@ function Controls() {
   const volumeLevel = document.querySelector("#visible-volBar")
   const isMobile = useMediaQuery({ maxWidth: 768 })
 
-  //carousel 
-
-  let slides = [
-    <img  src="buttons/rain_button.png" alt="1" />,
-    <img  src="buttons/fireplace_button.png" alt="2" />  ,
-    <img  src="buttons/wave_button.png" alt="3" />  ,
-];
 
   // self State
   const [statevolum, setStateVolum] = useState(1)
@@ -193,8 +186,8 @@ function Controls() {
                 toggleAudio();
                 }}>
 
-              <img className= {!playing ? 'play_button grow' : 'play_button hide'} src="buttons/play_button.png"></img>
-              <img className= {playing ?  'pause_button grow' : 'pause_button hide'} src="buttons/pause_button.png"></img>
+              <img className= {!playing ? 'play_button grow' : 'play_button hide'} src="https://buttons.s3-us-west-2.amazonaws.com/play_button.png"></img>
+              <img className= {playing ?  'pause_button grow' : 'pause_button hide'} src="https://buttons.s3-us-west-2.amazonaws.com/pause_button.png"></img>
 
             </span>
 
@@ -219,8 +212,8 @@ function Controls() {
               }}}>
               {
               <img className="rain_button" 
-              src={currentAmbience%3==0 ? "buttons/rain_button.png" 
-                  : currentAmbience%3==1 ? "buttons/fireplace_button.png"
+              src={currentAmbience%3==0 ? "https://buttons.s3-us-west-2.amazonaws.com/rain_button.png" 
+                  : currentAmbience%3==1 ? "https://buttons.s3-us-west-2.amazonaws.com/fireplace_button.png"
                   : "buttons/wave_button.png"}></img>
                   }
             </span>

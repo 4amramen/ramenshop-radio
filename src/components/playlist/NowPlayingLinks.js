@@ -29,10 +29,10 @@ export default function NowPlayingLinks(props) {
         return (
             <div className="nowplaying-links">
                 <a onClick={() => {openInNewTab(spotify)}}>
-                    <img className="nowplaying-link1 grow-link" src="buttons/spotify-link.png" /> 
+                    <img className="nowplaying-link1 grow-link" src="https://buttons.s3-us-west-2.amazonaws.com/spotify-link.png" /> 
                 </a> 
                 <a onClick={() => {openInNewTab(soundcloud)}}>
-                    <img className="nowplaying-link2 grow-link" src="buttons/soundcloud-link.png" /> 
+                    <img className="nowplaying-link2 grow-link" src="https://buttons.s3-us-west-2.amazonaws.com/soundcloud-link.png" /> 
                 </a> 
             </div>
         );
@@ -40,7 +40,7 @@ export default function NowPlayingLinks(props) {
         return (
             <div className="nowplaying-links">
                 <a onClick={() => {openInNewTab(spotify)}}>
-                    <img className="nowplaying-link2 grow-link" src="buttons/spotify-link.png" /> 
+                    <img className="nowplaying-link2 grow-link" src="https://buttons.s3-us-west-2.amazonaws.com/spotify-link.png" /> 
                 </a> 
             </div>
         );
@@ -48,7 +48,7 @@ export default function NowPlayingLinks(props) {
         return(
             <div className="nowplaying-links">
                 <a onClick={() => {openInNewTab(soundcloud)}} >
-                    <img className="nowplaying-link2 grow-link" src="buttons/soundcloud-link.png" /> 
+                    <img className="nowplaying-link2 grow-link" src="https://buttons.s3-us-west-2.amazonaws.com/soundcloud-link.png" /> 
                 </a> 
             </div>
         )

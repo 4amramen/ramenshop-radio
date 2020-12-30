@@ -125,7 +125,7 @@ export const svgsArr = [
 				"move": {
 					"radius": 8
 				},
-				"url": "polygonMaskImages/orange.svg",
+				"url": "PolygonMaskImages/orange.svg",
 				"inline": {
 					"arrangement": "equidistant"
 				},

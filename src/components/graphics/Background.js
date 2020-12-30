@@ -69,7 +69,6 @@ function Background() {
   'radial-gradient( circle 867px at -6.7% 44%,  rgba(255,246,63,.5) 0%, rgba(226,0,0,.5) 100.2% )',
   'black',
   'black',
-  'black',
   
   'linear-gradient(180deg, #4c4177 0%, #2a5470 74%)',
   'radial-gradient( circle 1294px at -15.5% 23.8%,  rgba(255,206,149,.3) 0%, rgba(247,92,92,.3) 44.9%, rgba(108,0,96,0.3) 93.8% )',

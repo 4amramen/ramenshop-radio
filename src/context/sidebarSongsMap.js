@@ -133,7 +133,7 @@ export const sidebarSongsMap = {
                 ],
                 [
                   "Hip Hop",
-                  "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Rod+Lowkey/ROD+LOWKEY+-+97'+feat.+Art+Of+Max+(Prod.+Juno).mp3",
+                  "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Rod+Lowkey/ROD+LOWKEY+-+Hip+Hop+feat.+DRAZI+(Prod.+Tek.Lun).mp3",
                   "ROD LOWKEY",
                   "Hip Hop feat. DRAZI",
                   "4"
@@ -159,7 +159,7 @@ export const sidebarSongsMap = {
                   "Smooth",
                   "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Rod+Lowkey/SMOOTH+SHIT+X+ROD+LOWKEY.mp3",
                   "ROD LOWKEY",
-                  "Smooth Shit ",
+                  "Smooth Shit (Unreleased)",
                   ""
                 ],
               ],
