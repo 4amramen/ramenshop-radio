@@ -67,9 +67,6 @@ function Background() {
 //final gradients
   'linear-gradient( 0deg,  rgba(48,207,208,.3) 11.2%, rgba(33,7,64,.6) 77.5% )', 
   'radial-gradient( circle 867px at -6.7% 44%,  rgba(255,246,63,.5) 0%, rgba(226,0,0,.5) 100.2% )',
-  'black',
-  'black',
-  
   'linear-gradient(180deg, #4c4177 0%, #2a5470 74%)',
   'radial-gradient( circle 1294px at -15.5% 23.8%,  rgba(255,206,149,.3) 0%, rgba(247,92,92,.3) 44.9%, rgba(108,0,96,0.3) 93.8% )',
   'linear-gradient( 122.3deg,  rgba(111,71,133,.4) 14.6%, rgba(232,129,166,.4) 29.6%, rgba(237,237,183,.4) 42.1%, rgba(244,166,215,.4) 56.7%, rgba(154,219,232,.4) 68.7%, rgba(238,226,159,.4) 84.8% )',  //.3
@@ -117,11 +114,11 @@ function Background() {
       {/* <div className="background-test" style={{opacity: 1 , background:
  
 }}/> */}
-        <div className="intro-background" style={{background: backgrounds[4]}}/>
+        <div className="intro-background" style={{background: backgrounds[0]}}/>
 
-        <div className="background" id="back1" style={{background: backgrounds[0]}}/>
-        <div className="background" id="back2" style={{background: backgrounds[1]}}/>
-        <div className="background" id="back3" style={{background: backgrounds[2]}}/>
+        <div className="background" id="back1" style={{background: backgrounds[1]}}/>
+        <div className="background" id="back2" style={{background: backgrounds[2]}}/>
+        <div className="background" id="back3" style={{background:"black"}}/>
         <div className="background" id="back4" style={{background: backgrounds[3]}}/>
         <div className="background" id="back5" style={{background: backgrounds[4]}}/>
     </div>
