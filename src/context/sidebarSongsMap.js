@@ -164,20 +164,37 @@ export const sidebarSongsMap = {
                 ],
               ],
       'Selah': [
+                
                 [
-                  "Like Me Now",
+                  "bloom",
+                  "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Selah/selah+-+bloom+interlude.mp3+%5Bdemo%3F%5D.mp3",
+                  "Selah",
+                  "bloom interlude (demo)",
+                  "9"
+                ],
+                [
+                  "ATTEMPTS",
+                  "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Selah/selah+-+FAILED+ATTEMPTS.mp3",
+                  "Selah",
+                  "FAILED ATTEMPTS",
+                  ""
+                ],
+                [
+                  "water",
+                  "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Selah/selah+-+water.mp3",
+                  "Selah",
+                  "water",
+                  "8"
+                ],
+                [
+                  "l.m.n.",
                   "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Selah/Kid+Smoko+%26+Selah+-+Like+Me+Now-1.mp3",
                   "Kid Smoko & Selah",
                   "Like Me Now",
                   ""
                 ],
-                [
-                  "bloom interlude",
-                  "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Selah/selah+-+bloom+interlude.mp3+%5Bdemo%3F%5D.mp3",
-                  "Selah",
-                  "bloom interlude (demo)",
-                  ""
-                ],
+
+
               ],
       'Bloodroot': [
                 [

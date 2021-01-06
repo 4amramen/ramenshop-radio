@@ -615,5 +615,155 @@ export const svgsArr = [
 			background: 'radial-gradient( circle 801px at 4.2% 16.4%,  rgba(104,211,218,0.5) 0%, rgba(184,77,235,.5) 88.8% )',
 			animation:"background-fade-in-and-out 40s",
 			animationDelay: "0s" 
-		}]
+		}],
+		[{
+			"fps_limit": 28,
+			"particles": {
+				"collisions": {
+					"enable": false
+				},
+				"number": {
+					"value": 200,
+					"density": {
+						"enable": false
+					}
+				},
+				"line_linked": {
+					"enable": true,
+					"distance": 80,
+					"opacity": 0.2
+				},
+				"move": {
+					"speed": .3
+				},
+				"opacity": {
+					"anim": {
+						"enable": true,
+						"opacity_min": 0.5,
+						"speed": 1,
+						"sync": false
+					},
+					"value": 0.4
+			  },
+			  "size": {
+				"value": 3,
+				"random": true,
+				"anim": {
+				"enable": true,
+				"speed": 2,
+				"size_min": 0.15,
+				"sync": false
+				}
+			  }
+			},
+			"polygon": {
+				"enable": true,
+				"scale":2.2,
+				"type": "inline",
+				"move": {
+					"radius": 7
+				},
+				"url": "PolygonMaskImages/virgo.svg",
+				"inline": {
+					"arrangement": "equidistant"
+				},
+				"draw": {
+					"enable": false,
+					"stroke": {
+						"color": "rgba(255, 255, 255, .5)"
+					}
+				}
+			},
+			"retina_detect": true,
+			"interactivity": {
+				"events": {
+					"onhover": {
+						"enable": true,
+						"mode": "bubble"
+					}
+				},
+				"modes": {
+					"bubble": {
+						"size": 6,
+						"distance": 90
+					}
+				}
+			}
+		},{background: "linear-gradient( 138deg,  rgba(32,201,255,.6) 36.7%, rgba(0,8,187,.6) 84.4%, rgba(255,255,255,.6) 119.7% )", animation:"background-fade-in-and-out 45s",
+		animationDelay: "10s"},{ marginLeft: "12vw", marginTop: "6vh"}],
+		[{
+			"fps_limit": 28,
+			"particles": {
+				"collisions": {
+					"enable": false
+				},
+				"number": {
+					"value": 250,
+					"density": {
+						"enable": false
+					}
+				},
+				"line_linked": {
+					"enable": true,
+					"distance": 70,
+					"opacity": 0.15
+				},
+				"move": {
+					"speed": .3
+				},
+				"opacity": {
+					"anim": {
+						"enable": true,
+						"opacity_min": 0.5,
+						"speed": 1,
+						"sync": false
+					},
+					"value": 0.4
+			  },
+			  "size": {
+				"value": 3,
+				"random": true,
+				"anim": {
+				"enable": true,
+				"speed": 2,
+				"size_min": 0.15,
+				"sync": false
+				}
+			  }
+			},
+			"polygon": {
+				"enable": true,
+				"scale":2.5,
+				"type": "inline",
+				"move": {
+					"radius": 7
+				},
+				"url": "PolygonMaskImages/seed-of-life.svg",
+				"inline": {
+					"arrangement": "equidistant"
+				},
+				"draw": {
+					"enable": true,
+					"stroke": {
+						"color": "rgba(255, 255, 255, .5)"
+					}
+				}
+			},
+			"retina_detect": true,
+			"interactivity": {
+				"events": {
+					"onhover": {
+						"enable": true,
+						"mode": "bubble"
+					}
+				},
+				"modes": {
+					"bubble": {
+						"size": 6,
+						"distance": 90
+					}
+				}
+			}
+		},{background: "linear-gradient(-225deg, rgba(93, 159, 255, 0.5) 0%, rgba(177, 159, 255, 0.5) 48%, rgba(236, 161, 254, 0.5) 100%)", animation:"background-fade-in-and-out 45s",
+		animationDelay: "8s"},{ marginLeft: "14vw", marginTop: "0vh"}]
 ];
