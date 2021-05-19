@@ -12,8 +12,8 @@ function SidebarSongContainer(props){
     let song = props.song;
 
     let i = song[5];
-        return (
-        <div className={'sidebar-song-container ' + (songs[currentSong][1] === song[1] ? 'selected' : '')} key={i} onClick={() => { 
+    return (
+        <div className={'sidebar-song-container ' + (songs[currentSong]['link'] === song['link'] ? 'selected' : '')} key={i} onClick={() => { 
                   
           if (!clicked)
         {
@@ -32,22 +32,22 @@ function SidebarSongContainer(props){
             toggleAmbienceAudioGlobal();
           }
         }
-          if(songs[currentSong][1]!=song[1]){
+          if(songs[currentSong]['link']!=song['link']){
             SetCurrent(i);
           }
-          console.log(i);
-          let polygonMask = svgs[song[4]];
+          // console.log(i);
+          // let polygonMask = svgs[song[4]];
           
-          if(polygonMask != undefined){
-            SetPolygonMask(polygonMask);
-            ShowPolygon();
-          }
+          // if(polygonMask != undefined){
+          //   SetPolygonMask(polygonMask);
+          //   ShowPolygon();
+          // }
         }
         }>
                   
           <span className="song" style={{
                 }}
-            >{song[0]}</span>
+            >{song['name']}</span>
 
                 </div>
     )

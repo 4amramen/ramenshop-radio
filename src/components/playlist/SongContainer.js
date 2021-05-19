@@ -27,7 +27,7 @@ function SongContainer(props){
     let song = props.song;
     
         return (
-        <div className={'songContainer' + ' fall-' + props.i + ' ' + (songs[currentSong][1] === song[1] ? 'selected' : '')} key={i} style={
+        <div className={'songContainer' + ' fall-' + props.i + ' ' + (songs[currentSong]['link'] === song['link'] ? 'selected' : '')} key={i} style={
                   {
                     cursor: "pointer",
                     fontSize: songSizes[i%3],
@@ -59,18 +59,18 @@ function SongContainer(props){
                     toggleAmbienceAudioGlobal();
                   }
                 }
-                if(songs[currentSong][1]!=song[1]){
+                if(songs[currentSong]['link']!=song['link']){
                   SetCurrent(props.offset+i);
                 }
-                  let polygonMask = svgs[song[4]];
-                  console.log(props.offset+i);
+                  // let polygonMask = svgs[song[4]];
+                  // console.log(props.offset+i);
                   
-                  if(polygonMask != undefined){
-                    SetPolygonMask(polygonMask);
-                    ShowPolygon();
-                  }else{
-                    HidePolygon();
-                  }
+                  // if(polygonMask != undefined){
+                  //   SetPolygonMask(polygonMask);
+                  //   ShowPolygon();
+                  // }else{
+                  //   HidePolygon();
+                  // }
                 }
                 }>
                   
@@ -83,7 +83,7 @@ function SongContainer(props){
                     transformOrigin: 'center bottom',
 
                       }}
-                  >{song[0]}</span>
+                  >{song['name']}</span>
               
                 </div>
     )

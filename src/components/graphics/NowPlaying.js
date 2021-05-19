@@ -6,10 +6,10 @@ function NowPlaying() {
   const { currentSong, songs, songLinks } = useContext(playerContext);
   return (
     <div className = "NowPlaying" >
-        <span className={"nowplaying-name"}>{songs[currentSong][3] ? songs[currentSong][2] + " - " + songs[currentSong][3] 
-        : songs[currentSong][2] + " - " + songs[currentSong][0]
+        <span className={"nowplaying-name"}>{songs[currentSong]['link'] ? songs[currentSong]['artist'] + " - " + songs[currentSong]['now playing name'] 
+        : songs[currentSong]['artist'] + " - " + songs[currentSong]['name']
         }</span>
-        <NowPlayingLinks song={songLinks[songs[currentSong][0]]}/>
+        <NowPlayingLinks song={songLinks[songs[currentSong]['name']]}/>
     </div>
   )
 }

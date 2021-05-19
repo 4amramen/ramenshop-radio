@@ -1,14 +1,14 @@
 import React, { useReducer } from 'react';
 import playerContext from './playerContext';
 import playerReducer from './playerReducer';
-import { songsArr } from './songs';
-import { sidebarSongsMap } from './sidebarSongsMap';
+import { songObjects } from './songs';
+import { sidebarSongObjects} from './sidebarSongs';
 import ReactGA from 'react-ga';
 import { songLinks } from './songLinks'
 
 import { ambienceArr } from './ambience';
 import { svgsArr } from './svgs';
-import { artistsArr } from './artists'
+import { artistsObjects } from './artists'
 
 
 import {
@@ -25,18 +25,9 @@ import {
   TOGGLE_AMBIENCE_AUDIO_GLOBAL
 } from './types'
 
-let sidebarSongsArr = [];
-let j = 0
-for (const [key, value] of Object.entries(sidebarSongsMap)) {
-  value.forEach(song => {
-    song.push(j)
-    sidebarSongsArr.push(song)
-    j++
-  });
-}
 
-const songs =  sidebarSongsArr.concat( songsArr.sort(() => Math.random() - 0.5));
-console.log(sidebarSongsMap);
+const songs =  sidebarSongObjects.concat( songObjects.sort(() => Math.random() - 0.5));
+
 const random1 = Math.random();
 const random2 = Math.random();
 const random3 = Math.random();
@@ -44,17 +35,17 @@ const random3 = Math.random();
 
 const PlayerState = props => {
   const initialState = {
-    currentSong: Math.floor(Math.random() * songsArr.length),
+    currentSong: Math.floor(Math.random() * songObjects.length),
     currentAmbience: 0,
-    songsOffset: sidebarSongsArr.length,
+    songsOffset: sidebarSongObjects.length,
     random1: random1,
     random2: random2, 
     random3: random3,
-    sidebarSongsMap: sidebarSongsMap,
-    songs: songs,
+    sidebarSongs: sidebarSongObjects,
+    songs: songObjects,
     songLinks: songLinks,
     ambience: ambienceArr,
-    artists: artistsArr,
+    artists: artistsObjects,
     svgs: svgsArr,
     repeat: false,
     random: true,
@@ -122,7 +113,7 @@ const PlayerState = props => {
     } else {
       let randomCurrent = state.currentSong;
       while(randomCurrent!=state.currentSong){
-         randomCurrent = Math.floor(Math.random() * ((state.songs.length-1)-sidebarSongsArr.length)) + sidebarSongsArr.length;
+         randomCurrent = Math.floor(Math.random() * ((state.songs.length-1)-sidebarSongObjects.length)) + sidebarSongObjects.length;
       }
 
       SetCurrent(randomCurrent)
@@ -201,7 +192,7 @@ const PlayerState = props => {
 
       songs: state.songs,
       songLinks: state.songLinks,
-      sidebarSongsMap: state.sidebarSongsMap,
+      sidebarSongs: state.sidebarSongs,
       songsOffset: state.songsOffset,
       ambience: state.ambience,
       artists: state.artists,

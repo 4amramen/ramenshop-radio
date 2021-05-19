@@ -15,7 +15,7 @@ import '../../styles/accordion.css'
 
  
 export default function SidebarAccordion(props) {
-    const {artists, sidebarSongsMap} = useContext(playerContext)
+    const {artists, sidebarSongs} = useContext(playerContext)
     const grey = "grey"
     const black = "black"
 

@@ -7,8 +7,8 @@ export default function NowPlayingLinks(props) {
         return null;
     }
 
-    let spotify = props.song[0];
-    let soundcloud = props.song[1];
+    let spotify = props.song['spotify'];
+    let soundcloud = props.song['soundcloud'];
 
    
 

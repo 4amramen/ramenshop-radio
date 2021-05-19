@@ -7,21 +7,17 @@ import { useContext } from 'react'
 
 
 const ArtistBlock = (props) => {
-    const {songs, sidebarSongsMap} = useContext(playerContext)
-    console.log(props.artist[0]);
-    console.log(sidebarSongsMap);
-    console.log(sidebarSongsMap[props.artist[0]]);
+    const {songs, sidebarSongs} = useContext(playerContext)
+    let artistSongs = sidebarSongs.filter((song) => song.artist = props.artist)
+
     return(
         <div>
              <hr className="line top-line"/>
 
              <div className="artist-songs">
-                {sidebarSongsMap[props.artist[0]].map((artistSong, i) =>
-                      <SidebarSongContainer song={artistSong} i={1} />
+                {artistSongs.map((artistSong) =>
+                      <SidebarSongContainer song={artistSong}/>
                 )}
-                {/* {props.songIndexes.map((index, i) =>
-                 <SidebarSongContainer song={songs[index]} i={index} />
-                )} */}
              </div>
              <hr className="line bottom-line"/>
 
