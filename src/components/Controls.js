@@ -150,7 +150,7 @@ function Controls() {
         ref={audio}
         type="audio/mpeg"
         preload='true'
-        src={songs[currentSong][1]} />
+        src={songs[currentSong]['link']} />
 
       <audio
         onEnded={handleEndOfAmbience}

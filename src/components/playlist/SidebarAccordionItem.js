@@ -15,11 +15,12 @@ import SidebarSongContainer from './SidebarSongContainer'
  
 // Demo styles, see 'Styles' section below for some notes on use.
  
-export default function SidebarAccordian(props) {
+export default function SidebarAccordion(props) {
     const openInNewTab = (url) => {
         const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
         if (newWindow) newWindow.opener = null
     }
+    console.log(props.artist)
 
     return (
             <AccordionItem className={props.color}>

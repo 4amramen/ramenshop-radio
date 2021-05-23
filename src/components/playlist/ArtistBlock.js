@@ -8,7 +8,7 @@ import { useContext } from 'react'
 
 const ArtistBlock = (props) => {
     const {songs, sidebarSongs} = useContext(playerContext)
-    let artistSongs = sidebarSongs.filter((song) => song.artist = props.artist)
+    let artistSongs = sidebarSongs.filter((song) => song.artistName === props.artist.name)
 
     return(
         <div>
@@ -16,7 +16,7 @@ const ArtistBlock = (props) => {
 
              <div className="artist-songs">
                 {artistSongs.map((artistSong) =>
-                      <SidebarSongContainer song={artistSong}/>
+                      <SidebarSongContainer key={artistSong.name} song={artistSong}/>
                 )}
              </div>
              <hr className="line bottom-line"/>

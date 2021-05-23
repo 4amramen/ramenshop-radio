@@ -9,20 +9,30 @@ export const sidebarSongObjects = [
   //5 song number in songs map
   //6 spotify link
   //7 soundcloud link
+  
+  
+  {
+    'name': "before i wake",
+    'link': "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/abscvnd/abscond+-+before+i+wake+(demo).mp3",
+    'artistName': "Abscond",
+    'nowplaying name': "before i wake (demo)",
+  },   
   {
     'name': "Fish Out of Water",
     'link': "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Purple+Corporation/Purple+Corporation+-+Fish+Out+of+Water.mp3",
-    'artist': "Purple Corporation",
+    'artistName': "Purple Corporation",
     'svg': "",
     'spotify': '',
     'soundcloud': ''
   },  
+ 
   {
     'name': "Gamma Riders",
     'link': "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Homie+Tracks/Purple+Corporation/Purple+Corporation+-+Gamma+Riders.mp3",
-    'artist': "Purple Corporation",
+    'artistName': "Purple Corporation",
     'svg': "",
     'spotify': '',
     'soundcloud': ''
-  },  
+  }, 
+ 
 ]

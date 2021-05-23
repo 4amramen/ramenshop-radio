@@ -10,10 +10,9 @@ function SidebarSongContainer(props){
     const { songs, SetPolygonMask, ShowPolygon, SetCurrent, ambiencePlaying, toggleAmbienceAudioGlobal, SetCurrentAmbience, currentSong, clicked, toggleAmbiencePlaying, SetClicked, svgs} = useContext(playerContext)
     const isMobile = useMediaQuery({ maxWidth: 768 })
     let song = props.song;
-
-    let i = song[5];
+    console.log("current song " + currentSong)
     return (
-        <div className={'sidebar-song-container ' + (songs[currentSong]['link'] === song['link'] ? 'selected' : '')} key={i} onClick={() => { 
+        <div className={'sidebar-song-container ' + (songs[currentSong]['link'] === song['link'] ? 'selected' : '')} key={song.name} onClick={() => { 
                   
           if (!clicked)
         {

@@ -10,9 +10,9 @@ import {
 } from 'react-accessible-accordion';
 
 export default function SidebarLinks(props) {
-    let name = props.artist[0];
-    let spotify = props.artist[1];
-    let soundcloud = props.artist[2];
+    let name = props.artist.name;
+    let spotify = props.artist.spotify;
+    let soundcloud = props.artist.soundcloud;
 
 
 
