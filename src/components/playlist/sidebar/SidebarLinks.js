@@ -29,7 +29,7 @@ export default function SidebarLinks(props) {
             action: "User went to: " + url,
           });
     }
-    if(spotify!="" && soundcloud!=""){
+    if((spotify != undefined && spotify!= '' ) && (soundcloud!= undefined && soundcloud !='')){
         return (
             <AccordionItemButton className={"accordion-button " + props.color}>
                 {name}
@@ -41,7 +41,7 @@ export default function SidebarLinks(props) {
                 </a> 
             </AccordionItemButton>
         );
-    } else if (spotify!=""){
+    } else if (spotify!="" && spotify != undefined){
         return (
             <AccordionItemButton className={"accordion-button " + props.color}>
                 {name}
@@ -50,7 +50,7 @@ export default function SidebarLinks(props) {
                 </a> 
             </AccordionItemButton>
         );
-    } else if (soundcloud != ""){
+    } else if (soundcloud != "" && soundcloud != undefined){
         return(
         <AccordionItemButton className={"accordion-button " + props.color}>
                 {name}

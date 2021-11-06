@@ -10,7 +10,7 @@ function NowPlaying() {
           songs[currentSong]['nowPlayingName'] ? songs[currentSong]['artistName'] + " - " + songs[currentSong]['nowPlayingName'] 
         : songs[currentSong]['artistName'] + " - " + songs[currentSong]['name']
         }</span>
-        <NowPlayingLinks song={songLinks[songs[currentSong]['name']]}/>
+        <NowPlayingLinks song={songs[currentSong]}/>
     </div>
   )
 }

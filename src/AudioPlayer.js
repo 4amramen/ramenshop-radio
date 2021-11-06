@@ -10,7 +10,7 @@ import CustomParticles from './components/graphics/CustomParticles';
 import PolygonMaskParticles from './components/graphics/PolygonMaskParticles';
 
 import {useState} from 'react'
-import Sidebar from './components/Sidebar'
+import Sidebar from './components/playlist/sidebar/Sidebar'
 import Toggle from './components/Toggle'
 import DimOverlay from './components/graphics/DimOverlay';
 import VideoBackground from './components/VideoBackground';

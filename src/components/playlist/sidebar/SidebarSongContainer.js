@@ -1,19 +1,22 @@
 import { Component } from "react";
 import React, { useContext, useState } from 'react'
-import playerContext from '../../context/playerContext'
+import playerContext from '../../../context/playerContext'
 import { useMediaQuery } from 'react-responsive'
 
 
 
 
 function SidebarSongContainer(props){
-    const { songs, SetPolygonMask, ShowPolygon, SetCurrent, ambiencePlaying, toggleAmbienceAudioGlobal, SetCurrentAmbience, currentSong, clicked, toggleAmbiencePlaying, SetClicked, svgs} = useContext(playerContext)
+    const { songs,sidebarSongs, SetPolygonMask, ShowPolygon, SetCurrent, ambiencePlaying, toggleAmbienceAudioGlobal, SetCurrentAmbience, currentSong, clicked, toggleAmbiencePlaying, SetClicked, svgs} = useContext(playerContext)
     const isMobile = useMediaQuery({ maxWidth: 768 })
     let song = props.song;
-    console.log("current song " + currentSong)
+    console.log(songs)
+
+    let i =  songs.map((d) => { return d.name; }).indexOf(song.name);
+    console.log(i)
     return (
-        <div className={'sidebar-song-container ' + (songs[currentSong]['link'] === song['link'] ? 'selected' : '')} key={song.name} onClick={() => { 
-                  
+        <div className={'sidebar-song-container ' + (songs[currentSong]['link'] === song['link'] ? 'selected' : '')} key={i} onClick={() => { 
+          console.log('clicked');
           if (!clicked)
         {
           SetClicked(1);
@@ -25,14 +28,16 @@ function SidebarSongContainer(props){
         }else if (clicked == 1){
           SetClicked(2);
         }
+
         if (isMobile && clicked){
           if(!ambiencePlaying){
             toggleAmbiencePlaying();
             toggleAmbienceAudioGlobal();
           }
         }
-          if(songs[currentSong]['link']!=song['link']){
+          if(songs[currentSong]['link']!==song['link']){
             SetCurrent(i);
+            console.log(i)
           }
           // console.log(i);
           // let polygonMask = svgs[song[4]];

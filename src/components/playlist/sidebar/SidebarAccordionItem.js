@@ -8,9 +8,9 @@ import {
 } from 'react-accessible-accordion';
 
 import SidebarSongContainer from './SidebarSongContainer'
-    import playerContext from './../../context/playerContext'
+    import playerContext from '../../../context/playerContext'
     import { useContext } from 'react'
-    import ArtistBlock from './ArtistBlock'
+    import ArtistBlock from '../ArtistBlock'
     import SidebarLinks from './SidebarLinks'
  
 // Demo styles, see 'Styles' section below for some notes on use.

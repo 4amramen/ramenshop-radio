@@ -25,7 +25,8 @@ export default function NowPlayingLinks(props) {
         //     action: "User went to: " + url,
         //   });
     }
-    if(spotify!="" && soundcloud!=""){
+
+    if((spotify != undefined && spotify!= '' ) && (soundcloud!= undefined && soundcloud !='')){
         return (
             <div className="nowplaying-links">
                 <a onClick={() => {openInNewTab(spotify)}}>
@@ -36,7 +37,7 @@ export default function NowPlayingLinks(props) {
                 </a> 
             </div>
         );
-    } else if (spotify!=""){
+    } else if (spotify!="" && spotify != undefined){
         return (
             <div className="nowplaying-links">
                 <a onClick={() => {openInNewTab(spotify)}}>
@@ -44,7 +45,7 @@ export default function NowPlayingLinks(props) {
                 </a> 
             </div>
         );
-    } else if (soundcloud != ""){
+    } else if (soundcloud != "" && soundcloud != undefined){
         return(
             <div className="nowplaying-links">
                 <a onClick={() => {openInNewTab(soundcloud)}} >

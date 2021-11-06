@@ -1,0 +1,50 @@
+.tagcloud--item {
+    cursor: pointer;
+}   
+
+.tagcloud-holder{
+  /* animation: tagcloudDriftDown 50s; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%
+}
+
+
+.tagcloud{
+  top: 0px;
+}
+
+@media only screen and (max-width: 768px) /*mobile*/ {
+    .tagcloud-holder{
+        /* animation: tagcloudDriftDown 50s; */
+    }
+}
+
+ .tagcloud--item:hover {
+    background-color: rgba(255,255,255,.1);
+    border: 1px solid #fff;
+  }
+
+
+  @keyframes tagcloudDriftDown {
+
+    0%{
+        transform:translate(10vw, 5vh);
+    }
+    100%{
+      transform:translate(10vw,5vh);
+    }
+  }
+
+@keyframes tagcloudDriftRight {
+
+    0%{
+        transform:translate(0vw, 0vh);
+    }
+    100%{
+      transform:translate(100vw,0vh);
+    }
+  }
+  

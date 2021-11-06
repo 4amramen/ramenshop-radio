@@ -1,12 +1,12 @@
 import React from "react"
-import "./../styles/sidebar.css"
+import "./../../../styles/sidebar.css"
 import {useState} from 'react'
-import SidebarSongContainer from './playlist/SidebarSongContainer'
-import playerContext from './../context/playerContext'
+import SidebarSongContainer from './SidebarSongContainer'
+import playerContext from '../../../context/playerContext'
 import { useContext } from 'react'
-import DimOverlay from './graphics/DimOverlay'
-import ArtistBlock from "./playlist/ArtistBlock"
-import SidebarAccordion from "./playlist/SidebarAccordion"
+import DimOverlay from '../../graphics/DimOverlay'
+import ArtistBlock from "../ArtistBlock"
+import SidebarAccordion from "./SidebarAccordion"
 
 
 

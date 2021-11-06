@@ -26,8 +26,7 @@ import {
 } from './types'
 
 
-const songs =  sidebarSongObjects.concat( songObjects.sort(() => Math.random() - 0.5));
-
+const songs =  sidebarSongObjects.concat( songObjects.concat(sidebarSongObjects).sort(() => Math.random() - 0.5));
 const random1 = Math.random();
 const random2 = Math.random();
 const random3 = Math.random();
@@ -42,7 +41,7 @@ const PlayerState = props => {
     random2: random2, 
     random3: random3,
     sidebarSongs: sidebarSongObjects,
-    songs: songObjects,
+    songs: songs,
     songLinks: songLinks,
     ambience: ambienceArr,
     artists: artistsObjects,

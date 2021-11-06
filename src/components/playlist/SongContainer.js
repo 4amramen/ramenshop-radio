@@ -25,7 +25,6 @@ function SongContainer(props){
     let i = props.i;
     let songPosition = props.songPosition;
     let song = props.song;
-    
         return (
         <div className={'songContainer' + ' fall-' + props.i + ' ' + (songs[currentSong]['link'] === song['link'] ? 'selected' : '')} key={i} style={
                   {

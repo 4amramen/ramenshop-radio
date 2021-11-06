@@ -1,24 +1,36 @@
 import React, { useContext } from 'react'
 import playerContext from '../../context/playerContext'
-import Cloud from './Cloud'
 import Row from './Row'
+import { useMediaQuery } from 'react-responsive'
+import SphereCloud from './SphereCloud/SphereCloud'
+import Clouder from './Clouder/Clouder'
+
+import '../../styles/playlist.css'
 
 function Playlist() {
-  const {songs, random1, songsOffset} = useContext(playerContext)
-  // console.log(songsOffset);
+  const {songs, songsOffset } = useContext(playerContext)
 
   var t = 30;
+  const isMobile = useMediaQuery({ maxWidth: 768 })
+  // console.log(songs)
+  // console.log(songsOffset)
 
-  return (
-    <div className="playlist">
+  if (isMobile) {
+    return (
+      <div className='playlist'>
+          <Clouder numSongs={12} songs={songs} songsOffset={songsOffset} radius={190 }/>
+          
+      </div>
+    
 
-      <Cloud offset={30+songsOffset} cloudSongs={songs.slice(30+songsOffset, 30+16+songsOffset)} intro={true} delay={0}/>
-      <Row offset={0+songsOffset} cloudSongs={songs.slice(songsOffset, 10+songsOffset)} x='0'y='100' introOrder={1} cloudDelay={0}/> 
-      <Row offset={10+songsOffset} cloudSongs={songs.slice(10+songsOffset, 20+songsOffset)} x='5'y='100' introOrder={2} cloudDelay={15}/> 
-      <Row offset={20+songsOffset} cloudSongs={songs.slice(20+songsOffset, 30+songsOffset)} x='2'y='100' introOrder={3} cloudDelay={30}/> 
-
-    </div>
-  )
+    )
+  } else {
+    return (
+      <div className="playlist">
+            <SphereCloud numSongs={15}  songs={songs} songsOffset={songsOffset} radius={450}/>
+      </div>
+    )
+  }
 }
 
 

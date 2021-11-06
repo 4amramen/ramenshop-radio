@@ -111,11 +111,12 @@ function Background() {
   
   return (
     <div className="transition-backgrounds">
-      {/* <div className="background-test" style={{opacity: 1 , background:
- 
-}}/> */}
-        <div className="intro-background" style={{background: backgrounds[0]}}/>
+      <div className="background-test" style={{opacity: 1 , background:  
 
+'radial-gradient( circle farthest-corner at 50.1% 47.8%, #ff6666ff 0.1%, #171927ff 55.4% )'
+
+}}/>
+        <div className="intro-background" style={{background: backgrounds[0]}}/>
         <div className="background" id="back1" style={{background: backgrounds[1]}}/>
         <div className="background" id="back2" style={{background: backgrounds[2]}}/>
         <div className="background" id="back3" style={{background:"black"}}/>

@@ -13,12 +13,48 @@
 
 export const songObjects = [
     {
-        'name': "Sexy Black Timberlake",
-        'link': "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Channel+Tres+%C2%B7+Channel+Tres+-+Sexy+Black+Timberlake.mp3",
-        'artistName': "Channel Tres",
-        'nowPlayingName': "Sexy Black Timberlake"
+      'name': "Sexy Black Timberlake",
+      'link': "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/Channel+Tres+%C2%B7+Channel+Tres+-+Sexy+Black+Timberlake.mp3",
+      'artistName': "Channel Tres",
+      'nowPlayingName': "Sexy Black Timberlake"
     },
     {
+      'name': "MILO",
+      'link': "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/BEAM+-+MILO+Coffee+Bean+Freestyle+Feat.+Vory.mp3",
+      'artistName': "BEAM ft. Vory",
+      'nowPlayingName': "MILO Coffee Bean Freestyle"
+    },
+    {
+      'name': "MILO",
+      'link': "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/BEAM+-+MILO+Coffee+Bean+Freestyle+Feat.+Vory.mp3",
+      'artistName': "BEAM ft. Vory",
+      'nowPlayingName': "MILO Coffee Bean Freestyle"
+    },{
+      'name': "MILO",
+      'link': "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/BEAM+-+MILO+Coffee+Bean+Freestyle+Feat.+Vory.mp3",
+      'artistName': "BEAM ft. Vory",
+      'nowPlayingName': "MILO Coffee Bean Freestyle"
+    },{
+      'name': "MILO",
+      'link': "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/BEAM+-+MILO+Coffee+Bean+Freestyle+Feat.+Vory.mp3",
+      'artistName': "BEAM ft. Vory",
+      'nowPlayingName': "MILO Coffee Bean Freestyle"
+    },{
+      'name': "MILO",
+      'link': "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/BEAM+-+MILO+Coffee+Bean+Freestyle+Feat.+Vory.mp3",
+      'artistName': "BEAM ft. Vory",
+      'nowPlayingName': "MILO Coffee Bean Freestyle"
+    },{
+      'name': "MILO",
+      'link': "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/BEAM+-+MILO+Coffee+Bean+Freestyle+Feat.+Vory.mp3",
+      'artistName': "BEAM ft. Vory",
+      'nowPlayingName': "MILO Coffee Bean Freestyle"
+    },{
+      'name': "MILO",
+      'link': "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/BEAM+-+MILO+Coffee+Bean+Freestyle+Feat.+Vory.mp3",
+      'artistName': "BEAM ft. Vory",
+      'nowPlayingName': "MILO Coffee Bean Freestyle"
+    },{
       'name': "MILO",
       'link': "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/BEAM+-+MILO+Coffee+Bean+Freestyle+Feat.+Vory.mp3",
       'artistName': "BEAM ft. Vory",
@@ -45,6 +81,5 @@ export const songObjects = [
       'link': "https://ramenshopradio.s3-us-west-2.amazonaws.com/Tracks/JOE+KAY+-+Don't+You+(Joe+Kay's+Slowed+Edit).mp3",
       'artistName': "Joe Kay",
       'nowPlayingName': "Don't You (Slowed)",
-  
     }, 
 ]

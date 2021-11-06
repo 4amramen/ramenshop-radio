@@ -19,10 +19,10 @@ function CustomParticles() {
       <Particles className= "particles-galaxy screen" params={{
         "particles": {
       "number": {
-        "value": 35,
+        "value": 15,
         "density": {
         "enable": true,
-        "value_area": 700
+        "value_area": 500
         }
       },
       "color": {
@@ -49,7 +49,7 @@ function CustomParticles() {
         }
       },
       "size": {
-        "value": 2.9,
+        "value": 2.5,
         "random": true,
         "anim": {
         "enable": true,
@@ -68,9 +68,9 @@ function CustomParticles() {
       "move": {
         "enable": true,
         "speed": 1,
-        "direction": "right",
+        "direction": "top",
         "random": true,
-        "straight": false,
+        "straight": true,
         "out_mode": "out",
         "bounce": true,
         "attract": {

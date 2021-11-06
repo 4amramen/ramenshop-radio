@@ -24,7 +24,8 @@ function Controls() {
     currentAmbience,
     ambience,
     ambiencePlaying,
-    toggleAmbiencePlaying,
+    toggleAmbiencePlaying
+    ,
     toggleAmbienceAudioGlobal,
     ambienceAudioGlobal,
     nextAmbience,
@@ -51,8 +52,35 @@ function Controls() {
 
   const fmtMSS = (s) => { return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0') + ~~(s) }
 
-  const toggleAudio = () => audio.current.paused ? audio.current.play() : audio.current.pause();
-  const toggleAmbienceAudio = () => ambienceAudio.current.paused ? ambienceAudio.current.play() : ambienceAudio.current.pause();
+  const toggleAudio = () => {
+    console.log('state of audio paused: ' + audio.current.paused)
+    console.log('audio playing?: ' + playing)
+
+    if (audio.current.paused && !playing) {
+      // play audio
+      audio.current.play();
+    } else if (!audio.current.paused && playing) {
+      // pause audio
+      audio.current.pause();
+    }
+    
+    // else do nothing?
+  }
+
+  const toggleAmbienceAudio = () => {
+    console.log('state of amb audio paused: ' + ambienceAudio.current.paused)
+    console.log('amb audio playing?: ' + ambiencePlaying)
+
+    if (ambienceAudio.current.paused && !ambiencePlaying) {
+      // play audio
+      ambienceAudio.current.play();
+    } else if (!ambienceAudio.current.paused && ambiencePlaying) {
+      // pause audio
+      console.log('pausing amb audio')
+      ambienceAudio.current.pause();
+    }
+    // else do nothing?
+  }
 
 
   const handleVolume = (q) => {
@@ -90,6 +118,8 @@ function Controls() {
 
   useEffect(() => {
     audio.current.volume = statevolum;
+    console.log("audio playing?:" + playing);
+
     if (playing) { toggleAudio() }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentSong])
@@ -97,7 +127,7 @@ function Controls() {
 
   // hook for set ambience
   useEffect(() => {
-    console.log("ambience playing? effect 1 " + ambiencePlaying);
+    console.log("ambience playing?:" + ambiencePlaying);
     ambienceAudio.current.volume = stateambiencevolum;
     if(ambiencePlaying){
       toggleAmbienceAudio()
@@ -117,7 +147,6 @@ function Controls() {
   document.body.onkeyup = function(e){  
     if(e.keyCode == 32){
         console.log("space")
-
         if (!clicked)
                 {
                   console.log("first click");
@@ -163,27 +192,30 @@ function Controls() {
       <div className="top-controls">
 
         <div className="left-controls">
+          
           <span className="play" onClick={() => {
-            // first click
+            // play button
+                // on first click
                 if (!clicked)
                 {
                   console.log("first click");
                   SetClicked(1);
-                  toggleAmbiencePlaying();
+                  console.log("ambience playing?: "  + ambiencePlaying)
+                  console.log("playing?: "  + playing)
                   toggleAmbienceAudio();
-                  console.log(ambienceAudioGlobal);
-
-                }else if (clicked == 1){
+                  toggleAmbiencePlaying();
+                } else if (clicked == 1) {
                   SetClicked(2);
                 }
-                if (isMobile && clicked){
-                  toggleAmbiencePlaying();
-                  toggleAmbienceAudio();
 
+                if (isMobile && clicked){
+                  console.log('here')
+                  toggleAmbienceAudio();
+                  toggleAmbiencePlaying();
                 }
                 // after first click
-                togglePlaying(); 
                 toggleAudio();
+                togglePlaying(); 
                 }}>
 
               <img className= {!playing ? 'play_button grow' : 'play_button hide'} src="https://buttons.s3-us-west-2.amazonaws.com/play_button.png"></img>

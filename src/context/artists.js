@@ -13,7 +13,13 @@ export const artistsObjects = [
       "name": "BabyGlobin",
       "spotify": "https://open.spotify.com/artist/7vzQdt3N1n3MS4to7fnnz3?si=v5mWjfCJSMm6WjPK9r_xtQ",
       "soundcloud": "https://soundcloud.com/maxmcphatter",
-  
+    },
+
+
+    //stockboi
+    {
+      "name": "stockboi",
+      "soundcloud": "https://soundcloud.com/jnjkhaira",
     },
 
   //   //Bloodroot

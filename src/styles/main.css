@@ -133,13 +133,23 @@ h4 {
 }
 
 .cloud{
-  position: absolute;
-  visibility: hidden;
-  bottom: 0vh;
-  left: 0vw;
-  height: 100vh;
-  width: 100vw;
+  position: absolute; 
+  left: 0; 
+  right: 0; 
+  top: 0;
+  bottom: 5%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto; 
+  margin-right: auto; 
+  height: 70vh;
+  width: 80vw;
+}
 
+.cloud > span {
+  font-weight: 500 !important;
+  color: white !important;
+  white-space: nowrap;
 }
 
 .row{

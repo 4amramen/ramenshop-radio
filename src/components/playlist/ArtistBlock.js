@@ -1,7 +1,7 @@
 import React from "react"
 import "./../../styles/sidebar.css"
 import {useState} from 'react'
-import SidebarSongContainer from './../playlist/SidebarSongContainer'
+import SidebarSongContainer from './../playlist/sidebar/SidebarSongContainer'
 import playerContext from './../../context/playerContext'
 import { useContext } from 'react'
 
