@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef, useContext } from 'react'
 import playerContext from '../context/playerContext'
 import NowPlaying from './graphics/NowPlaying'
 import { useMediaQuery } from 'react-responsive'
+import Loader from "react-loader-spinner";
 
-import {Carousel} from '3d-react-carousal';
 
 function Controls() {
 
@@ -46,6 +46,7 @@ function Controls() {
   const [statevolum, setStateVolum] = useState(1)
   const [stateambiencevolum, setStateAmbienceVolum] = useState(.7)
   const [lastambiencevolum, setlastAmbienceVolum] = useState(1)
+  const [songLoading, setSongLoading] = useState(false);
 
   const [dur, setDur] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
@@ -55,15 +56,28 @@ function Controls() {
   const toggleAudio = () => {
     console.log('state of audio paused: ' + audio.current.paused)
     console.log('audio playing?: ' + playing)
+    console.log(audio)
 
     if (audio.current.paused && !playing) {
       // play audio
-      audio.current.play();
+      setSongLoading(true)
+      console.log('set true')
+
+      audio.current.play().then(() => {
+        setTimeout(() => {
+          setSongLoading(false)
+          console.log('set false')
+        }, 60000)
+        // setSongLoading(false)
+        // console.log('set false')
+
+      });
+
     } else if (!audio.current.paused && playing) {
       // pause audio
       audio.current.pause();
     }
-    
+
     // else do nothing?
   }
 
@@ -88,31 +102,31 @@ function Controls() {
     audio.current.volume = q;
   }
 
-  
+
   const handleAmbienceVolume = (q) => {
     setStateAmbienceVolum(q);
     ambienceAudio.current.volume = q;
-    volumeLevel.style.width = 'calc(60px * ' + q + ')'; 
+    volumeLevel.style.width = 'calc(60px * ' + q + ')';
   }
 
 
   const handleProgress = (e) => {
-    
+
     let compute = (e.target.value * dur) / 100;
     setCurrentTime(compute);
     audio.current.currentTime = compute;
     // slider.style.background = 'linear-gradient(90deg, rgb(04, 214, 214) ' + e.target.value + '%, rgb(214, 214, 214) ' + e.target.value + '%)';
     // timeElapsed.style.width =  (dur ? (currentTime * 100) / dur : 0)  + '%';
-    timeElapsed.style.width =  'calc((100% - 60px)*' + (dur ? (currentTime) / dur : 0)  + ')';
+    timeElapsed.style.width = 'calc((100% - 60px)*' + (dur ? (currentTime) / dur : 0) + ')';
 
   }
 
   const updatePlayerTime = (e) => {
     setCurrentTime(e.target.currentTime);
     var width = (dur ? (currentTime) / dur : 0)
-    if(timeElapsed){
+    if (timeElapsed) {
       // slider.style.background = 'linear-gradient(90deg, rgb(04, 214, 214) ' + (dur ? (currentTime * 100) / dur : 0) + '%, rgb(214, 214, 214) ' + (dur ? (currentTime * 100) / dur : 0)  + '%)';
-        timeElapsed.style.width =  width < .9995 ? 'calc((100% - 60px)*' + width  + ')' : '0%';
+      timeElapsed.style.width = width < .9995 ? 'calc((100% - 60px)*' + width + ')' : '0%';
     }
   }
 
@@ -129,50 +143,50 @@ function Controls() {
   useEffect(() => {
     console.log("ambience playing?:" + ambiencePlaying);
     ambienceAudio.current.volume = stateambiencevolum;
-    if(ambiencePlaying){
+    if (ambiencePlaying) {
       toggleAmbienceAudio()
     }
   }, [currentAmbience])
 
-  
+
 
   // hook for song containers to access ambience audio
   useEffect(() => {
     console.log("ambience audio changed by playlist");
-    if(clicked){
+    if (clicked) {
       toggleAmbienceAudio()
     }
   }, [ambienceAudioGlobal])
 
-  document.body.onkeyup = function(e){  
-    if(e.keyCode == 32){
-        console.log("space")
-        if (!clicked)
-                {
-                  console.log("first click");
-                  SetClicked(1);
-                  toggleAmbiencePlaying();
-                  toggleAmbienceAudio();
-                  console.log(ambienceAudioGlobal);
+  document.body.onkeyup = function (e) {
+    if (e.keyCode == 32) {
+      console.log("space")
+      if (!clicked) {
+        console.log("first click");
+        SetClicked(1);
+        toggleAmbiencePlaying();
+        toggleAmbienceAudio();
+        console.log(ambienceAudioGlobal);
 
-                }else if (clicked == 1){
-                  SetClicked(2);
-                }
-                if (isMobile && clicked){
-                  toggleAmbiencePlaying();
-                  toggleAmbienceAudio();
-
-                }
-                // after first click
-                togglePlaying(); 
-                toggleAudio();
-                }
+      } else if (clicked == 1) {
+        SetClicked(2);
       }
+      if (isMobile && clicked) {
+        toggleAmbiencePlaying();
+        toggleAmbienceAudio();
+
+      }
+      // after first click
+      togglePlaying();
+      toggleAudio();
+    }
+  }
   return (
-    
+
     <div className="controls">
-  
+
       <audio
+        // song audio
         onTimeUpdate={(e) => updatePlayerTime(e)}
         onCanPlay={(e) => setDur(e.target.duration)}
         onEnded={handleEnd}
@@ -182,122 +196,132 @@ function Controls() {
         src={songs[currentSong]['link']} />
 
       <audio
+        // ambience audio
         onEnded={handleEndOfAmbience}
         ref={ambienceAudio}
         type="audio/mpeg"
         preload='true'
-        src={ambience[currentAmbience][1]} 
-        />
-      
+        src={ambience[currentAmbience][1]}
+      />
+
       <div className="top-controls">
 
         <div className="left-controls">
-          
+
           <span className="play" onClick={() => {
             // play button
-                // on first click
-                if (!clicked)
-                {
-                  console.log("first click");
-                  SetClicked(1);
-                  console.log("ambience playing?: "  + ambiencePlaying)
-                  console.log("playing?: "  + playing)
-                  toggleAmbienceAudio();
-                  toggleAmbiencePlaying();
-                } else if (clicked == 1) {
-                  SetClicked(2);
-                }
+            // on first click
+            if (!clicked) {
+              console.log("first click");
+              SetClicked(1);
+              console.log("ambience playing?: " + ambiencePlaying)
+              console.log("playing?: " + playing)
+              toggleAmbienceAudio();
+              toggleAmbiencePlaying();
+            } else if (clicked == 1) {
+              SetClicked(2);
+            }
 
-                if (isMobile && clicked){
-                  console.log('here')
-                  toggleAmbienceAudio();
-                  toggleAmbiencePlaying();
-                }
-                // after first click
-                toggleAudio();
-                togglePlaying(); 
-                }}>
+            if (isMobile && clicked) {
+              console.log('here')
+              toggleAmbienceAudio();
+              toggleAmbiencePlaying();
+            }
+            // after first click
+            toggleAudio();
+            togglePlaying();
+          }}>
+            {songLoading &&
+              <Loader
+                type="Oval"
+                color="#ffffff"
+                width={22}
+                height={22}
 
-              <img className= {!playing ? 'play_button grow' : 'play_button hide'} src="https://buttons.s3-us-west-2.amazonaws.com/play_button.png"></img>
-              <img className= {playing ?  'pause_button grow' : 'pause_button hide'} src="https://buttons.s3-us-west-2.amazonaws.com/pause_button.png"></img>
+                className={'play_loader'}
+              />
+            }
+            {playing && !songLoading && <img className={'pause_button grow'} src="https://buttons.s3-us-west-2.amazonaws.com/pause_button.png" />}
+            {!playing && !songLoading && <img className={'play_button grow'} src="https://buttons.s3-us-west-2.amazonaws.com/play_button.png" />}
 
-            </span>
+          </span>
 
           < NowPlaying />
-                  {/* <Carousel slides={slides} autoplay={false}/> */}
+          {/* <Carousel slides={slides} autoplay={false}/> */}
 
 
         </div>
-        
+
         <span className="time">{fmtMSS(currentTime) + " / " + fmtMSS(dur)}</span>
 
-         
-    <div className="amb-controls">
-        <div className="vlme" >
-          
+
+        <div className="amb-controls">
+          <div className="vlme" >
+
             <span className="volum" onClick={() => {
-              if(stateambiencevolum){
+              if (stateambiencevolum) {
                 setlastAmbienceVolum(stateambiencevolum);
                 handleAmbienceVolume(0);
               } else {
                 handleAmbienceVolume(lastambiencevolum);
-              }}}>
+              }
+            }}>
               {
-              <img className="rain_button" 
-              src={currentAmbience%3==0 ? "https://buttons.s3-us-west-2.amazonaws.com/rain_button.png" 
-                  : currentAmbience%3==1 ? "https://buttons.s3-us-west-2.amazonaws.com/fireplace_button.png"
-                  : "buttons/wave_button.png"}></img>
-                  }
+                <img className="rain_button"
+                  src={currentAmbience % 3 == 0 ? "https://buttons.s3-us-west-2.amazonaws.com/rain_button.png"
+                    : currentAmbience % 3 == 1 ? "https://buttons.s3-us-west-2.amazonaws.com/fireplace_button.png"
+                      : "buttons/wave_button.png"}></img>
+              }
             </span>
-              
+
             <div className="volBars">
-              <input value={Math.round(stateambiencevolum * 100)} type="range" name="volBar" id="volBar" 
+              <input value={Math.round(stateambiencevolum * 100)} type="range" name="volBar" id="volBar"
                 onChange={(e) => handleAmbienceVolume(e.target.value / 100)} />
-              <span id="visible-volBar"/>  
-              <span id="visible-volBar-background"/>  
-            </div> 
+              <span id="visible-volBar" />
+              <span id="visible-volBar-background" />
+            </div>
+          </div>
+
+          <div className="prev-ambience" onClick={() => {
+            if (!clicked) {
+              SetClicked(1);
+            }
+            prevAmbience(true);
+          }}>
+            <img className="dir prev grow"
+              src={"buttons/prev.png"}></img>
+          </div>
+          <div className="next-ambience" onClick={() => {
+            if (!clicked) {
+              SetClicked(1);
+            }
+            nextAmbience(true);
+          }}>
+            <img className="dir next grow"
+              src={"buttons/next.png"}></img>
+          </div>
+
+
+
         </div>
-
-        <div className="prev-ambience"onClick={() => {
-              if (!clicked){
-                SetClicked(1);
-              }
-              prevAmbience(true);
-            }}>
-                <img className="dir prev grow" 
-                  src={"buttons/prev.png" }></img>
-              </div>  
-        <div className="next-ambience"  onClick={() => {
-              if (!clicked){
-                SetClicked(1);
-              }
-              nextAmbience(true);
-            }}>
-                <img className="dir next grow" 
-                  src={"buttons/next.png" }></img>
-          </div>  
-
-        
-        
-       </div>
-       </div>
+      </div>
 
       <div className="bottom-controls">
-        
+
         <div className="visible-progress">
-              <div className="time-elapsed"/>
-              <div className="total-progress"/>
+          <div className="time-elapsed" />
+          <div className="total-progress" />
         </div>
 
         <div className="progress">
           <input
             onChange={handleProgress}
-            value={dur ? (currentTime * 100) / dur : 0} 
+            value={dur ? (currentTime * 100) / dur : 0}
             type="range" name="progresBar" id="prgbar" />
         </div>
       </div>
-     
-      
+
+
       {/* {
       <div className="plsoptions">
 
