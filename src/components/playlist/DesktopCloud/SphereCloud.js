@@ -8,7 +8,7 @@ import { useMediaQuery } from 'react-responsive'
 
 
 function SphereCloud(props) {
-  const { svgs, songs, HidePolygon, ShowPolygon, SetPolygonMask, ambiencePlaying, SetCurrent, SetCurrentAmbience, toggleAmbienceAudioGlobal, currentAmbience, currentSong, clicked, toggleAmbiencePlaying, SetClicked, } = useContext(playerContext)
+  const { svgs, songs, togglePlaying, setSongLoading, setDisplaySpinner, ambiencePlaying, SetCurrent, SetCurrentAmbience, toggleAmbienceAudioGlobal, toggleAudio, currentSong, clicked, toggleAmbiencePlaying, SetClicked, } = useContext(playerContext)
   const isMobile = useMediaQuery({ maxWidth: 768 })
   console.log(currentSong)
 
@@ -23,6 +23,8 @@ function SphereCloud(props) {
       currentSongRef.current = data;
       SetCurrent(data);
     };
+
+
   
 
   useEffect(() => {
@@ -45,15 +47,14 @@ function SphereCloud(props) {
     let rootEl = document.querySelector('.tagcloud-holder');
     rootEl.addEventListener('click', function clickEventHandler(e) {
       if (e.target.className === 'tagcloud--item') {
-        // window.open(`https://www.google.com/search?q=${e.target.innerText}`, '_blank');
-        // your code here
+
         let clickedSongName = e.target.innerText;
 
         if (!clicked) {
           SetClicked(1);
           console.log("first click");
-          SetCurrentAmbience(3);
-          toggleAmbiencePlaying();
+          // SetCurrentAmbience(3);
+          // toggleAmbiencePlaying();
 
         } else if (clicked == 1) {
           SetClicked(2);
@@ -71,7 +72,11 @@ function SphereCloud(props) {
         console.log(songs[currentSong]['name'])
         if (songs[currentSongRef.current]['name'] != clickedSongName) {
           console.log('setting')
+
+
           setCurrentSongRef(clickedSongIndex);
+
+
         }
       }
     });
@@ -85,7 +90,6 @@ function SphereCloud(props) {
     <div className="tagcloud-holder"></div>
   )
 }
-
 
 const getSongIndex = (songName, songs) => {
   let songIndex;

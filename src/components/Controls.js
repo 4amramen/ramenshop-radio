@@ -4,31 +4,30 @@ import NowPlaying from './graphics/NowPlaying'
 import { useMediaQuery } from 'react-responsive'
 import Loader from "react-loader-spinner";
 
-
 function Controls() {
 
   // Global State
   const {
     currentSong,
     songs,
-    nextSong,
-    prevSong,
-    repeat,
-    random,
+    polygonMask,
+
     playing,
-    toggleRandom,
-    toggleRepeat,
+    songLoading,
+    displaySpinner,
+
     togglePlaying,
+    setSongLoading,
+    setDisplaySpinner,
+    songChanged,
     handleEnd,
-    lastAmbienceVolume,
     currentAmbience,
     ambience,
     ambiencePlaying,
-    toggleAmbiencePlaying
-    ,
-    toggleAmbienceAudioGlobal,
+    toggleAmbiencePlaying,
     ambienceAudioGlobal,
     nextAmbience,
+    setSongChanged,
     prevAmbience,
     handleEndOfAmbience,
     clicked,
@@ -46,7 +45,7 @@ function Controls() {
   const [statevolum, setStateVolum] = useState(1)
   const [stateambiencevolum, setStateAmbienceVolum] = useState(.7)
   const [lastambiencevolum, setlastAmbienceVolum] = useState(1)
-  const [songLoading, setSongLoading] = useState(false);
+
 
   const [dur, setDur] = useState(0)
   const [currentTime, setCurrentTime] = useState(0)
@@ -60,18 +59,34 @@ function Controls() {
 
     if (audio.current.paused && !playing) {
       // play audio
+      togglePlaying();
+      console.log(ambiencePlaying)
+
+      // if (!ambiencePlaying) {
+      //   console.log(ambiencePlaying)
+      //   toggleAmbienceAudio()
+      // }
+      console.log('gotin')
       setSongLoading(true)
-      console.log('set true')
 
+      // local loading variable for spinenr check
+      let loading = true;
+
+      // play and set loading and spinner to false
       audio.current.play().then(() => {
-        setTimeout(() => {
-          setSongLoading(false)
-          console.log('set false')
-        }, 60000)
-        // setSongLoading(false)
-        // console.log('set false')
-
+        loading = false;
+        setSongLoading(false)
+        setDisplaySpinner(false)
+        setSongChanged(false)
       });
+
+      // display spinner if song still loading after half a second
+      setTimeout(() => {
+        if (loading) {
+          console.log('here')
+          setDisplaySpinner(true)
+        }
+      }, 100)
 
     } else if (!audio.current.paused && playing) {
       // pause audio
@@ -133,8 +148,9 @@ function Controls() {
   useEffect(() => {
     audio.current.volume = statevolum;
     console.log("audio playing?:" + playing);
-
-    if (playing) { toggleAudio() }
+    if (songChanged) {
+      toggleAudio()
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentSong])
 
@@ -227,11 +243,12 @@ function Controls() {
               toggleAmbienceAudio();
               toggleAmbiencePlaying();
             }
+
             // after first click
             toggleAudio();
             togglePlaying();
           }}>
-            {songLoading &&
+            {displaySpinner &&
               <Loader
                 type="Oval"
                 color="#ffffff"

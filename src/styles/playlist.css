@@ -1,8 +1,8 @@
 .tagcloud--item {
     cursor: pointer;
-}   
+}
 
-.tagcloud-holder{
+.tagcloud-holder {
   /* animation: tagcloudDriftDown 50s; */
   display: flex;
   flex-direction: row;
@@ -13,7 +13,7 @@
 
 
 .tagcloud{
-  top: 0px;
+  bottom: 5%;
 }
 
 @media only screen and (max-width: 768px) /*mobile*/ {

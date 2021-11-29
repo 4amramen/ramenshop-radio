@@ -9,12 +9,12 @@ import {
   SET_CURRENT_AMBIENCE,
   TOGGLE_AMBIENCE_PLAYING,
   SET_CLICKED,
-  TOGGLE_AMBIENCE_AUDIO_GLOBAL
+  TOGGLE_AMBIENCE_AUDIO_GLOBAL,
+  SET_SONG_LOADING,
+  SET_DISPLAY_SPINNER,
+  SET_SONG_CHANGED
 } from './types'
 import React, { useState, useEffect, useRef, useContext } from 'react'
-
-
-
 
 export default (state, action) => {
 
@@ -23,7 +23,7 @@ export default (state, action) => {
       return {
         ...state,
         currentSong: action.data,
-        playing: true
+        songChanged: true,
       }
     case SET_CURRENT_AMBIENCE:
       return {
@@ -31,10 +31,27 @@ export default (state, action) => {
         currentAmbience: action.data,
         ambiencePlaying: true
       }
+
     case SET_POLYGONMASK:
       return {
         ...state,
         polygonMask: action.data,
+      }
+    case SET_SONG_LOADING:
+      return {
+        ...state,
+        songLoading: action.data,
+      }
+    case SET_SONG_CHANGED:
+      return {
+        ...state,
+        songChanged: action.data,
+      }
+
+    case SET_DISPLAY_SPINNER:
+      return {
+        ...state,
+        displaySpinner: action.data,
       }
     case TOGGLE_AMBIENCE_AUDIO_GLOBAL:
       return {
@@ -42,15 +59,15 @@ export default (state, action) => {
         ambienceAudioGlobal: action.data,
       }
     case SHOW_POLYGON:
-        return {
-          ...state,
-          show: action.data,
-        }
+      return {
+        ...state,
+        show: action.data,
+      }
     case HIDE_POLYGON:
-    return {
-      ...state,
-      show: action.data,
-    }
+      return {
+        ...state,
+        show: action.data,
+      }
     case TOGGLE_RANDOM:
       return {
         ...state,
@@ -68,15 +85,15 @@ export default (state, action) => {
       }
     case TOGGLE_AMBIENCE_PLAYING:
       return {
-          ...state,
-          ambiencePlaying: action.data
-        }
+        ...state,
+        ambiencePlaying: action.data
+      }
     case SET_CLICKED:
       return {
-          ...state,
-          clicked: action.data
-        }
-      
+        ...state,
+        clicked: action.data
+      }
+
     default:
       return state
   }

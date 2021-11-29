@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import playerContext from './playerContext';
 import playerReducer from './playerReducer';
 import { songObjects } from './songs';
-import { sidebarSongObjects} from './sidebarSongs';
+import { sidebarSongObjects } from './sidebarSongs';
 import ReactGA from 'react-ga';
 import { songLinks } from './songLinks'
 
@@ -16,21 +16,23 @@ import {
   TOGGLE_RANDOM,
   TOGGLE_REPEAT,
   TOGGLE_PLAYING,
+  SET_SONG_LOADING,
+  SET_DISPLAY_SPINNER,
   SET_CURRENT_AMBIENCE,
   TOGGLE_AMBIENCE_PLAYING,
   SET_CLICKED,
   SET_POLYGONMASK,
   SHOW_POLYGON,
   HIDE_POLYGON,
+  SET_SONG_CHANGED,
   TOGGLE_AMBIENCE_AUDIO_GLOBAL
 } from './types'
 
 
-const songs =  sidebarSongObjects.concat( songObjects.concat(sidebarSongObjects).sort(() => Math.random() - 0.5));
+const songs = sidebarSongObjects.concat(songObjects.concat(sidebarSongObjects).sort(() => Math.random() - 0.5));
 const random1 = Math.random();
 const random2 = Math.random();
 const random3 = Math.random();
-
 
 const PlayerState = props => {
   const initialState = {
@@ -38,7 +40,7 @@ const PlayerState = props => {
     currentAmbience: 0,
     songsOffset: sidebarSongObjects.length,
     random1: random1,
-    random2: random2, 
+    random2: random2,
     random3: random3,
     sidebarSongs: sidebarSongObjects,
     songs: songs,
@@ -50,7 +52,11 @@ const PlayerState = props => {
     random: true,
 
     playing: false,
+    songChanged: false,
     ambiencePlaying: false,
+
+    songLoading: false,
+    displaySpinner: false,
 
     clicked: 0,
 
@@ -59,10 +65,26 @@ const PlayerState = props => {
     ambienceAudioGlobal: false,
   }
   const [state, dispatch] = useReducer(playerReducer, initialState);
-  
+
 
   // Set playing state
   const togglePlaying = () => dispatch({ type: TOGGLE_PLAYING, data: state.playing ? false : true })
+
+  // Set song loading 
+  const setSongLoading = loadingState => {
+
+    dispatch({ type: SET_SONG_LOADING, data: loadingState })
+  }
+
+  // Set spinner 
+  const setDisplaySpinner = spinnerState => {
+    dispatch({ type: SET_DISPLAY_SPINNER, data: spinnerState })
+  }
+
+  // Set spinner 
+  const setSongChanged = songChanged => {
+    dispatch({ type: SET_SONG_CHANGED, data: songChanged })
+  }
 
   // SET AMBIENCE PLAYING STATE
   const toggleAmbiencePlaying = () => dispatch({ type: TOGGLE_AMBIENCE_PLAYING, data: state.ambiencePlaying ? false : true })
@@ -79,19 +101,19 @@ const PlayerState = props => {
 
   const HidePolygon = () => dispatch({ type: HIDE_POLYGON, data: false })
 
-   // SET CURRENT AMBIENCE
+  // SET CURRENT AMBIENCE
   const SetCurrentAmbience = id => dispatch({ type: SET_CURRENT_AMBIENCE, data: id });
 
   // Clicked
 
-  const SetClicked = (numClicks) => { 
-    
-    if(numClicks==1)
-      {
-        handleGAEvent('First Click', 'User interacted with site after load');
-      }
-  
-  dispatch({ type: SET_CLICKED, data: numClicks })}
+  const SetClicked = (numClicks) => {
+
+    if (numClicks == 1) {
+      handleGAEvent('First Click', 'User interacted with site after load');
+    }
+
+    dispatch({ type: SET_CLICKED, data: numClicks })
+  }
 
 
   const toggleAmbienceAudioGlobal = () => dispatch({ type: TOGGLE_AMBIENCE_AUDIO_GLOBAL, data: state.ambienceAudioGlobal ? false : true })
@@ -111,8 +133,8 @@ const PlayerState = props => {
       SetCurrent(0)
     } else {
       let randomCurrent = state.currentSong;
-      while(randomCurrent!=state.currentSong){
-         randomCurrent = Math.floor(Math.random() * ((state.songs.length-1)-sidebarSongObjects.length)) + sidebarSongObjects.length;
+      while (randomCurrent != state.currentSong) {
+        randomCurrent = Math.floor(Math.random() * ((state.songs.length - 1) - sidebarSongObjects.length)) + sidebarSongObjects.length;
       }
 
       SetCurrent(randomCurrent)
@@ -122,14 +144,14 @@ const PlayerState = props => {
 
   const handleGAEvent = (category, action) => {
     ReactGA.event({
-        category: category,
-        action: action,
-      });
-}
+      category: category,
+      action: action,
+    });
+  }
 
-   // Next AMBIENCE
-   const nextAmbience = (press) => {
-    if(press != undefined){
+  // Next AMBIENCE
+  const nextAmbience = (press) => {
+    if (press != undefined) {
       handleGAEvent("Next Ambience Click", "Clicked on next ambience")
     }
     if (state.currentAmbience === state.ambience.length - 1) {
@@ -141,7 +163,7 @@ const PlayerState = props => {
 
   // Next AMBIENCE
   const prevAmbience = (press) => {
-    if(press != undefined){
+    if (press != undefined) {
       handleGAEvent("Previous Ambience Click", "Clicked on previous ambience")
     }
     if (state.currentAmbience === 0) {
@@ -150,7 +172,7 @@ const PlayerState = props => {
       SetCurrentAmbience(state.currentAmbience - 1)
     }
   }
-  
+
   // Repeat and Random
   const toggleRepeat = (id) => dispatch({ type: TOGGLE_REPEAT, data: state.repeat ? false : true })
   const toggleRandom = (id) => dispatch({ type: TOGGLE_RANDOM, data: state.random ? false : true })
@@ -171,8 +193,8 @@ const PlayerState = props => {
   }
 
 
-   // END OF AMBIENCE
-   const handleEndOfAmbience = () => {
+  // END OF AMBIENCE
+  const handleEndOfAmbience = () => {
     nextAmbience();
   }
 
@@ -199,14 +221,16 @@ const PlayerState = props => {
 
       repeat: state.repeat,
       random: state.random,
-
       playing: state.playing,
       ambiencePlaying: state.ambiencePlaying,
       ambienceAudioGlobal: state.ambienceAudioGlobal,
 
+      songLoading: state.songLoading,
+      displaySpinner: state.displaySpinner,
+      songChanged: state.songChanged,
+
       show: state.show,
       polygonMask: state.polygonMask,
-
       clicked: state.clicked,
 
       nextSong,
@@ -223,7 +247,11 @@ const PlayerState = props => {
 
       togglePlaying,
       toggleAmbiencePlaying,
-      
+
+      setSongLoading,
+      setSongChanged,
+
+      setDisplaySpinner,
       handleEnd,
       handleEndOfAmbience,
       SetClicked,
