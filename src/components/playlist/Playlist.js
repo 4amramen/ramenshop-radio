@@ -2,8 +2,8 @@ import React, { useContext } from 'react'
 import playerContext from '../../context/playerContext'
 import Row from './Row'
 import { useMediaQuery } from 'react-responsive'
-import SphereCloud from './SphereCloud/SphereCloud'
-import Clouder from './Clouder/Clouder'
+import SphereCloud from './DesktopCloud/SphereCloud'
+import Clouder from './MobileCloud/Clouder'
 
 import '../../styles/playlist.css'
 

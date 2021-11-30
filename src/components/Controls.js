@@ -15,7 +15,8 @@ function Controls() {
     playing,
     songLoading,
     displaySpinner,
-
+    ambienceChanged,
+    setAmbienceChanged,
     togglePlaying,
     setSongLoading,
     setDisplaySpinner,
@@ -45,6 +46,8 @@ function Controls() {
   const [statevolum, setStateVolum] = useState(1)
   const [stateambiencevolum, setStateAmbienceVolum] = useState(.7)
   const [lastambiencevolum, setlastAmbienceVolum] = useState(1)
+  const [localSongPlaying, setLocalSongPlaying] = useState(false)
+
 
 
   const [dur, setDur] = useState(0)
@@ -55,7 +58,6 @@ function Controls() {
   const toggleAudio = () => {
     console.log('state of audio paused: ' + audio.current.paused)
     console.log('audio playing?: ' + playing)
-    console.log(audio)
 
     if (audio.current.paused && !playing) {
       // play audio
@@ -78,6 +80,8 @@ function Controls() {
         setSongLoading(false)
         setDisplaySpinner(false)
         setSongChanged(false)
+        console.log('got to set song changed to false')
+
       });
 
       // display spinner if song still loading after half a second
@@ -90,6 +94,7 @@ function Controls() {
 
     } else if (!audio.current.paused && playing) {
       // pause audio
+      console.log('trying to pause')
       audio.current.pause();
     }
 
@@ -103,6 +108,7 @@ function Controls() {
     if (ambienceAudio.current.paused && !ambiencePlaying) {
       // play audio
       ambienceAudio.current.play();
+      setAmbienceChanged(false);
     } else if (!ambienceAudio.current.paused && ambiencePlaying) {
       // pause audio
       console.log('pausing amb audio')
@@ -147,7 +153,7 @@ function Controls() {
 
   useEffect(() => {
     audio.current.volume = statevolum;
-    console.log("audio playing?:" + playing);
+    console.log("songchanged?:" + songChanged);
     if (songChanged) {
       toggleAudio()
     }
@@ -159,7 +165,7 @@ function Controls() {
   useEffect(() => {
     console.log("ambience playing?:" + ambiencePlaying);
     ambienceAudio.current.volume = stateambiencevolum;
-    if (ambiencePlaying) {
+    if (ambienceChanged) {
       toggleAmbienceAudio()
     }
   }, [currentAmbience])
@@ -167,12 +173,12 @@ function Controls() {
 
 
   // hook for song containers to access ambience audio
-  useEffect(() => {
-    console.log("ambience audio changed by playlist");
-    if (clicked) {
-      toggleAmbienceAudio()
-    }
-  }, [ambienceAudioGlobal])
+  // useEffect(() => {
+  //   console.log("ambience audio changed by playlist");
+  //   if (clicked) {
+  //     toggleAmbienceAudio()
+  //   }
+  // }, [ambienceAudioGlobal])
 
   document.body.onkeyup = function (e) {
     if (e.keyCode == 32) {

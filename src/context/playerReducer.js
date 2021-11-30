@@ -7,6 +7,7 @@ import {
   TOGGLE_REPEAT,
   TOGGLE_PLAYING,
   SET_CURRENT_AMBIENCE,
+  SET_AMBIENCE_CHANGED,
   TOGGLE_AMBIENCE_PLAYING,
   SET_CLICKED,
   TOGGLE_AMBIENCE_AUDIO_GLOBAL,
@@ -14,7 +15,6 @@ import {
   SET_DISPLAY_SPINNER,
   SET_SONG_CHANGED
 } from './types'
-import React, { useState, useEffect, useRef, useContext } from 'react'
 
 export default (state, action) => {
 
@@ -24,14 +24,14 @@ export default (state, action) => {
         ...state,
         currentSong: action.data,
         songChanged: true,
+        playing: false,
       }
     case SET_CURRENT_AMBIENCE:
       return {
         ...state,
         currentAmbience: action.data,
-        ambiencePlaying: true
+        ambienceChanged: true
       }
-
     case SET_POLYGONMASK:
       return {
         ...state,
@@ -46,6 +46,11 @@ export default (state, action) => {
       return {
         ...state,
         songChanged: action.data,
+      }
+      case SET_AMBIENCE_CHANGED:
+      return {
+        ...state,
+        ambienceChanged: action.data,
       }
 
     case SET_DISPLAY_SPINNER:

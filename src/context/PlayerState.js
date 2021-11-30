@@ -19,6 +19,7 @@ import {
   SET_SONG_LOADING,
   SET_DISPLAY_SPINNER,
   SET_CURRENT_AMBIENCE,
+  SET_AMBIENCE_CHANGED,
   TOGGLE_AMBIENCE_PLAYING,
   SET_CLICKED,
   SET_POLYGONMASK,
@@ -53,6 +54,7 @@ const PlayerState = props => {
 
     playing: false,
     songChanged: false,
+    ambienceChanged: false,
     ambiencePlaying: false,
 
     songLoading: false,
@@ -81,9 +83,14 @@ const PlayerState = props => {
     dispatch({ type: SET_DISPLAY_SPINNER, data: spinnerState })
   }
 
-  // Set spinner 
+  // Set song changed 
   const setSongChanged = songChanged => {
     dispatch({ type: SET_SONG_CHANGED, data: songChanged })
+  }
+
+   // Set amb changed 
+   const setAmbienceChanged = ambienceChanged => {
+    dispatch({ type: SET_AMBIENCE_CHANGED, data: ambienceChanged })
   }
 
   // SET AMBIENCE PLAYING STATE
@@ -105,13 +112,12 @@ const PlayerState = props => {
   const SetCurrentAmbience = id => dispatch({ type: SET_CURRENT_AMBIENCE, data: id });
 
   // Clicked
-
   const SetClicked = (numClicks) => {
+    console.log(numClicks)
 
     if (numClicks == 1) {
       handleGAEvent('First Click', 'User interacted with site after load');
     }
-
     dispatch({ type: SET_CLICKED, data: numClicks })
   }
 
@@ -228,6 +234,8 @@ const PlayerState = props => {
       songLoading: state.songLoading,
       displaySpinner: state.displaySpinner,
       songChanged: state.songChanged,
+      ambienceChanged: state.ambienceChanged,
+
 
       show: state.show,
       polygonMask: state.polygonMask,
@@ -250,6 +258,7 @@ const PlayerState = props => {
 
       setSongLoading,
       setSongChanged,
+      setAmbienceChanged,
 
       setDisplaySpinner,
       handleEnd,
